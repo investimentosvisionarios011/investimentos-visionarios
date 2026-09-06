@@ -1,0 +1,22 @@
+{
+  "name": "investimentos-visionarios",
+  "version": "1.0.0",
+  "description": "Portal Investimentos Visionários - educação financeira, mercado e calculadoras.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "investimentos",
+    "financas",
+    "calculadoras",
+    "educacao-financeira"
+  ],
+  "author": "Investimentos Visionários",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
+  }
+}

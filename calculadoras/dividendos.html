@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Calculadora de Dividendos do Investimentos Visionários."
+    >
+
+    <title>
+        Calculadora de Dividendos | Investimentos Visionários
+    </title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+        rel="stylesheet"
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../assets/css/style.css"
+    >
+
+</head>
+
+<body>
+
+
+<!-- MENU -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+
+    <div class="container">
+
+        <a
+            class="navbar-brand fw-bold"
+            href="../index.html"
+        >
+            <i class="bi bi-graph-up-arrow text-success"></i>
+            Investimentos Visionários
+        </a>
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#menu"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div
+            class="collapse navbar-collapse"
+            id="menu"
+        >
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        href="../index.html"
+                    >
+                        Início
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        href="../index.html#ferramentas"
+                    >
+                        Ferramentas
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a
+                        class="nav-link active"
+                        href="#"
+                    >
+                        Dividendos
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-8">
+
+                <h1>
+                    Calculadora de Dividendos
+                </h1>
+
+                <p>
+                    Descubra quanto seu patrimônio pode gerar
+                    de renda passiva através de dividendos.
+                </p>
+
+            </div>
+
+            <div class="col-lg-4 text-center">
+
+                <i class="bi bi-cash-coin hero-icon"></i>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CALCULADORA -->
+
+<main class="py-5 bg-light">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+
+            <!-- ENTRADAS -->
+
+            <div class="col-lg-5">
+
+                <div class="card shadow p-4">
+
+                    <h2 class="mb-4">
+                        Dados do investimento
+                    </h2>
+
+
+                    <div class="mb-3">
+
+                        <label
+                            for="divPatrimonio"
+                            class="form-label"
+                        >
+                            Patrimônio Investido (R$)
+                        </label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            id="divPatrimonio"
+                            min="0"
+                            step="0.01"
+                            placeholder="Ex.: 100000"
+                        >
+
+                    </div>
+
+
+                    <div class="mb-3">
+
+                        <label
+                            for="divYield"
+                            class="form-label"
+                        >
+                            Dividend Yield Anual (%)
+                        </label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            id="divYield"
+                            min="0"
+                            step="0.01"
+                            placeholder="Ex.: 8"
+                        >
+
+                        <div class="form-text">
+                            Exemplo: se o ativo distribui 8% ao ano,
+                            informe 8.
+                        </div>
+
+                    </div>
+
+
+                    <div class="mb-4">
+
+                        <label
+                            for="divRendaDesejada"
+                            class="form-label"
+                        >
+                            Renda Mensal Desejada (R$)
+                        </label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            id="divRendaDesejada"
+                            min="0"
+                            step="0.01"
+                            placeholder="Ex.: 5000"
+                        >
+
+                    </div>
+
+
+                    <div class="d-flex gap-2 flex-wrap">
+
+                        <button
+                            type="button"
+                            class="btn btn-success btn-lg"
+                            onclick="calcularDividendos()"
+                        >
+
+                            <i class="bi bi-calculator"></i>
+                            Calcular
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="btn btn-outline-danger btn-lg"
+                            onclick="limparDividendos()"
+                        >
+
+                            <i class="bi bi-arrow-clockwise"></i>
+                            Limpar
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RESULTADOS -->
+
+            <div class="col-lg-7">
+
+                <div class="card shadow p-4 h-100">
+
+                    <h3>
+                        Resultado
+                    </h3>
+
+                    <hr>
+
+
+                    <div class="row g-3">
+
+
+                        <div class="col-md-6">
+
+                            <div class="border rounded p-3 h-100">
+
+                                <p class="mb-1">
+                                    Dividendos por ano
+                                </p>
+
+                                <h4 id="divRendaAnual">
+                                    R$ 0,00
+                                </h4>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-6">
+
+                            <div class="border rounded p-3 h-100">
+
+                                <p class="mb-1">
+                                    Média mensal
+                                </p>
+
+                                <h4
+                                    id="divRendaMensal"
+                                    class="text-success"
+                                >
+                                    R$ 0,00
+                                </h4>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-6">
+
+                            <div class="border rounded p-3 h-100">
+
+                                <p class="mb-1">
+                                    Dividend Yield
+                                </p>
+
+                                <h4 id="divYieldResultado">
+                                    0,00%
+                                </h4>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-6">
+
+                            <div class="border rounded p-3 h-100">
+
+                                <p class="mb-1">
+                                    Patrimônio necessário
+                                </p>
+
+                                <h4 id="divPatrimonioNecessario">
+                                    R$ 0,00
+                                </h4>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <hr class="my-4">
+
+
+                    <p class="mb-1">
+                        Quanto falta para atingir o patrimônio necessário
+                    </p>
+
+                    <h3 id="divQuantoFalta">
+                        R$ 0,00
+                    </h3>
+
+
+                    <p class="mt-4 mb-1">
+                        Percentual da meta alcançada
+                    </p>
+
+                    <div
+                        class="progress"
+                        style="height: 26px;"
+                    >
+
+                        <div
+                            id="divProgresso"
+                            class="progress-bar bg-success"
+                            role="progressbar"
+                            style="width: 0%;"
+                        >
+                            0%
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- EXPLICAÇÃO -->
+
+<section class="py-5 bg-white">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+            <div class="col-lg-8">
+
+                <h2>
+                    Como funciona?
+                </h2>
+
+                <p>
+                    O Dividend Yield representa a relação entre os
+                    dividendos distribuídos e o valor investido.
+                </p>
+
+                <p>
+                    Por exemplo, um patrimônio de R$ 100.000 com
+                    Dividend Yield de 8% ao ano produziria,
+                    teoricamente, R$ 8.000 anuais em dividendos,
+                    equivalente a uma média de aproximadamente
+                    R$ 666,67 por mês.
+                </p>
+
+                <p>
+                    A calculadora também estima quanto patrimônio
+                    seria necessário para gerar uma determinada
+                    renda mensal, considerando o Dividend Yield informado.
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-4">
+
+                <div class="card shadow p-4">
+
+                    <h4>
+                        <i class="bi bi-info-circle text-success"></i>
+                        Importante
+                    </h4>
+
+                    <p class="mb-0">
+                        Dividendos não são garantidos. Empresas e fundos
+                        podem aumentar, reduzir ou suspender distribuições.
+                        O Dividend Yield passado também não garante
+                        resultados futuros.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- RODAPÉ -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="row g-4">
+
+            <div class="col-lg-4">
+
+                <img
+                    src="../assets/img/logo.png"
+                    width="180"
+                    alt="Investimentos Visionários"
+                >
+
+                <p class="mt-3">
+                    Educação financeira para quem deseja
+                    conquistar liberdade financeira.
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-4">
+
+                <h5>
+                    Ferramentas
+                </h5>
+
+                <ul class="list-unstyled">
+
+                    <li>Juros Compostos</li>
+                    <li>CDI</li>
+                    <li>Tesouro Direto</li>
+                    <li>IPCA</li>
+                    <li>Reserva de Emergência</li>
+                    <li>FIRE</li>
+                    <li>Comparador</li>
+                    <li>Dividendos</li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="col-lg-4">
+
+                <h5>
+                    Contato
+                </h5>
+
+                <p>
+                    Instagram
+                    <br>
+                    @investimentosvisionarios
+                </p>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="text-center">
+            © 2026 Investimentos Visionários
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+></script>
+
+<script src="../assets/js/dividendos.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,2199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Investimentos Visionários: educação financeira, calculadoras, cotações e ferramentas para ajudar você a tomar melhores decisões financeiras."
+    >
+
+    <title>
+        Investimentos Visionários
+    </title>
+
+
+    <!-- BOOTSTRAP -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+
+    <!-- BOOTSTRAP ICONS -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+        rel="stylesheet"
+    >
+
+
+    <!-- GOOGLE FONTS -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- CSS PRINCIPAL -->
+
+    <link
+        rel="stylesheet"
+        href="assets/css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     MENU
+========================================== -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+
+    <div class="container">
+
+
+        <!-- LOGO + NOME -->
+
+        <a
+            class="navbar-brand d-flex align-items-center gap-2 fw-bold"
+            href="#inicio"
+        >
+
+            <img
+                src="assets/img/logo.png"
+                alt="Investimentos Visionários"
+                class="navbar-logo"
+            >
+
+            <span>
+                Investimentos Visionários
+            </span>
+
+        </a>
+
+
+        <!-- BOTÃO MOBILE -->
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#menu"
+            aria-controls="menu"
+            aria-expanded="false"
+            aria-label="Abrir menu"
+        >
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <!-- LINKS -->
+
+        <div
+            class="collapse navbar-collapse"
+            id="menu"
+        >
+
+            <ul class="navbar-nav ms-auto">
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link active"
+                        href="#inicio"
+                    >
+                        Início
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="#ferramentas"
+                    >
+                        Ferramentas
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="#dashboard"
+                    >
+                        Dashboard
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="#contato"
+                    >
+                        Contato
+                    </a>
+
+                </li>
+
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- ==========================================
+     HERO
+========================================== -->
+
+<section
+    id="inicio"
+    class="hero"
+>
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+
+            <!-- TEXTO -->
+
+            <div class="col-lg-6 hero-content">
+
+                <h1 class="hero-title">
+
+                    <span class="text-white">
+                        Invista hoje.
+                    </span>
+
+                    <span class="hero-highlight">
+
+                        Construa seu<br>
+                        patrimônio<br>
+                        amanhã.
+
+                    </span>
+
+                </h1>
+
+
+                <p class="hero-description">
+
+                    Aprenda a investir, simule seus investimentos
+                    e tome decisões financeiras inteligentes.
+
+                </p>
+
+
+                <a
+                    href="#ferramentas"
+                    class="btn btn-success btn-lg hero-button"
+                >
+
+                    Começar Agora
+
+                </a>
+
+            </div>
+
+
+            <!-- LOGO GRANDE -->
+
+            <div class="col-lg-6 hero-logo-area">
+
+                <img
+                    src="assets/img/logo.png"
+                    alt="Investimentos Visionários"
+                    class="hero-logo"
+                >
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     DASHBOARD DE MERCADO
+========================================== -->
+
+<section
+    id="dashboard"
+    class="py-5"
+>
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <h2>
+
+                <i class="bi bi-speedometer2 text-success"></i>
+
+                Dashboard de Mercado
+
+            </h2>
+
+
+            <p>
+                Acompanhe os principais indicadores financeiros.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- DÓLAR -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="market-card">
+
+                    <div class="market-card-icon">
+                        💵
+                    </div>
+
+                    <div>
+
+                        <small>
+                            Dólar
+                        </small>
+
+                        <h4 id="dashboardDolar">
+                            R$ 0,00
+                        </h4>
+
+                        <span id="dashboardDolarVariacao">
+                            --
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- EURO -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="market-card">
+
+                    <div class="market-card-icon">
+                        💶
+                    </div>
+
+                    <div>
+
+                        <small>
+                            Euro
+                        </small>
+
+                        <h4 id="dashboardEuro">
+                            R$ 0,00
+                        </h4>
+
+                        <span id="dashboardEuroVariacao">
+                            --
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- BITCOIN -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="market-card">
+
+                    <div class="market-card-icon">
+                        ₿
+                    </div>
+
+                    <div>
+
+                        <small>
+                            Bitcoin
+                        </small>
+
+                        <h4 id="dashboardBitcoin">
+                            R$ 0,00
+                        </h4>
+
+                        <span id="dashboardBitcoinVariacao">
+                            --
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SELIC -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="market-card">
+
+                    <div class="market-card-icon">
+                        📊
+                    </div>
+
+                    <div>
+
+                        <small>
+                            Selic
+                        </small>
+
+                        <h4>
+                            15,00%
+                        </h4>
+
+                        <span class="market-neutral">
+                            Taxa atual
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- IBOVESPA -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="market-card">
+
+                    <div class="market-card-icon">
+                        📈
+                    </div>
+
+                    <div>
+
+                        <small>
+                            Ibovespa
+                        </small>
+
+                        <h4 id="dashboardIbov">
+                            --
+                        </h4>
+
+                        <span id="dashboardIbovVariacao">
+                            --
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     BARRA DE COTAÇÕES
+========================================== -->
+
+<section class="market-bar">
+
+    <div class="market-scroll">
+
+        📈 IBOVESPA
+        <strong id="ibov">--</strong>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;
+
+        💵 Dólar
+        <strong id="dolar">R$ 0,00</strong>
+        <span id="dolarVariacao"></span>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;
+
+        💶 Euro
+        <strong id="euro">R$ 0,00</strong>
+        <span id="euroVariacao"></span>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;
+
+        ₿ Bitcoin
+        <strong id="bitcoin">R$ 0,00</strong>
+        <span id="bitcoinVariacao"></span>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;
+
+        🏦 CDI
+        <strong id="cdi">15,00%</strong>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;
+
+        📊 Selic
+        <strong id="selic">15,00%</strong>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;
+
+        🥇 Ouro
+        <strong>R$ 615/g</strong>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;
+
+        🛢 Petróleo
+        <strong>US$ 69</strong>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;
+
+        📈 Nasdaq
+        <strong>23.980</strong>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;
+
+        🇺🇸 S&amp;P 500
+        <strong>6.390</strong>
+
+    </div>
+
+</section>
+
+
+<div class="market-update">
+
+    Última atualização:
+
+    <strong id="ultimaAtualizacao">
+        --:--:--
+    </strong>
+
+</div>
+
+
+<div class="market-status">
+
+    <span id="statusCotacoes">
+        ● Aguardando cotações
+    </span>
+
+</div>
+
+
+<!-- ==========================================
+     GRÁFICO IBOVESPA
+========================================== -->
+
+<section class="ibovespa-chart-section">
+
+    <div class="container">
+
+        <div class="ibovespa-chart-card">
+
+            <div class="ibovespa-chart-header">
+
+                <div>
+
+                    <small>
+                        Mercado brasileiro
+                    </small>
+
+                    <h3>
+                        📈 Evolução do Ibovespa
+                    </h3>
+
+                </div>
+
+
+                <div class="ibovespa-periodos">
+
+                    <button data-periodo="5d">
+                        5D
+                    </button>
+
+                    <button
+                        data-periodo="1mo"
+                        class="active"
+                    >
+                        1M
+                    </button>
+
+                    <button data-periodo="6mo">
+                        6M
+                    </button>
+
+                    <button data-periodo="1y">
+                        1A
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="ibovespa-resumo">
+
+                <div class="ibovespa-resumo-item">
+
+                    <small>
+                        Variação do período
+                    </small>
+
+                    <strong id="ibovespaPeriodoVariacao">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="ibovespa-resumo-item">
+
+                    <small>
+                        Máxima
+                    </small>
+
+                    <strong id="ibovespaPeriodoMaxima">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="ibovespa-resumo-item">
+
+                    <small>
+                        Mínima
+                    </small>
+
+                    <strong id="ibovespaPeriodoMinima">
+                        --
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="ibovespa-chart-container">
+
+                <canvas id="graficoIbovespa"></canvas>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     GRÁFICO DÓLAR
+========================================== -->
+
+<section class="dolar-chart-section">
+
+    <div class="container">
+
+        <div class="dolar-chart-card">
+
+            <div class="dolar-chart-header">
+
+                <div>
+
+                    <small>
+                        Câmbio
+                    </small>
+
+                    <h3>
+                        💵 Evolução do Dólar
+                    </h3>
+
+                </div>
+
+
+                <div class="dolar-periodos">
+
+                    <button data-periodo="5d">
+                        5D
+                    </button>
+
+                    <button
+                        data-periodo="1mo"
+                        class="active"
+                    >
+                        1M
+                    </button>
+
+                    <button data-periodo="6mo">
+                        6M
+                    </button>
+
+                    <button data-periodo="1y">
+                        1A
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="dolar-resumo">
+
+                <div class="dolar-resumo-item">
+
+                    <small>
+                        Variação do período
+                    </small>
+
+                    <strong id="dolarPeriodoVariacao">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="dolar-resumo-item">
+
+                    <small>
+                        Máxima
+                    </small>
+
+                    <strong id="dolarPeriodoMaxima">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="dolar-resumo-item">
+
+                    <small>
+                        Mínima
+                    </small>
+
+                    <strong id="dolarPeriodoMinima">
+                        --
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="dolar-chart-container">
+
+                <canvas id="graficoDolar"></canvas>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     GRÁFICO BITCOIN
+========================================== -->
+
+<section class="bitcoin-chart-section">
+
+    <div class="container">
+
+        <div class="bitcoin-chart-card">
+
+            <div class="bitcoin-chart-header">
+
+                <div>
+
+                    <small>
+                        Criptomoeda
+                    </small>
+
+                    <h3>
+                        ₿ Evolução do Bitcoin
+                    </h3>
+
+                </div>
+
+
+                <div class="bitcoin-periodos">
+
+                    <button data-periodo="5d">
+                        5D
+                    </button>
+
+                    <button
+                        data-periodo="1mo"
+                        class="active"
+                    >
+                        1M
+                    </button>
+
+                    <button data-periodo="6mo">
+                        6M
+                    </button>
+
+                    <button data-periodo="1y">
+                        1A
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="bitcoin-resumo">
+
+                <div class="bitcoin-resumo-item">
+
+                    <small>
+                        Variação do período
+                    </small>
+
+                    <strong id="bitcoinPeriodoVariacao">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="bitcoin-resumo-item">
+
+                    <small>
+                        Máxima
+                    </small>
+
+                    <strong id="bitcoinPeriodoMaxima">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="bitcoin-resumo-item">
+
+                    <small>
+                        Mínima
+                    </small>
+
+                    <strong id="bitcoinPeriodoMinima">
+                        --
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="bitcoin-chart-container">
+
+                <canvas id="graficoBitcoin"></canvas>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     VISÃO DO MERCADO
+========================================== -->
+
+<section class="market-view-section">
+
+    <div class="container">
+
+        <div class="market-view-card">
+
+            <div class="market-view-header">
+
+                <div>
+
+                    <small>
+                        Panorama rápido
+                    </small>
+
+                    <h2>
+                        👁️ Visão do Mercado
+                    </h2>
+
+                    <p>
+                        Veja rapidamente como os principais mercados
+                        estão se comportando.
+                    </p>
+
+                </div>
+
+
+                <div class="market-view-periodos">
+
+                    <button
+                        data-periodo="1mo"
+                        class="active"
+                    >
+                        1M
+                    </button>
+
+                    <button data-periodo="6mo">
+                        6M
+                    </button>
+
+                    <button data-periodo="1y">
+                        1A
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="market-view-grid">
+
+
+                <!-- MELHOR DESEMPENHO -->
+
+                <div class="market-view-item">
+
+                    <div class="market-view-icon">
+                        🚀
+                    </div>
+
+                    <div>
+
+                        <small>
+                            Melhor desempenho
+                        </small>
+
+                        <h3 id="melhorAtivo">
+                            --
+                        </h3>
+
+                        <strong
+                            id="melhorAtivoVariacao"
+                            class="market-positive"
+                        >
+                            --
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PIOR DESEMPENHO -->
+
+                <div class="market-view-item">
+
+                    <div class="market-view-icon">
+                        📉
+                    </div>
+
+                    <div>
+
+                        <small>
+                            Pior desempenho
+                        </small>
+
+                        <h3 id="piorAtivo">
+                            --
+                        </h3>
+
+                        <strong
+                            id="piorAtivoVariacao"
+                            class="market-negative"
+                        >
+                            --
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SENTIMENTO -->
+
+                <div class="market-view-item">
+
+                    <div class="market-view-icon">
+                        🌡️
+                    </div>
+
+                    <div>
+
+                        <small>
+                            Sentimento
+                        </small>
+
+                        <h3 id="sentimentoMercado">
+                            --
+                        </h3>
+
+                        <strong id="sentimentoDescricao">
+                            Analisando...
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RANKING -->
+
+            <div class="market-ranking">
+
+                <div class="market-ranking-header">
+
+                    <div>
+
+                        <small>
+                            Comparativo do período
+                        </small>
+
+                        <h3>
+                            🏆 Ranking de desempenho
+                        </h3>
+
+                    </div>
+
+
+                    <span id="marketRankingPeriodo">
+                        Último mês
+                    </span>
+
+                </div>
+
+
+                <div id="marketRankingLista">
+
+                    <div class="market-ranking-row">
+
+                        <div class="market-ranking-position">
+                            1º
+                        </div>
+
+                        <div class="market-ranking-info">
+
+                            <div class="market-ranking-name">
+
+                                <span>
+                                    Carregando...
+                                </span>
+
+                                <strong>
+                                    --
+                                </strong>
+
+                            </div>
+
+                            <div class="market-ranking-bar">
+
+                                <div
+                                    class="market-ranking-progress"
+                                    style="width:0%"
+                                ></div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     INDICADORES ECONÔMICOS
+========================================== -->
+
+<section class="economic-indicators-section">
+
+    <div class="container">
+
+        <div class="economic-indicators-card">
+
+            <div class="economic-indicators-header">
+
+                <div>
+
+                    <small>
+                        Economia brasileira
+                    </small>
+
+                    <h2>
+                        🇧🇷 Indicadores Econômicos
+                    </h2>
+
+                    <p>
+                        Acompanhe alguns dos principais indicadores
+                        que influenciam investimentos e poder de compra.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="economic-indicators-grid">
+
+
+                <!-- JURO REAL -->
+
+                <div class="economic-indicator-item">
+
+                    <div class="economic-indicator-icon">
+                        💰
+                    </div>
+
+                    <div>
+
+                        <small>
+                            Juro Real
+                        </small>
+
+                        <h3 id="indicadorJuroReal">
+                            --
+                        </h3>
+
+                        <span>
+                            Selic descontada da inflação
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SELIC -->
+
+                <div class="economic-indicator-item">
+
+                    <div class="economic-indicator-icon">
+                        📊
+                    </div>
+
+                    <div>
+
+                        <small>
+                            Selic
+                        </small>
+
+                        <h3 id="indicadorSelic">
+                            --
+                        </h3>
+
+                        <span>
+                            Meta anual
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CDI -->
+
+                <div class="economic-indicator-item">
+
+                    <div class="economic-indicator-icon">
+                        🏦
+                    </div>
+
+                    <div>
+
+                        <small>
+                            CDI
+                        </small>
+
+                        <h3 id="indicadorCdi">
+                            --
+                        </h3>
+
+                        <span>
+                            Taxa anual
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- IPCA -->
+
+                <div class="economic-indicator-item">
+
+                    <div class="economic-indicator-icon">
+                        🛒
+                    </div>
+
+                    <div>
+
+                        <small>
+                            IPCA
+                        </small>
+
+                        <h3 id="indicadorIpca">
+                            --
+                        </h3>
+
+                        <span>
+                            Acumulado em 12 meses
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- IGP-M -->
+
+                <div class="economic-indicator-item">
+
+                    <div class="economic-indicator-icon">
+                        🏠
+                    </div>
+
+                    <div>
+
+                        <small>
+                            IGP-M
+                        </small>
+
+                        <h3 id="indicadorIgpm">
+                            --
+                        </h3>
+
+                        <span>
+                            Acumulado em 12 meses
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="economic-indicators-footer">
+
+                <span>
+                    Última atualização:
+                </span>
+
+                <strong id="indicadoresAtualizacao">
+                    --
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     JUROS X INFLAÇÃO
+========================================== -->
+
+<section class="selic-ipca-chart-section">
+
+    <div class="container">
+
+        <div class="selic-ipca-chart-card">
+
+            <div class="selic-ipca-chart-header">
+
+                <div>
+
+                    <small>
+                        Política monetária
+                    </small>
+
+                    <h3>
+                        📊 Juros × Inflação
+                    </h3>
+
+                    <p>
+                        Compare a evolução da Selic com o IPCA acumulado em 12 meses.
+                    </p>
+
+                </div>
+
+
+                <div class="selic-ipca-periodos">
+
+                    <button
+                        data-periodo="1y"
+                        class="active"
+                    >
+                        1A
+                    </button>
+
+                    <button data-periodo="2y">
+                        2A
+                    </button>
+
+                    <button data-periodo="5y">
+                        5A
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="selic-ipca-resumo">
+
+                <div class="selic-ipca-resumo-item">
+
+                    <small>
+                        Selic atual
+                    </small>
+
+                    <strong id="selicIpcaSelicAtual">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="selic-ipca-resumo-item">
+
+                    <small>
+                        IPCA 12 meses
+                    </small>
+
+                    <strong id="selicIpcaIpcaAtual">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="selic-ipca-resumo-item">
+
+                    <small>
+                        Juro Real
+                    </small>
+
+                    <strong id="selicIpcaJuroReal">
+                        --
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="selic-ipca-legenda">
+
+                <div class="selic-ipca-legenda-item">
+
+                    <span
+                        class="selic-ipca-legenda-linha selic-linha"
+                    ></span>
+
+                    Selic
+
+                </div>
+
+
+                <div class="selic-ipca-legenda-item">
+
+                    <span
+                        class="selic-ipca-legenda-linha ipca-linha"
+                    ></span>
+
+                    IPCA 12M
+
+                </div>
+
+            </div>
+
+
+            <div class="selic-ipca-chart-container">
+
+                <canvas id="graficoSelicIpca"></canvas>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     ESTATÍSTICAS
+========================================== -->
+
+<section class="stats py-5">
+
+    <div class="container">
+
+        <div class="row text-center">
+
+
+            <div class="col-md-3">
+
+                <h2
+                    class="counter"
+                    data-target="10"
+                >
+                    0
+                </h2>
+
+                <p>
+                    Calculadoras
+                </p>
+
+            </div>
+
+
+            <div class="col-md-3">
+
+                <h2
+                    class="counter"
+                    data-target="100"
+                >
+                    0
+                </h2>
+
+                <p>
+                    % Gratuitas
+                </p>
+
+            </div>
+
+
+            <div class="col-md-3">
+
+                <h2
+                    class="counter"
+                    data-target="24"
+                >
+                    0
+                </h2>
+
+                <p>
+                    Horas Online
+                </p>
+
+            </div>
+
+
+            <div class="col-md-3">
+
+                <h2
+                    class="counter"
+                    data-target="2026"
+                >
+                    0
+                </h2>
+
+                <p>
+                    Projeto
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     SOBRE
+========================================== -->
+
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+
+            <div class="col-lg-6 text-center">
+
+                <img
+                    src="assets/img/logo.png"
+                    class="img-fluid"
+                    alt="Investimentos Visionários"
+                >
+
+            </div>
+
+
+            <div class="col-lg-6">
+
+                <h2>
+                    Por que escolher o Investimentos Visionários?
+                </h2>
+
+
+                <p>
+
+                    Nosso objetivo é tornar os investimentos simples,
+                    acessíveis e gratuitos para todos.
+
+                    Aqui você encontra calculadoras financeiras,
+                    conteúdo educativo e ferramentas para tomar
+                    decisões com mais confiança.
+
+                </p>
+
+
+                <ul>
+
+                    <li>
+                        ✔ Calculadoras gratuitas
+                    </li>
+
+                    <li>
+                        ✔ Educação financeira
+                    </li>
+
+                    <li>
+                        ✔ Conteúdo atualizado
+                    </li>
+
+                    <li>
+                        ✔ Consultoria especializada
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     FERRAMENTAS
+========================================== -->
+
+<section
+    id="ferramentas"
+    class="tools py-5"
+>
+
+    <div class="container">
+
+
+        <div class="text-center mb-5">
+
+            <h2 class="fw-bold">
+                Nossas Ferramentas
+            </h2>
+
+            <p class="text-muted">
+                Utilize gratuitamente nossas calculadoras financeiras.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4 justify-content-center">
+
+
+            <!-- JUROS COMPOSTOS -->
+
+            <div class="col-md-6 col-lg-6">
+
+                <div class="card calc-card h-100">
+
+                    <i class="bi bi-percent display-4 text-success"></i>
+
+                    <h5 class="mt-3">
+                        Juros Compostos
+                    </h5>
+
+                    <p>
+                        Simule o crescimento do seu patrimônio com juros compostos e aportes mensais.
+                    </p>
+
+                    <a
+                        href="calculadoras/juros-compostos.html"
+                        class="btn btn-success"
+                    >
+                        Acessar
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- CDI -->
+
+            <div class="col-md-6 col-lg-6">
+
+                <div class="card calc-card h-100">
+
+                    <i class="bi bi-bank display-4 text-success"></i>
+
+                    <h5 class="mt-3">
+                        CDI
+                    </h5>
+
+                    <p>
+                        Simule investimentos atrelados ao CDI utilizando a taxa atual.
+                    </p>
+
+                    <a
+                        href="calculadoras/cdi.html"
+                        class="btn btn-success"
+                    >
+                        Acessar
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- TESOURO DIRETO -->
+
+            <div class="col-md-6 col-lg-6">
+
+                <div class="card calc-card h-100">
+
+                    <i class="bi bi-bank2 display-4 text-success"></i>
+
+                    <h5 class="mt-3">
+                        Tesouro Direto
+                    </h5>
+
+                    <p>
+                        Simule investimentos em Tesouro Selic, Prefixado e IPCA+.
+                    </p>
+
+                    <a
+                        href="calculadoras/tesouro-direto.html"
+                        class="btn btn-success"
+                    >
+                        Acessar
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- IPCA -->
+
+            <div class="col-md-6 col-lg-6">
+
+                <div class="card calc-card h-100">
+
+                    <i class="bi bi-graph-down-arrow display-4 text-success"></i>
+
+                    <h5 class="mt-3">
+                        IPCA
+                    </h5>
+
+                    <p>
+                        Descubra o impacto da inflação e calcule a rentabilidade real do seu dinheiro.
+                    </p>
+
+                    <a
+                        href="calculadoras/ipca.html"
+                        class="btn btn-success"
+                    >
+                        Acessar
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- RESERVA DE EMERGÊNCIA -->
+
+            <div class="col-md-6 col-lg-6">
+
+                <div class="card calc-card h-100">
+
+                    <i class="bi bi-shield-check display-4 text-success"></i>
+
+                    <h5 class="mt-3">
+                        Reserva de Emergência
+                    </h5>
+
+                    <p>
+                        Descubra quanto você precisa guardar para enfrentar
+                        imprevistos com mais segurança financeira.
+                    </p>
+
+                    <a
+                        href="calculadoras/reserva-emergencia.html"
+                        class="btn btn-success"
+                    >
+                        Acessar
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- FIRE -->
+
+            <div class="col-md-6 col-lg-6">
+
+                <div class="card calc-card h-100">
+
+                    <i class="bi bi-fire display-4 text-success"></i>
+
+                    <h5 class="mt-3">
+                        FIRE
+                    </h5>
+
+                    <p>
+                        Descubra quanto patrimônio você precisa acumular
+                        para alcançar sua independência financeira.
+                    </p>
+
+                    <a
+                        href="calculadoras/fire.html"
+                        class="btn btn-success"
+                    >
+                        Acessar
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- COMPARADOR DE INVESTIMENTOS -->
+
+            <div class="col-md-6 col-lg-6">
+
+                <div class="card calc-card h-100">
+
+                    <i class="bi bi-bar-chart-line display-4 text-success"></i>
+
+                    <h5 class="mt-3">
+                        Comparador de Investimentos
+                    </h5>
+
+                    <p>
+                        Compare Poupança, CDI e Tesouro Selic
+                        e descubra qual opção rende mais na simulação.
+                    </p>
+
+                    <a
+                        href="calculadoras/comparador.html"
+                        class="btn btn-success"
+                    >
+                        Acessar
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- DIVIDENDOS -->
+
+            <div class="col-md-6 col-lg-6">
+
+                <div class="card calc-card h-100">
+
+                    <i class="bi bi-cash-coin display-4 text-success"></i>
+
+                    <h5 class="mt-3">
+                        Dividendos
+                    </h5>
+
+                    <p>
+                        Calcule sua renda passiva com dividendos
+                        e descubra quanto patrimônio precisa para atingir sua meta.
+                    </p>
+
+                    <a
+                        href="calculadoras/dividendos.html"
+                        class="btn btn-success"
+                    >
+                        Acessar
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- SELIC -->
+
+            <div class="col-md-6 col-lg-6">
+
+                <div class="card calc-card h-100">
+
+                    <i class="bi bi-percent display-4 text-success"></i>
+
+                    <h5 class="mt-3">
+                        Selic
+                    </h5>
+
+                    <p>
+                        Simule quanto seu dinheiro pode render
+                        utilizando a taxa Selic atual.
+                    </p>
+
+                    <a
+                        href="calculadoras/selic.html"
+                        class="btn btn-success"
+                    >
+                        Acessar
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- APOSENTADORIA -->
+
+            <div class="col-md-6 col-lg-6">
+
+                <div class="card calc-card h-100">
+
+                    <i class="bi bi-hourglass-split display-4 text-success"></i>
+
+                    <h5 class="mt-3">
+                        Aposentadoria
+                    </h5>
+
+                    <p>
+                        Projete quanto você pode acumular até a aposentadoria
+                        e estime a renda mensal que esse patrimônio poderá gerar.
+                    </p>
+
+                    <a
+                        href="calculadoras/aposentadoria.html"
+                        class="btn btn-success"
+                    >
+                        Acessar
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     CONSULTORIA
+========================================== -->
+
+<section class="py-5 bg-dark text-white">
+
+    <div class="container text-center">
+
+        <h2>
+            Precisa de ajuda para investir?
+        </h2>
+
+
+        <p>
+
+            Receba uma consultoria personalizada
+            para organizar sua vida financeira
+            e construir patrimônio.
+
+        </p>
+
+
+        <a
+            href="https://wa.me/5511970256673?text=Ol%C3%A1%21%20Vim%20pelo%20site%20Investimentos%20Vision%C3%A1rios%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20consultoria."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-success btn-lg"
+        >
+
+            <i class="bi bi-whatsapp me-2"></i>
+
+            Solicitar Consultoria
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     RODAPÉ
+========================================== -->
+
+<footer id="contato">
+
+    <div class="container">
+
+
+        <div class="row g-4">
+
+
+            <!-- LOGO -->
+
+            <div class="col-lg-4">
+
+                <img
+                    src="assets/img/logo.png"
+                    width="180"
+                    alt="Investimentos Visionários"
+                >
+
+
+                <p class="mt-3">
+
+                    Educação financeira para quem deseja
+                    conquistar liberdade financeira.
+
+                </p>
+
+            </div>
+
+
+            <!-- CALCULADORAS -->
+
+            <div class="col-lg-4">
+
+                <h5>
+                    Calculadoras
+                </h5>
+
+
+                <ul class="list-unstyled">
+
+                    <li class="mb-2">
+
+                        <a
+                            href="calculadoras/juros-compostos.html"
+                            class="text-light text-decoration-none"
+                        >
+                            Juros Compostos
+                        </a>
+
+                    </li>
+
+
+                    <li class="mb-2">
+
+                        <a
+                            href="calculadoras/cdi.html"
+                            class="text-light text-decoration-none"
+                        >
+                            CDI
+                        </a>
+
+                    </li>
+
+
+                    <li class="mb-2">
+
+                        <a
+                            href="calculadoras/tesouro-direto.html"
+                            class="text-light text-decoration-none"
+                        >
+                            Tesouro Direto
+                        </a>
+
+                    </li>
+
+
+                    <li class="mb-2">
+
+                        <a
+                            href="calculadoras/ipca.html"
+                            class="text-light text-decoration-none"
+                        >
+                            IPCA
+                        </a>
+
+                    </li>
+
+
+                    <li class="mb-2">
+
+                        <a
+                            href="calculadoras/reserva-emergencia.html"
+                            class="text-light text-decoration-none"
+                        >
+                            Reserva de Emergência
+                        </a>
+
+                    </li>
+
+
+                    <li class="mb-2">
+
+                        <a
+                            href="calculadoras/fire.html"
+                            class="text-light text-decoration-none"
+                        >
+                            FIRE
+                        </a>
+
+                    </li>
+
+
+                    <li class="mb-2">
+
+                        <a
+                            href="calculadoras/comparador.html"
+                            class="text-light text-decoration-none"
+                        >
+                            Comparador de Investimentos
+                        </a>
+
+                    </li>
+
+
+                    <li class="mb-2">
+
+                        <a
+                            href="calculadoras/dividendos.html"
+                            class="text-light text-decoration-none"
+                        >
+                            Dividendos
+                        </a>
+
+                    </li>
+
+
+                    <li class="mb-2">
+
+                        <a
+                            href="calculadoras/selic.html"
+                            class="text-light text-decoration-none"
+                        >
+                            Selic
+                        </a>
+
+                    </li>
+
+
+                    <li class="mb-2">
+
+                        <a
+                            href="calculadoras/aposentadoria.html"
+                            class="text-light text-decoration-none"
+                        >
+                            Aposentadoria
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- CONTATO -->
+
+            <div class="col-lg-4">
+
+                <h5>
+                    Contato
+                </h5>
+
+
+                <p class="mb-2">
+
+                    <i class="bi bi-whatsapp text-success me-2"></i>
+
+                    <a
+                        href="https://wa.me/5511970256673"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-decoration-none text-light"
+                    >
+                        (11) 97025-6673
+                    </a>
+
+                </p>
+
+
+                <p class="mb-2">
+
+                    <i class="bi bi-envelope text-success me-2"></i>
+
+                    <a
+                        href="mailto:investimentosvisionarios011@gmail.com"
+                        class="text-decoration-none text-light"
+                    >
+                        investimentosvisionarios011@gmail.com
+                    </a>
+
+                </p>
+
+
+                <p class="mb-0">
+
+                    <i class="bi bi-instagram text-success me-2"></i>
+
+                    <a
+                        href="https://www.instagram.com/investimentosvisionarios/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-decoration-none text-light"
+                    >
+                        @investimentosvisionarios
+                    </a>
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+        <hr>
+
+
+        <div class="text-center">
+
+            © 2026 Investimentos Visionários
+
+        </div>
+
+
+    </div>
+
+</footer>
+
+
+<!-- ==========================================
+     SCRIPTS
+========================================== -->
+
+
+<!-- BOOTSTRAP -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+></script>
+
+
+<!-- CHART.JS -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/chart.js"
+></script>
+
+
+<!-- JAVASCRIPT PRINCIPAL -->
+
+<script src="assets/js/app.js"></script>
+
+<script src="assets/js/api.js"></script>
+
+<script src="assets/js/ibovespa.js"></script>
+
+
+<!-- GRÁFICOS -->
+
+<script src="assets/js/ibovespa-chart.js"></script>
+
+<script src="assets/js/dolar-chart.js"></script>
+
+<script src="assets/js/bitcoin-chart.js"></script>
+
+
+<!-- VISÃO DO MERCADO -->
+
+<script src="assets/js/market-view.js"></script>
+
+
+<!-- INDICADORES ECONÔMICOS -->
+
+<script src="assets/js/economic-indicators.js"></script>
+
+
+<!-- GRÁFICO SELIC X IPCA -->
+
+<script src="assets/js/selic-ipca-chart.js"></script>
+
+
+</body>
+
+</html>

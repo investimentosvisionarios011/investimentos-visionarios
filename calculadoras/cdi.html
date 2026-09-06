@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Calculadora CDI do Investimentos Visionários. Simule rendimentos atrelados ao CDI."
+    >
+
+    <title>
+        Calculadora CDI | Investimentos Visionários
+    </title>
+
+
+    <!-- FAVICON -->
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="../assets/img/favicon.png"
+    >
+
+
+    <!-- BOOTSTRAP -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+
+    <!-- BOOTSTRAP ICONS -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+        rel="stylesheet"
+    >
+
+
+    <!-- GOOGLE FONTS -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- CSS PRINCIPAL -->
+
+    <link
+        rel="stylesheet"
+        href="../assets/css/style.css"
+    >
+
+
+    <style>
+
+        body {
+            background: #f7f8fa;
+        }
+
+
+        .calculator-page {
+            padding: 60px 0;
+        }
+
+
+        .calculator-header {
+            margin-bottom: 35px;
+        }
+
+
+        .calculator-header small {
+            color: #777;
+        }
+
+
+        .calculator-header h1 {
+            font-size: 34px;
+            font-weight: 700;
+            margin-top: 5px;
+        }
+
+
+        .calculator-card {
+            background: #ffffff;
+
+            border-radius: 22px;
+
+            padding: 30px;
+
+            box-shadow:
+                0 10px 35px rgba(0,0,0,0.06);
+        }
+
+
+        .calculator-result {
+            background: #ffffff;
+
+            border-radius: 22px;
+
+            padding: 30px;
+
+            height: 100%;
+
+            box-shadow:
+                0 10px 35px rgba(0,0,0,0.06);
+        }
+
+
+        .calculator-result-item {
+            padding: 15px 0;
+
+            border-bottom:
+                1px solid #eeeeee;
+        }
+
+
+        .calculator-result-item:last-child {
+            border-bottom: none;
+        }
+
+
+        .calculator-result-item small {
+            display: block;
+
+            color: #777;
+
+            margin-bottom: 4px;
+        }
+
+
+        .calculator-result-item strong {
+            font-size: 22px;
+
+            font-weight: 700;
+        }
+
+
+        .resultado-destaque {
+            color: #16c45b;
+        }
+
+
+        .cdi-info-box {
+            background: #eef8f2;
+
+            border-radius: 14px;
+
+            padding: 16px 18px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .cdi-info-box small {
+            display: block;
+
+            color: #666;
+        }
+
+
+        .cdi-info-box strong {
+            font-size: 24px;
+
+            color: #16c45b;
+        }
+
+
+        .calculator-note {
+            font-size: 12px;
+
+            color: #777;
+
+            margin-top: 18px;
+        }
+
+
+        @media (max-width: 768px) {
+
+            .calculator-page {
+                padding: 35px 0;
+            }
+
+
+            .calculator-card,
+            .calculator-result {
+                padding: 22px;
+            }
+
+
+            .calculator-header h1 {
+                font-size: 28px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     MENU
+========================================== -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+
+    <div class="container">
+
+        <a
+            class="navbar-brand fw-bold"
+            href="../index.html"
+        >
+
+            <i class="bi bi-graph-up-arrow text-success"></i>
+
+            Investimentos Visionários
+
+        </a>
+
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#menu"
+        >
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div
+            class="collapse navbar-collapse"
+            id="menu"
+        >
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="../index.html"
+                    >
+                        Início
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="../index.html#ferramentas"
+                    >
+                        Ferramentas
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link active"
+                        href="#"
+                    >
+                        CDI
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- ==========================================
+     CALCULADORA CDI
+========================================== -->
+
+<main class="calculator-page">
+
+    <div class="container">
+
+
+        <!-- CABEÇALHO -->
+
+        <div class="calculator-header">
+
+            <small>
+                Renda fixa
+            </small>
+
+            <h1>
+                🏦 Calculadora CDI
+            </h1>
+
+            <p class="text-muted">
+
+                Simule quanto seu investimento pode render
+                utilizando a taxa CDI atual.
+
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- ==================================
+                 CAMPOS
+            ================================== -->
+
+            <div class="col-lg-6">
+
+                <div class="calculator-card">
+
+
+                    <!-- CDI ATUAL -->
+
+                    <div class="cdi-info-box">
+
+                        <small>
+                            CDI atual
+                        </small>
+
+                        <strong id="cdiTaxaAtualCalculadora">
+                            --
+                        </strong>
+
+                        <span>
+                            ao ano
+                        </span>
+
+                    </div>
+
+
+                    <!-- VALOR INICIAL -->
+
+                    <div class="mb-3">
+
+                        <label
+                            class="form-label"
+                            for="cdiValorInicial"
+                        >
+                            Valor Inicial (R$)
+                        </label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            id="cdiValorInicial"
+                            min="0"
+                            step="0.01"
+                            placeholder="Ex.: 10000"
+                        >
+
+                    </div>
+
+
+                    <!-- APORTE MENSAL -->
+
+                    <div class="mb-3">
+
+                        <label
+                            class="form-label"
+                            for="cdiAporteMensal"
+                        >
+                            Aporte Mensal (R$)
+                        </label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            id="cdiAporteMensal"
+                            min="0"
+                            step="0.01"
+                            placeholder="Ex.: 500"
+                        >
+
+                    </div>
+
+
+                    <!-- PERCENTUAL CDI -->
+
+                    <div class="mb-3">
+
+                        <label
+                            class="form-label"
+                            for="cdiPercentual"
+                        >
+                            Percentual do CDI (%)
+                        </label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            id="cdiPercentual"
+                            value="100"
+                            min="1"
+                            step="1"
+                        >
+
+                    </div>
+
+
+                    <!-- PRAZO -->
+
+                    <div class="mb-4">
+
+                        <label
+                            class="form-label"
+                            for="cdiMeses"
+                        >
+                            Prazo (meses)
+                        </label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            id="cdiMeses"
+                            min="1"
+                            step="1"
+                            placeholder="Ex.: 24"
+                        >
+
+                    </div>
+
+
+                    <!-- BOTÕES -->
+
+                    <div class="d-flex gap-2 flex-wrap">
+
+                        <button
+                            class="btn btn-success btn-lg"
+                            type="button"
+                            onclick="calcularCDI()"
+                        >
+
+                            <i class="bi bi-calculator"></i>
+
+                            Calcular
+
+                        </button>
+
+
+                        <button
+                            class="btn btn-outline-danger btn-lg"
+                            type="button"
+                            onclick="limparCDI()"
+                        >
+
+                            <i class="bi bi-arrow-clockwise"></i>
+
+                            Limpar
+
+                        </button>
+
+                    </div>
+
+
+                    <p class="calculator-note">
+
+                        Simulação educacional. O resultado pode variar
+                        conforme tributação, liquidez, taxas, instituição
+                        financeira e condições do investimento.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==================================
+                 RESULTADOS
+            ================================== -->
+
+            <div class="col-lg-6">
+
+                <div class="calculator-result">
+
+                    <h3>
+                        Resultado
+                    </h3>
+
+
+                    <div class="calculator-result-item">
+
+                        <small>
+                            Total Investido
+                        </small>
+
+                        <strong id="cdiTotalInvestido">
+                            R$ 0,00
+                        </strong>
+
+                    </div>
+
+
+                    <div class="calculator-result-item">
+
+                        <small>
+                            Rendimento Bruto
+                        </small>
+
+                        <strong id="cdiRendimentoBruto">
+                            R$ 0,00
+                        </strong>
+
+                    </div>
+
+
+                    <div class="calculator-result-item">
+
+                        <small>
+                            Imposto de Renda estimado
+                        </small>
+
+                        <strong id="cdiImpostoRenda">
+                            R$ 0,00
+                        </strong>
+
+                    </div>
+
+
+                    <div class="calculator-result-item">
+
+                        <small>
+                            Alíquota de IR utilizada
+                        </small>
+
+                        <strong id="cdiAliquotaIr">
+                            0%
+                        </strong>
+
+                    </div>
+
+
+                    <div class="calculator-result-item">
+
+                        <small>
+                            Rendimento Líquido
+                        </small>
+
+                        <strong
+                            id="cdiRendimentoLiquido"
+                            class="resultado-destaque"
+                        >
+                            R$ 0,00
+                        </strong>
+
+                    </div>
+
+
+                    <div class="calculator-result-item">
+
+                        <small>
+                            Patrimônio Final
+                        </small>
+
+                        <strong
+                            id="cdiPatrimonioFinal"
+                            class="resultado-destaque"
+                        >
+                            R$ 0,00
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- ==========================================
+     RODAPÉ
+========================================== -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="row g-4">
+
+            <div class="col-lg-4">
+
+                <img
+                    src="../assets/img/logo.png"
+                    width="180"
+                    alt="Investimentos Visionários"
+                >
+
+                <p class="mt-3">
+
+                    Educação financeira para quem deseja
+                    conquistar liberdade financeira.
+
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-4">
+
+                <h5>
+                    Ferramentas
+                </h5>
+
+                <ul class="list-unstyled">
+
+                    <li>
+                        Juros Compostos
+                    </li>
+
+                    <li>
+                        CDI
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="col-lg-4">
+
+                <h5>
+                    Contato
+                </h5>
+
+                <p>
+                    Instagram
+                    <br>
+                    @investimentosvisionarios
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <hr>
+
+
+        <div class="text-center">
+
+            © 2026 Investimentos Visionários
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- ==========================================
+     SCRIPTS
+========================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+></script>
+
+
+<!-- CALCULADORA CDI -->
+
+<script src="../assets/js/cdi-calculator.js"></script>
+
+
+</body>
+
+</html>

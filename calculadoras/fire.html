@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Calculadora FIRE do Investimentos Visionários."
+    >
+
+    <title>
+        Calculadora FIRE | Investimentos Visionários
+    </title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+        rel="stylesheet"
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../assets/css/style.css"
+    >
+
+</head>
+
+<body>
+
+
+<!-- MENU -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+
+    <div class="container">
+
+        <a
+            class="navbar-brand fw-bold"
+            href="../index.html"
+        >
+            <i class="bi bi-graph-up-arrow text-success"></i>
+            Investimentos Visionários
+        </a>
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#menu"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div
+            class="collapse navbar-collapse"
+            id="menu"
+        >
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        href="../index.html"
+                    >
+                        Início
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        href="../index.html#ferramentas"
+                    >
+                        Ferramentas
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a
+                        class="nav-link active"
+                        href="#"
+                    >
+                        FIRE
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-8">
+
+                <h1>
+                    Calculadora FIRE
+                </h1>
+
+                <p>
+                    Descubra quanto patrimônio você precisa acumular
+                    para atingir a independência financeira.
+                </p>
+
+            </div>
+
+            <div class="col-lg-4 text-center">
+
+                <i class="bi bi-fire hero-icon"></i>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CALCULADORA -->
+
+<main class="py-5 bg-light">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+
+            <!-- CAMPOS -->
+
+            <div class="col-lg-6">
+
+                <div class="card shadow p-4">
+
+                    <h2 class="mb-4">
+                        Calcule sua independência financeira
+                    </h2>
+
+
+                    <div class="mb-3">
+
+                        <label
+                            class="form-label"
+                            for="fireCustoMensal"
+                        >
+                            Custo de vida mensal desejado (R$)
+                        </label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            id="fireCustoMensal"
+                            min="0"
+                            step="0.01"
+                            placeholder="Ex.: 6000"
+                        >
+
+                    </div>
+
+
+                    <div class="mb-3">
+
+                        <label
+                            class="form-label"
+                            for="fireTaxaRetirada"
+                        >
+                            Taxa de retirada anual (%)
+                        </label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            id="fireTaxaRetirada"
+                            min="0.1"
+                            step="0.1"
+                            value="4"
+                        >
+
+                        <small class="text-muted">
+                            A regra dos 4% é apenas uma referência.
+                        </small>
+
+                    </div>
+
+
+                    <div class="mb-3">
+
+                        <label
+                            class="form-label"
+                            for="firePatrimonioAtual"
+                        >
+                            Patrimônio atual investido (R$)
+                        </label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            id="firePatrimonioAtual"
+                            min="0"
+                            step="0.01"
+                            placeholder="Ex.: 100000"
+                        >
+
+                    </div>
+
+
+                    <div class="mb-3">
+
+                        <label
+                            class="form-label"
+                            for="fireAporteMensal"
+                        >
+                            Aporte mensal (R$)
+                        </label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            id="fireAporteMensal"
+                            min="0"
+                            step="0.01"
+                            placeholder="Ex.: 2000"
+                        >
+
+                    </div>
+
+
+                    <div class="mb-4">
+
+                        <label
+                            class="form-label"
+                            for="fireRentabilidade"
+                        >
+                            Rentabilidade esperada (% ao ano)
+                        </label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            id="fireRentabilidade"
+                            min="0"
+                            step="0.01"
+                            placeholder="Ex.: 8"
+                        >
+
+                    </div>
+
+
+                    <div class="d-flex gap-2 flex-wrap">
+
+                        <button
+                            type="button"
+                            class="btn btn-success btn-lg"
+                            onclick="calcularFIRE()"
+                        >
+
+                            <i class="bi bi-calculator"></i>
+
+                            Calcular
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="btn btn-outline-danger btn-lg"
+                            onclick="limparFIRE()"
+                        >
+
+                            <i class="bi bi-arrow-clockwise"></i>
+
+                            Limpar
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RESULTADOS -->
+
+            <div class="col-lg-6">
+
+                <div class="card shadow p-4 h-100">
+
+                    <h3>
+                        Resultado
+                    </h3>
+
+                    <hr>
+
+
+                    <p>
+                        Patrimônio necessário
+                    </p>
+
+                    <h2
+                        id="firePatrimonioNecessario"
+                        class="text-success"
+                    >
+                        R$ 0,00
+                    </h2>
+
+
+                    <hr>
+
+
+                    <p>
+                        Renda anual desejada
+                    </p>
+
+                    <h4 id="fireRendaAnual">
+                        R$ 0,00
+                    </h4>
+
+
+                    <hr>
+
+
+                    <p>
+                        Patrimônio atual
+                    </p>
+
+                    <h4 id="firePatrimonioAtualResultado">
+                        R$ 0,00
+                    </h4>
+
+
+                    <hr>
+
+
+                    <p>
+                        Quanto falta
+                    </p>
+
+                    <h4 id="fireQuantoFalta">
+                        R$ 0,00
+                    </h4>
+
+
+                    <hr>
+
+
+                    <p>
+                        Percentual da meta atingido
+                    </p>
+
+                    <h4 id="firePercentualMeta">
+                        0%
+                    </h4>
+
+
+                    <hr>
+
+
+                    <p>
+                        Tempo estimado para atingir o FIRE
+                    </p>
+
+                    <h4 id="fireTempoEstimado">
+                        --
+                    </h4>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- EXPLICAÇÃO -->
+
+<section class="py-5 bg-white">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+            <div class="col-lg-8">
+
+                <h2>
+                    O que é FIRE?
+                </h2>
+
+                <p>
+                    FIRE significa Financial Independence,
+                    Retire Early: independência financeira
+                    e aposentadoria antecipada.
+                </p>
+
+                <p>
+                    A ideia é acumular patrimônio suficiente
+                    para que retiradas periódicas possam sustentar
+                    seu padrão de vida sem depender exclusivamente
+                    da renda do trabalho.
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-4">
+
+                <div class="card shadow p-4">
+
+                    <h4>
+                        🔥 Regra dos 4%
+                    </h4>
+
+                    <p class="mb-0">
+                        Uma referência bastante conhecida considera
+                        retiradas anuais equivalentes a 4% do patrimônio.
+                        Isso não é garantia de sustentabilidade e deve
+                        ser adaptado ao perfil, horizonte e estratégia.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- RODAPÉ -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="row g-4">
+
+            <div class="col-lg-4">
+
+                <img
+                    src="../assets/img/logo.png"
+                    width="180"
+                    alt="Investimentos Visionários"
+                >
+
+                <p class="mt-3">
+                    Educação financeira para quem deseja
+                    conquistar liberdade financeira.
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-4">
+
+                <h5>
+                    Ferramentas
+                </h5>
+
+                <ul class="list-unstyled">
+
+                    <li>Juros Compostos</li>
+                    <li>CDI</li>
+                    <li>Tesouro Direto</li>
+                    <li>IPCA</li>
+                    <li>Reserva de Emergência</li>
+                    <li>FIRE</li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="col-lg-4">
+
+                <h5>
+                    Contato
+                </h5>
+
+                <p>
+                    Instagram
+                    <br>
+                    @investimentosvisionarios
+                </p>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="text-center">
+            © 2026 Investimentos Visionários
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+></script>
+
+<script src="../assets/js/fire-calculator.js"></script>
+
+</body>
+
+</html>
