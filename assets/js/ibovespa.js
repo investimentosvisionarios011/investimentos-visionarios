@@ -8,7 +8,7 @@ async function atualizarIbovespa() {
 
     try {
 
-const resposta = await fetch("http://localhost:3000/api/ibovespa");
+const resposta = await fetch("/api/ibovespa");
 
         console.log(
             "📡 Status da API do Ibovespa:",
