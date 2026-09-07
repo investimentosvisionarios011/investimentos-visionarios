@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://investimentosvisionarios.com.br/sitemap.xml
