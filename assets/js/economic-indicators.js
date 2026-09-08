@@ -43,6 +43,11 @@ async function carregarIndicadoresEconomicos() {
                 "indicadorSelic"
             );
 
+            const dashboardSelic =
+    document.getElementById(
+        "selic"
+    );
+
         const indicadorCdi =
             document.getElementById(
                 "indicadorCdi"
@@ -86,6 +91,19 @@ async function carregarIndicadoresEconomicos() {
                 + "%";
 
         }
+
+        if (
+    dashboardSelic &&
+    Number.isFinite(selic)
+) {
+
+    dashboardSelic.textContent =
+        selic
+            .toFixed(2)
+            .replace(".", ",")
+        + "%";
+
+}
 
 
         // ==========================================
