@@ -205,16 +205,50 @@ async function carregarGraficoSelicIpca(
             ];
 
 
-        const selicAtual =
-            Number(
-                ultimoPonto.selic
-            );
+     const respostaIndicadores =
+    await fetch(
+        "/api/indicadores"
+    );
 
 
-        const ipcaAtual =
-            Number(
-                ultimoPonto.ipca12
-            );
+let selicAtual =
+    Number(
+        ultimoPonto.selic
+    );
+
+
+if (
+    respostaIndicadores.ok
+) {
+
+    const indicadoresAtuais =
+        await respostaIndicadores.json();
+
+
+    const selicApi =
+        Number(
+            indicadoresAtuais?.selic?.valor
+        );
+
+
+    if (
+        Number.isFinite(
+            selicApi
+        )
+    ) {
+
+        selicAtual =
+            selicApi;
+
+    }
+
+}
+
+
+const ipcaAtual =
+    Number(
+        ultimoPonto.ipca12
+    );
 
 
         // ==========================================

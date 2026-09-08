@@ -45,7 +45,7 @@ async function carregarIndicadoresEconomicos() {
 
             const dashboardSelic =
     document.getElementById(
-        "selic"
+        "dashboardSelic"
     );
 
         const indicadorCdi =
@@ -98,6 +98,25 @@ async function carregarIndicadoresEconomicos() {
 ) {
 
     dashboardSelic.textContent =
+        selic
+            .toFixed(2)
+            .replace(".", ",")
+        + "%";
+
+}
+
+const barraSelic =
+    document.getElementById(
+        "selic"
+    );
+
+
+if (
+    barraSelic &&
+    Number.isFinite(selic)
+) {
+
+    barraSelic.textContent =
         selic
             .toFixed(2)
             .replace(".", ",")
