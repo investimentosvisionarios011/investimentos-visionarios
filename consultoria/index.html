@@ -1,0 +1,2150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <!-- ==========================================
+         SEO
+    ========================================== -->
+
+    <title>
+        Consultoria Financeira | Investimentos Visionários
+    </title>
+
+    <meta
+        name="description"
+        content="Consultoria financeira personalizada para organizar suas finanças, definir objetivos, planejar investimentos e construir patrimônio com mais clareza e estratégia."
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <link
+        rel="canonical"
+        href="https://investimentosvisionarios.com.br/consultoria/"
+    >
+
+
+    <!-- ==========================================
+         FAVICON
+    ========================================== -->
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="../assets/img/favicon.png"
+    >
+
+
+    <!-- ==========================================
+         OPEN GRAPH
+    ========================================== -->
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:title"
+        content="Consultoria Financeira | Investimentos Visionários"
+    >
+
+    <meta
+        property="og:description"
+        content="Transforme números em estratégia. Organize sua vida financeira, defina objetivos e construa patrimônio com planejamento."
+    >
+
+    <meta
+        property="og:url"
+        content="https://investimentosvisionarios.com.br/consultoria/"
+    >
+
+    <meta
+        property="og:site_name"
+        content="Investimentos Visionários"
+    >
+
+    <meta
+        property="og:locale"
+        content="pt_BR"
+    >
+
+    <meta
+        property="og:image"
+        content="https://investimentosvisionarios.com.br/assets/img/logo.png"
+    >
+
+
+    <!-- ==========================================
+         TWITTER / REDES SOCIAIS
+    ========================================== -->
+
+    <meta
+        name="twitter:card"
+        content="summary_large_image"
+    >
+
+    <meta
+        name="twitter:title"
+        content="Consultoria Financeira | Investimentos Visionários"
+    >
+
+    <meta
+        name="twitter:description"
+        content="Organize suas finanças, planeje seus objetivos e construa patrimônio com mais clareza."
+    >
+
+    <meta
+        name="twitter:image"
+        content="https://investimentosvisionarios.com.br/assets/img/logo.png"
+    >
+
+
+    <!-- ==========================================
+         BOOTSTRAP
+    ========================================== -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+
+    <!-- ==========================================
+         BOOTSTRAP ICONS
+    ========================================== -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+        rel="stylesheet"
+    >
+
+
+    <!-- ==========================================
+         GOOGLE FONTS
+    ========================================== -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- ==========================================
+         CSS PRINCIPAL DO SITE
+    ========================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../assets/css/style.css"
+    >
+
+
+    <!-- ==========================================
+         CSS EXCLUSIVO DA CONSULTORIA
+    ========================================== -->
+
+    <style>
+
+        :root {
+            --iv-green: #18b36b;
+            --iv-green-dark: #0d8b50;
+            --iv-gold: #d6ad3c;
+            --iv-dark: #0d1117;
+            --iv-dark-soft: #151b23;
+            --iv-dark-card: #1a212b;
+            --iv-border: rgba(255, 255, 255, 0.08);
+            --iv-text-soft: #adb5bd;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #0d1117;
+            color: #ffffff;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* ==========================================
+           NAVBAR
+        ========================================== */
+
+        .consultoria-navbar {
+            background: rgba(13, 17, 23, 0.98);
+            border-bottom: 1px solid var(--iv-border);
+        }
+
+        .consultoria-navbar .navbar-brand {
+            color: #ffffff;
+        }
+
+        .consultoria-navbar .navbar-logo {
+            width: 48px;
+            height: auto;
+        }
+
+        .consultoria-navbar .nav-link {
+            color: #c9d1d9;
+            transition: 0.3s;
+        }
+
+        .consultoria-navbar .nav-link:hover,
+        .consultoria-navbar .nav-link.active {
+            color: var(--iv-green);
+        }
+
+
+        /* ==========================================
+           HERO
+        ========================================== */
+
+        .consultoria-hero {
+            min-height: 82vh;
+            display: flex;
+            align-items: center;
+
+            background:
+                radial-gradient(
+                    circle at 85% 30%,
+                    rgba(24, 179, 107, 0.18),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 15% 80%,
+                    rgba(214, 173, 60, 0.08),
+                    transparent 30%
+                ),
+                #0d1117;
+
+            padding: 100px 0;
+        }
+
+        .consultoria-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 8px 16px;
+
+            border: 1px solid rgba(24, 179, 107, 0.35);
+            border-radius: 999px;
+
+            background: rgba(24, 179, 107, 0.08);
+
+            color: #67e0a1;
+
+            font-size: 0.9rem;
+            font-weight: 500;
+
+            margin-bottom: 24px;
+        }
+
+        .consultoria-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            line-height: 1.08;
+            font-weight: 700;
+
+            margin-bottom: 24px;
+        }
+
+        .consultoria-hero h1 span {
+            color: var(--iv-green);
+        }
+
+        .consultoria-hero p {
+            color: #b9c0c8;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            max-width: 650px;
+        }
+
+        .consultoria-hero-logo {
+            max-width: 430px;
+            width: 100%;
+
+            filter:
+                drop-shadow(
+                    0 20px 55px rgba(24, 179, 107, 0.12)
+                );
+        }
+
+        .btn-consultoria {
+            background: var(--iv-green);
+            border-color: var(--iv-green);
+
+            color: #ffffff;
+
+            font-weight: 600;
+
+            padding: 14px 25px;
+
+            border-radius: 10px;
+
+            transition: 0.25s ease;
+        }
+
+        .btn-consultoria:hover {
+            background: var(--iv-green-dark);
+            border-color: var(--iv-green-dark);
+
+            color: #ffffff;
+
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-consultoria {
+            color: #ffffff;
+
+            border: 1px solid rgba(255, 255, 255, 0.25);
+
+            padding: 14px 25px;
+
+            border-radius: 10px;
+
+            font-weight: 500;
+
+            transition: 0.25s ease;
+        }
+
+        .btn-outline-consultoria:hover {
+            border-color: var(--iv-green);
+            color: var(--iv-green);
+            background: rgba(24, 179, 107, 0.05);
+        }
+
+
+        /* ==========================================
+           SEÇÕES
+        ========================================== */
+
+        .consultoria-section {
+            padding: 90px 0;
+        }
+
+        .consultoria-section-light {
+            background: #111720;
+        }
+
+        .consultoria-section-title small {
+            color: var(--iv-green);
+            text-transform: uppercase;
+
+            letter-spacing: 1.5px;
+
+            font-weight: 600;
+
+            display: block;
+
+            margin-bottom: 10px;
+        }
+
+        .consultoria-section-title h2 {
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .consultoria-section-title p {
+            color: var(--iv-text-soft);
+            max-width: 750px;
+
+            margin-left: auto;
+            margin-right: auto;
+
+            line-height: 1.8;
+        }
+
+
+        /* ==========================================
+           CARDS
+        ========================================== */
+
+        .consultoria-card {
+            height: 100%;
+
+            background: var(--iv-dark-card);
+
+            border: 1px solid var(--iv-border);
+
+            border-radius: 16px;
+
+            padding: 30px;
+
+            transition: 0.3s ease;
+        }
+
+        .consultoria-card:hover {
+            transform: translateY(-5px);
+
+            border-color: rgba(24, 179, 107, 0.35);
+
+            box-shadow:
+                0 15px 45px rgba(0, 0, 0, 0.18);
+        }
+
+        .consultoria-card-icon {
+            width: 58px;
+            height: 58px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 14px;
+
+            background: rgba(24, 179, 107, 0.12);
+
+            color: var(--iv-green);
+
+            font-size: 1.7rem;
+
+            margin-bottom: 22px;
+        }
+
+        .consultoria-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+
+            margin-bottom: 12px;
+        }
+
+        .consultoria-card p {
+            color: var(--iv-text-soft);
+            line-height: 1.75;
+
+            margin-bottom: 0;
+        }
+
+
+        /* ==========================================
+           COMO FUNCIONA
+        ========================================== */
+
+        .consultoria-step {
+            position: relative;
+
+            height: 100%;
+
+            background: #131a22;
+
+            border: 1px solid var(--iv-border);
+
+            border-radius: 16px;
+
+            padding: 30px;
+        }
+
+        .consultoria-step-number {
+            width: 44px;
+            height: 44px;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: var(--iv-green);
+
+            color: #ffffff;
+
+            font-weight: 700;
+
+            margin-bottom: 20px;
+        }
+
+        .consultoria-step h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+
+        .consultoria-step p {
+            color: var(--iv-text-soft);
+            line-height: 1.75;
+
+            margin-bottom: 0;
+        }
+
+
+        /* ==========================================
+           DESTAQUE
+        ========================================== */
+
+        .consultoria-highlight {
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(24, 179, 107, 0.13),
+                    rgba(214, 173, 60, 0.05)
+                );
+
+            border: 1px solid rgba(24, 179, 107, 0.2);
+
+            border-radius: 20px;
+
+            padding: 50px;
+        }
+
+        .consultoria-highlight h2 {
+            font-weight: 700;
+        }
+
+        .consultoria-highlight p {
+            color: #bac3cb;
+            line-height: 1.8;
+        }
+
+
+        /* ==========================================
+           CHECK LIST
+        ========================================== */
+
+        .consultoria-check-list {
+            list-style: none;
+
+            margin: 0;
+            padding: 0;
+        }
+
+        .consultoria-check-list li {
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 12px;
+
+            margin-bottom: 18px;
+
+            color: #d9dee3;
+        }
+
+        .consultoria-check-list i {
+            color: var(--iv-green);
+
+            font-size: 1.2rem;
+
+            margin-top: 2px;
+        }
+
+
+        /* ==========================================
+           CTA FINAL
+        ========================================== */
+
+        .consultoria-final-cta {
+            padding: 100px 0;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(24, 179, 107, 0.15),
+                    transparent 55%
+                ),
+                #0d1117;
+        }
+
+        .consultoria-final-box {
+            max-width: 900px;
+
+            margin: auto;
+
+            text-align: center;
+
+            background: #151b23;
+
+            border: 1px solid rgba(24, 179, 107, 0.25);
+
+            border-radius: 24px;
+
+            padding: 60px 35px;
+        }
+
+        .consultoria-final-box h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+
+            font-weight: 700;
+
+            margin-bottom: 20px;
+        }
+
+        .consultoria-final-box p {
+            max-width: 700px;
+
+            margin: 0 auto 30px;
+
+            color: #b9c0c8;
+
+            line-height: 1.8;
+        }
+
+
+        /* ==========================================
+           FAQ
+        ========================================== */
+
+        .accordion-item {
+            background: #151b23;
+
+            border: 1px solid var(--iv-border);
+
+            color: #ffffff;
+
+            margin-bottom: 12px;
+
+            border-radius: 12px !important;
+
+            overflow: hidden;
+        }
+
+        .accordion-button {
+            background: #151b23;
+
+            color: #ffffff;
+
+            font-weight: 500;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background: rgba(24, 179, 107, 0.08);
+
+            color: var(--iv-green);
+
+            box-shadow: none;
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+        }
+
+        .accordion-button::after {
+            filter: invert(1);
+        }
+
+        .accordion-body {
+            color: #b8c0c7;
+
+            line-height: 1.8;
+        }
+
+
+        /* ==========================================
+           AVISO
+        ========================================== */
+
+        .consultoria-disclaimer {
+            background: #111720;
+
+            border-top: 1px solid var(--iv-border);
+
+            padding: 30px 0;
+        }
+
+        .consultoria-disclaimer p {
+            font-size: 0.82rem;
+
+            line-height: 1.7;
+
+            color: #7f8993;
+
+            margin-bottom: 0;
+        }
+
+
+        /* ==========================================
+           FOOTER
+        ========================================== */
+
+        .consultoria-footer {
+            background: #080b0f;
+
+            padding: 60px 0 25px;
+
+            color: #ffffff;
+        }
+
+        .consultoria-footer p,
+        .consultoria-footer small {
+            color: #a9b0b7;
+        }
+
+        .consultoria-footer a {
+            color: #d7dce1;
+        }
+
+        .consultoria-footer a:hover {
+            color: var(--iv-green);
+        }
+
+
+        /* ==========================================
+           MOBILE
+        ========================================== */
+
+        @media (max-width: 991px) {
+
+            .consultoria-hero {
+                text-align: center;
+                padding: 80px 0;
+            }
+
+            .consultoria-hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .consultoria-hero-logo {
+                margin-top: 50px;
+                max-width: 300px;
+            }
+
+            .consultoria-highlight {
+                padding: 35px 25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     MENU
+========================================== -->
+
+<nav
+    class="navbar navbar-expand-lg navbar-dark consultoria-navbar sticky-top"
+>
+
+    <div class="container">
+
+
+        <a
+            class="navbar-brand d-flex align-items-center gap-2 fw-bold"
+            href="../index.html"
+        >
+
+            <img
+                src="../assets/img/logo.png"
+                alt="Investimentos Visionários"
+                class="navbar-logo"
+            >
+
+            <span>
+                Investimentos Visionários
+            </span>
+
+        </a>
+
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#menuConsultoria"
+            aria-controls="menuConsultoria"
+            aria-expanded="false"
+            aria-label="Abrir menu"
+        >
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div
+            class="collapse navbar-collapse"
+            id="menuConsultoria"
+        >
+
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="../index.html"
+                    >
+                        Início
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link active"
+                        href="#consultoria"
+                    >
+                        Consultoria
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="#como-funciona"
+                    >
+                        Como funciona
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="#duvidas"
+                    >
+                        Dúvidas
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+
+                    <a
+                        href="https://wa.me/5511970256673?text=Ol%C3%A1%21%20Vim%20pelo%20site%20Investimentos%20Vision%C3%A1rios%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20consultoria."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-consultoria btn-sm"
+                    >
+
+                        <i class="bi bi-whatsapp me-1"></i>
+
+                        Falar conosco
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- ==========================================
+     HERO
+========================================== -->
+
+<section
+    id="consultoria"
+    class="consultoria-hero"
+>
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+
+            <div class="col-lg-7">
+
+                <div class="consultoria-badge">
+
+                    <i class="bi bi-compass"></i>
+
+                    Planejamento financeiro com propósito
+
+                </div>
+
+
+                <h1>
+
+                    Transforme seus números em uma
+
+                    <span>
+                        estratégia para o futuro.
+                    </span>
+
+                </h1>
+
+
+                <p>
+
+                    Organize sua vida financeira, defina prioridades
+                    e construa um plano mais claro para alcançar
+                    seus objetivos e desenvolver patrimônio ao longo do tempo.
+
+                </p>
+
+
+                <div
+                    class="d-flex flex-column flex-sm-row gap-3 mt-4"
+                >
+
+                    <a
+                        href="https://wa.me/5511970256673?text=Ol%C3%A1%21%20Vim%20pelo%20site%20Investimentos%20Vision%C3%A1rios%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20consultoria."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-consultoria btn-lg"
+                    >
+
+                        <i class="bi bi-whatsapp me-2"></i>
+
+                        Quero saber mais
+
+                    </a>
+
+
+                    <a
+                        href="#como-funciona"
+                        class="btn btn-outline-consultoria btn-lg"
+                    >
+
+                        Como funciona
+
+                    </a>
+
+                </div>
+
+
+                <div
+                    class="d-flex flex-wrap gap-4 mt-4 text-secondary"
+                >
+
+                    <span>
+
+                        <i class="bi bi-check-circle text-success me-1"></i>
+
+                        Atendimento personalizado
+
+                    </span>
+
+
+                    <span>
+
+                        <i class="bi bi-check-circle text-success me-1"></i>
+
+                        Planejamento por objetivos
+
+                    </span>
+
+
+                    <span>
+
+                        <i class="bi bi-check-circle text-success me-1"></i>
+
+                        Visão de longo prazo
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-5 text-center">
+
+                <img
+                    src="../assets/img/logo.png"
+                    alt="Investimentos Visionários"
+                    class="consultoria-hero-logo"
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     POR QUE UMA CONSULTORIA?
+========================================== -->
+
+<section class="consultoria-section consultoria-section-light">
+
+    <div class="container">
+
+
+        <div
+            class="consultoria-section-title text-center mb-5"
+        >
+
+            <small>
+                Muito além de uma simulação
+            </small>
+
+            <h2>
+                Informação é importante. Estratégia é o próximo passo.
+            </h2>
+
+            <p>
+
+                Calculadoras financeiras ajudam a visualizar possibilidades.
+                Mas cada pessoa possui uma realidade, um momento de vida,
+                prioridades e objetivos diferentes.
+
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="consultoria-card">
+
+                    <div class="consultoria-card-icon">
+
+                        <i class="bi bi-wallet2"></i>
+
+                    </div>
+
+                    <h3>
+                        Organização financeira
+                    </h3>
+
+                    <p>
+
+                        Entenda melhor sua situação atual,
+                        receitas, despesas, compromissos
+                        e capacidade de poupança.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="consultoria-card">
+
+                    <div class="consultoria-card-icon">
+
+                        <i class="bi bi-bullseye"></i>
+
+                    </div>
+
+                    <h3>
+                        Definição de objetivos
+                    </h3>
+
+                    <p>
+
+                        Transforme desejos em metas financeiras
+                        mais claras, organizadas e mensuráveis.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="consultoria-card">
+
+                    <div class="consultoria-card-icon">
+
+                        <i class="bi bi-graph-up-arrow"></i>
+
+                    </div>
+
+                    <h3>
+                        Construção de patrimônio
+                    </h3>
+
+                    <p>
+
+                        Estruture um caminho de longo prazo
+                        levando em consideração seus objetivos
+                        e sua capacidade financeira.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="consultoria-card">
+
+                    <div class="consultoria-card-icon">
+
+                        <i class="bi bi-shield-check"></i>
+
+                    </div>
+
+                    <h3>
+                        Segurança financeira
+                    </h3>
+
+                    <p>
+
+                        Organize reserva de emergência,
+                        prioridades e planejamento para
+                        lidar melhor com imprevistos.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     PARA QUEM É
+========================================== -->
+
+<section class="consultoria-section">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+
+            <div class="col-lg-6">
+
+                <div class="consultoria-section-title">
+
+                    <small>
+                        Para quem é
+                    </small>
+
+                    <h2>
+                        A consultoria pode fazer sentido para você se...
+                    </h2>
+
+                </div>
+
+
+                <ul class="consultoria-check-list mt-4">
+
+                    <li>
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        <span>
+                            Você ganha dinheiro, mas sente que poderia
+                            organizar melhor sua vida financeira.
+                        </span>
+
+                    </li>
+
+
+                    <li>
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        <span>
+                            Quer começar a construir patrimônio,
+                            mas não sabe qual deve ser o primeiro passo.
+                        </span>
+
+                    </li>
+
+
+                    <li>
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        <span>
+                            Possui objetivos financeiros,
+                            mas ainda não tem um planejamento claro
+                            para alcançá-los.
+                        </span>
+
+                    </li>
+
+
+                    <li>
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        <span>
+                            Deseja organizar reserva de emergência,
+                            aposentadoria ou projetos de longo prazo.
+                        </span>
+
+                    </li>
+
+
+                    <li>
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        <span>
+                            Quer compreender melhor suas decisões
+                            financeiras e agir com mais consciência.
+                        </span>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="col-lg-6">
+
+                <div class="consultoria-highlight">
+
+                    <small class="text-success fw-semibold">
+
+                        NOSSA PROPOSTA
+
+                    </small>
+
+                    <h2 class="mt-2">
+
+                        Clareza antes da decisão.
+
+                    </h2>
+
+
+                    <p class="mt-3">
+
+                        A ideia não é simplesmente dizer o que fazer
+                        com seu dinheiro.
+
+                    </p>
+
+
+                    <p>
+
+                        O objetivo é ajudar você a compreender sua
+                        realidade financeira, organizar prioridades
+                        e desenvolver um planejamento coerente
+                        com seus objetivos.
+
+                    </p>
+
+
+                    <p class="mb-0">
+
+                        Porque construir patrimônio não começa
+                        escolhendo um investimento.
+
+                        <strong class="text-white">
+                            Começa escolhendo uma direção.
+                        </strong>
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     COMO FUNCIONA
+========================================== -->
+
+<section
+    id="como-funciona"
+    class="consultoria-section consultoria-section-light"
+>
+
+    <div class="container">
+
+
+        <div
+            class="consultoria-section-title text-center mb-5"
+        >
+
+            <small>
+                Passo a passo
+            </small>
+
+            <h2>
+                Como funciona a consultoria?
+            </h2>
+
+            <p>
+
+                Um processo simples para entender seu momento
+                financeiro e organizar os próximos passos.
+
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="consultoria-step">
+
+                    <div class="consultoria-step-number">
+                        1
+                    </div>
+
+                    <h3>
+                        Primeiro contato
+                    </h3>
+
+                    <p>
+
+                        Você entra em contato e conta,
+                        de forma inicial, quais são suas
+                        principais necessidades e objetivos.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="consultoria-step">
+
+                    <div class="consultoria-step-number">
+                        2
+                    </div>
+
+                    <h3>
+                        Entendimento do cenário
+                    </h3>
+
+                    <p>
+
+                        Conversamos sobre sua realidade financeira,
+                        prioridades, dificuldades e expectativas.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="consultoria-step">
+
+                    <div class="consultoria-step-number">
+                        3
+                    </div>
+
+                    <h3>
+                        Planejamento
+                    </h3>
+
+                    <p>
+
+                        Organizamos as informações e estruturamos
+                        possíveis caminhos de acordo com seus objetivos.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="consultoria-step">
+
+                    <div class="consultoria-step-number">
+                        4
+                    </div>
+
+                    <h3>
+                        Próximos passos
+                    </h3>
+
+                    <p>
+
+                        Você sai com uma visão mais clara
+                        do que precisa priorizar e de como
+                        avançar no seu planejamento.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     O QUE PODE SER TRABALHADO
+========================================== -->
+
+<section class="consultoria-section">
+
+    <div class="container">
+
+
+        <div
+            class="consultoria-section-title text-center mb-5"
+        >
+
+            <small>
+                Planejamento completo
+            </small>
+
+            <h2>
+                Temas que podem fazer parte da análise
+            </h2>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6">
+
+                <div class="consultoria-card">
+
+                    <h3>
+
+                        <i class="bi bi-cash-stack text-success me-2"></i>
+
+                        Vida financeira
+
+                    </h3>
+
+                    <p>
+
+                        Organização de receitas e despesas,
+                        capacidade de poupança, dívidas,
+                        prioridades financeiras e criação
+                        de hábitos mais sustentáveis.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6">
+
+                <div class="consultoria-card">
+
+                    <h3>
+
+                        <i class="bi bi-shield-check text-success me-2"></i>
+
+                        Reserva de emergência
+
+                    </h3>
+
+                    <p>
+
+                        Avaliação da necessidade de proteção
+                        financeira e planejamento para criação
+                        ou fortalecimento da reserva.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6">
+
+                <div class="consultoria-card">
+
+                    <h3>
+
+                        <i class="bi bi-hourglass-split text-success me-2"></i>
+
+                        Aposentadoria
+
+                    </h3>
+
+                    <p>
+
+                        Projeções de longo prazo para compreender
+                        quanto pode ser necessário acumular
+                        para o futuro.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6">
+
+                <div class="consultoria-card">
+
+                    <h3>
+
+                        <i class="bi bi-flag text-success me-2"></i>
+
+                        Metas financeiras
+
+                    </h3>
+
+                    <p>
+
+                        Planejamento para objetivos como imóveis,
+                        viagens, educação, independência financeira
+                        e construção patrimonial.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     DIFERENCIAL
+========================================== -->
+
+<section class="consultoria-section consultoria-section-light">
+
+    <div class="container">
+
+        <div class="consultoria-highlight">
+
+            <div class="row align-items-center g-5">
+
+
+                <div class="col-lg-7">
+
+                    <small class="text-success fw-semibold">
+
+                        INVESTIMENTOS VISIONÁRIOS
+
+                    </small>
+
+                    <h2 class="mt-2">
+
+                        Planejamento antes de produto.
+
+                    </h2>
+
+
+                    <p class="mt-3">
+
+                        Não existe uma única estratégia financeira
+                        que funcione da mesma forma para todas as pessoas.
+
+                    </p>
+
+
+                    <p>
+
+                        O que faz sentido para alguém pode não fazer
+                        sentido para você.
+
+                        Por isso, o ponto de partida é entender
+                        objetivos, prazo, realidade financeira
+                        e prioridades.
+
+                    </p>
+
+
+                    <p class="mb-0">
+
+                        <strong class="text-white">
+
+                            Primeiro vem o plano.
+                            Depois vêm as decisões.
+
+                        </strong>
+
+                    </p>
+
+                </div>
+
+
+                <div class="col-lg-5 text-center">
+
+                    <i
+                        class="bi bi-compass"
+                        style="
+                            font-size: 8rem;
+                            color: #18b36b;
+                            opacity: 0.85;
+                        "
+                    ></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     FAQ
+========================================== -->
+
+<section
+    id="duvidas"
+    class="consultoria-section"
+>
+
+    <div class="container">
+
+
+        <div
+            class="consultoria-section-title text-center mb-5"
+        >
+
+            <small>
+                Dúvidas frequentes
+            </small>
+
+            <h2>
+                Perguntas sobre a consultoria
+            </h2>
+
+        </div>
+
+
+        <div
+            class="accordion mx-auto"
+            id="faqConsultoria"
+            style="max-width: 900px;"
+        >
+
+
+            <!-- PERGUNTA 1 -->
+
+            <div class="accordion-item">
+
+                <h2
+                    class="accordion-header"
+                    id="faq1"
+                >
+
+                    <button
+                        class="accordion-button"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#resposta1"
+                        aria-expanded="true"
+                        aria-controls="resposta1"
+                    >
+
+                        Preciso já investir para fazer a consultoria?
+
+                    </button>
+
+                </h2>
+
+
+                <div
+                    id="resposta1"
+                    class="accordion-collapse collapse show"
+                    aria-labelledby="faq1"
+                    data-bs-parent="#faqConsultoria"
+                >
+
+                    <div class="accordion-body">
+
+                        Não. A consultoria também pode ajudar quem
+                        ainda está organizando a vida financeira
+                        e deseja entender quais passos devem vir
+                        antes de começar a investir.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PERGUNTA 2 -->
+
+            <div class="accordion-item">
+
+                <h2
+                    class="accordion-header"
+                    id="faq2"
+                >
+
+                    <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#resposta2"
+                        aria-expanded="false"
+                        aria-controls="resposta2"
+                    >
+
+                        A consultoria serve apenas para quem possui muito dinheiro?
+
+                    </button>
+
+                </h2>
+
+
+                <div
+                    id="resposta2"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="faq2"
+                    data-bs-parent="#faqConsultoria"
+                >
+
+                    <div class="accordion-body">
+
+                        Não. Planejamento financeiro pode ser útil
+                        justamente para quem está começando a construir
+                        patrimônio e deseja organizar melhor seus recursos.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PERGUNTA 3 -->
+
+            <div class="accordion-item">
+
+                <h2
+                    class="accordion-header"
+                    id="faq3"
+                >
+
+                    <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#resposta3"
+                        aria-expanded="false"
+                        aria-controls="resposta3"
+                    >
+
+                        Como faço para saber valores e disponibilidade?
+
+                    </button>
+
+                </h2>
+
+
+                <div
+                    id="resposta3"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="faq3"
+                    data-bs-parent="#faqConsultoria"
+                >
+
+                    <div class="accordion-body">
+
+                        Entre em contato pelo WhatsApp ou pelo e-mail
+                        consultoria@investimentosvisionarios.com.br.
+                        Antes de qualquer contratação, você poderá
+                        entender como funciona o atendimento.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PERGUNTA 4 -->
+
+            <div class="accordion-item">
+
+                <h2
+                    class="accordion-header"
+                    id="faq4"
+                >
+
+                    <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#resposta4"
+                        aria-expanded="false"
+                        aria-controls="resposta4"
+                    >
+
+                        Posso entrar em contato sem compromisso?
+
+                    </button>
+
+                </h2>
+
+
+                <div
+                    id="resposta4"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="faq4"
+                    data-bs-parent="#faqConsultoria"
+                >
+
+                    <div class="accordion-body">
+
+                        Sim. O primeiro contato serve justamente
+                        para entender sua necessidade e explicar
+                        como o serviço pode funcionar para seu caso.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     CTA FINAL
+========================================== -->
+
+<section class="consultoria-final-cta">
+
+    <div class="container">
+
+        <div class="consultoria-final-box">
+
+
+            <div class="consultoria-badge">
+
+                <i class="bi bi-arrow-up-right-circle"></i>
+
+                Dê o próximo passo
+
+            </div>
+
+
+            <h2>
+
+                Seu futuro financeiro começa
+                com decisões melhores no presente.
+
+            </h2>
+
+
+            <p>
+
+                Se você quer organizar sua vida financeira,
+                definir prioridades e construir uma estratégia
+                para seus objetivos, entre em contato conosco.
+
+            </p>
+
+
+            <div
+                class="d-flex flex-column flex-sm-row gap-3 justify-content-center"
+            >
+
+                <a
+                    href="https://wa.me/5511970256673?text=Ol%C3%A1%21%20Vim%20pela%20p%C3%A1gina%20de%20consultoria%20da%20Investimentos%20Vision%C3%A1rios%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-consultoria btn-lg"
+                >
+
+                    <i class="bi bi-whatsapp me-2"></i>
+
+                    Falar pelo WhatsApp
+
+                </a>
+
+
+                <a
+                    href="mailto:consultoria@investimentosvisionarios.com.br"
+                    class="btn btn-outline-consultoria btn-lg"
+                >
+
+                    <i class="bi bi-envelope me-2"></i>
+
+                    Enviar e-mail
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     AVISO
+========================================== -->
+
+<section class="consultoria-disclaimer">
+
+    <div class="container">
+
+        <p>
+
+            <strong>Aviso:</strong>
+
+            As informações disponibilizadas pela Investimentos Visionários
+            possuem caráter informativo e educacional.
+
+            O conteúdo apresentado no site não constitui promessa de
+            rentabilidade nem garantia de resultados futuros.
+
+            Decisões financeiras devem considerar objetivos,
+            necessidades, riscos e características individuais.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     RODAPÉ
+========================================== -->
+
+<footer class="consultoria-footer">
+
+    <div class="container">
+
+
+        <div class="row g-4">
+
+
+            <!-- LOGO -->
+
+            <div class="col-lg-4">
+
+                <img
+                    src="../assets/img/logo.png"
+                    width="180"
+                    alt="Investimentos Visionários"
+                >
+
+
+                <p class="mt-3">
+
+                    Educação financeira, ferramentas
+                    e planejamento para quem deseja
+                    construir patrimônio.
+
+                </p>
+
+            </div>
+
+
+            <!-- LINKS -->
+
+            <div class="col-lg-4">
+
+                <h5>
+                    Acesso rápido
+                </h5>
+
+
+                <ul class="list-unstyled">
+
+                    <li class="mb-2">
+
+                        <a href="../index.html">
+                            Início
+                        </a>
+
+                    </li>
+
+
+                    <li class="mb-2">
+
+                        <a href="../index.html#ferramentas">
+                            Calculadoras
+                        </a>
+
+                    </li>
+
+
+                    <li class="mb-2">
+
+                        <a href="#consultoria">
+                            Consultoria
+                        </a>
+
+                    </li>
+
+
+                    <li class="mb-2">
+
+                        <a href="#duvidas">
+                            Dúvidas frequentes
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- CONTATO -->
+
+            <div class="col-lg-4">
+
+                <h5>
+                    Contato
+                </h5>
+
+
+                <p class="mb-2">
+
+                    <i class="bi bi-whatsapp text-success me-2"></i>
+
+                    <a
+                        href="https://wa.me/5511970256673"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        (11) 97025-6673
+
+                    </a>
+
+                </p>
+
+
+                <p class="mb-2">
+
+                    <i class="bi bi-envelope text-success me-2"></i>
+
+                    <a
+                        href="mailto:consultoria@investimentosvisionarios.com.br"
+                    >
+
+                        consultoria@investimentosvisionarios.com.br
+
+                    </a>
+
+                </p>
+
+
+                <p class="mb-0">
+
+                    <i class="bi bi-instagram text-success me-2"></i>
+
+                    <a
+                        href="https://www.instagram.com/investimentosvisionarios/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        @investimentosvisionarios
+
+                    </a>
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <hr class="border-secondary mt-5">
+
+
+        <div class="text-center">
+
+            © 2026 Investimentos Visionários
+
+            <br>
+
+            <small>
+
+                Idealizado e desenvolvido por Junior Blanco
+
+            </small>
+
+        </div>
+
+
+    </div>
+
+</footer>
+
+
+<!-- ==========================================
+     BOOTSTRAP JS
+========================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+></script>
+
+
+</body>
+
+</html>

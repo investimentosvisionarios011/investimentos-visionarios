@@ -1242,3 +1242,456 @@ VARIAÇÃO DAS COTAÇÕES
     }
 
 }
+
+/* ==========================================
+   CTA CONSULTORIA - CALCULADORAS
+========================================== */
+
+.calc-consultoria-cta {
+
+    background:
+        radial-gradient(
+            circle at 85% 30%,
+            rgba(0, 200, 83, 0.18),
+            transparent 35%
+        ),
+        #0d1117;
+
+    color: var(--branco);
+
+    padding: 70px 0;
+
+}
+
+
+.calc-consultoria-container {
+
+    max-width: 1050px;
+
+    margin: 0 auto;
+
+}
+
+
+.calc-consultoria-label {
+
+    display: block;
+
+    color: var(--verde);
+
+    font-size: 0.85rem;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.calc-consultoria-title {
+
+    color: var(--branco);
+
+    font-size: 2.2rem;
+
+    font-weight: 700;
+
+    line-height: 1.25;
+
+    margin-bottom: 20px;
+
+}
+
+
+.calc-consultoria-title span {
+
+    color: var(--verde);
+
+}
+
+
+.calc-consultoria-text {
+
+    color: #b9c0c8;
+
+    line-height: 1.8;
+
+    max-width: 720px;
+
+    margin-bottom: 0;
+
+}
+
+
+.calc-consultoria-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: var(--verde);
+
+    color: var(--branco);
+
+    border-radius: 12px;
+
+    padding: 16px 28px;
+
+    font-weight: 600;
+
+    font-size: 1.05rem;
+
+    transition: 0.3s ease;
+
+}
+
+
+.calc-consultoria-button:hover {
+
+    background: var(--verde-escuro);
+
+    color: var(--branco);
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 200, 83, 0.30);
+
+}
+
+
+/* ==========================================
+   CTA CONSULTORIA - RESPONSIVO
+========================================== */
+
+@media (max-width: 991px) {
+
+    .calc-consultoria-cta {
+
+        padding: 55px 0;
+
+        text-align: center;
+
+    }
+
+
+    .calc-consultoria-text {
+
+        margin-left: auto;
+
+        margin-right: auto;
+
+    }
+
+
+    .calc-consultoria-action {
+
+        text-align: center !important;
+
+        margin-top: 15px;
+
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    .calc-consultoria-title {
+
+        font-size: 1.75rem;
+
+    }
+
+
+    .calc-consultoria-button {
+
+        width: 100%;
+
+    }
+
+}
+
+/* ==========================================
+   LIVROS
+========================================== */
+
+.livro-capa-area {
+
+    height: 340px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 25px;
+
+}
+
+
+.livro-capa {
+
+    max-height: 320px;
+
+    max-width: 100%;
+
+    width: auto;
+
+    object-fit: contain;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 15px 30px rgba(0, 0, 0, 0.18);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.card:hover .livro-capa {
+
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.24);
+
+}
+
+
+@media (max-width: 768px) {
+
+    .livro-capa-area {
+
+        height: 300px;
+
+    }
+
+
+    .livro-capa {
+
+        max-height: 280px;
+
+    }
+
+}
+
+/* ==========================================
+   LIVROS - ACABAMENTO PREMIUM
+========================================== */
+
+/* Cards da seção de livros */
+
+#livros .card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    background: #ffffff;
+
+    border: 1px solid rgba(212, 175, 55, 0.18) !important;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+
+}
+
+
+/* Detalhe dourado no topo */
+
+#livros .card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--dourado),
+            var(--verde)
+        );
+
+}
+
+
+/* Efeito ao passar o mouse */
+
+#livros .card:hover {
+
+    transform: translateY(-8px);
+
+    border-color: rgba(212, 175, 55, 0.45) !important;
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.14);
+
+}
+
+
+/* Área da capa */
+
+#livros .livro-capa-area {
+
+    height: 360px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 28px;
+
+}
+
+
+/* Capa */
+
+#livros .livro-capa {
+
+    max-height: 330px;
+
+    max-width: 100%;
+
+    width: auto;
+
+    object-fit: contain;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 15px 30px rgba(0, 0, 0, 0.18);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+
+}
+
+
+/* Movimento somente da capa */
+
+#livros .card:hover .livro-capa {
+
+    transform:
+        translateY(-5px)
+        scale(1.02);
+
+    box-shadow:
+        0 22px 38px rgba(0, 0, 0, 0.24);
+
+}
+
+
+/* Título dos livros */
+
+#livros .card h3 {
+
+    color: #222;
+
+    line-height: 1.3;
+
+    min-height: 55px;
+
+}
+
+
+/* Descrição */
+
+#livros .card p {
+
+    line-height: 1.7;
+
+}
+
+
+/* Botão Amazon */
+
+#livros .btn-success {
+
+    border-radius: 12px;
+
+    padding: 14px 20px;
+
+    font-weight: 600;
+
+}
+
+
+/* ==========================================
+   LIVROS - RESPONSIVO
+========================================== */
+
+@media (max-width: 991px) {
+
+    #livros .livro-capa-area {
+
+        height: 330px;
+
+    }
+
+
+    #livros .livro-capa {
+
+        max-height: 300px;
+
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    #livros .card {
+
+        border-radius: 18px;
+
+    }
+
+
+    #livros .livro-capa-area {
+
+        height: 300px;
+
+    }
+
+
+    #livros .livro-capa {
+
+        max-height: 275px;
+
+    }
+
+
+    #livros .card h3 {
+
+        min-height: auto;
+
+    }
+
+}
