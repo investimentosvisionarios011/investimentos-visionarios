@@ -1948,7 +1948,195 @@ app.get("/api/indicadores/historico", async (req, res) => {
 
 });
 
+// ==========================================
+// NEWSLETTER - BREVO
+// ==========================================
 
+app.post("/api/newsletter", async (req, res) => {
+
+    try {
+
+        const nome =
+            String(req.body?.nome || "").trim();
+
+        const email =
+            String(req.body?.email || "")
+                .trim()
+                .toLowerCase();
+
+
+        // ==========================================
+        // VALIDAR DADOS
+        // ==========================================
+
+        if (!nome || !email) {
+
+            return res.status(400).json({
+
+                sucesso: false,
+
+                mensagem:
+                    "Preencha seu nome e e-mail."
+
+            });
+
+        }
+
+
+        const emailValido =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+
+        if (!emailValido) {
+
+            return res.status(400).json({
+
+                sucesso: false,
+
+                mensagem:
+                    "Informe um e-mail válido."
+
+            });
+
+        }
+
+
+        // ==========================================
+        // VALIDAR CHAVE BREVO
+        // ==========================================
+
+        const brevoApiKey =
+            process.env.BREVO_API_KEY;
+
+
+        if (!brevoApiKey) {
+
+            console.error(
+                "BREVO_API_KEY não configurada."
+            );
+
+            return res.status(500).json({
+
+                sucesso: false,
+
+                mensagem:
+                    "Serviço de cadastro temporariamente indisponível."
+
+            });
+
+        }
+
+
+        // ==========================================
+        // CADASTRAR CONTATO NO BREVO
+        // LISTA NEWSLETTER - ID 3
+        // ==========================================
+
+        const respostaBrevo =
+            await fetch(
+                "https://api.brevo.com/v3/contacts",
+                {
+
+                    method: "POST",
+
+                    headers: {
+
+                        "accept":
+                            "application/json",
+
+                        "content-type":
+                            "application/json",
+
+                        "api-key":
+                            brevoApiKey
+
+                    },
+
+                    body: JSON.stringify({
+
+                        email: email,
+
+                        attributes: {
+
+                            FIRSTNAME: nome
+
+                        },
+
+                        listIds: [3],
+
+                        updateEnabled: true
+
+                    })
+
+                }
+            );
+
+
+        // ==========================================
+        // VERIFICAR RESPOSTA
+        // ==========================================
+
+        if (!respostaBrevo.ok) {
+
+            const erroBrevo =
+                await respostaBrevo.text();
+
+
+            console.error(
+                "Erro Brevo Newsletter:",
+                respostaBrevo.status,
+                erroBrevo
+            );
+
+
+            return res.status(502).json({
+
+                sucesso: false,
+
+                mensagem:
+                    "Não foi possível concluir o cadastro agora. Tente novamente em alguns instantes."
+
+            });
+
+        }
+
+
+        console.log(
+            "✅ Novo cadastro na newsletter:",
+            email
+        );
+
+
+        return res.status(200).json({
+
+            sucesso: true,
+
+            mensagem:
+                "Cadastro realizado com sucesso!"
+
+        });
+
+
+    } catch (erro) {
+
+        console.error(
+            "❌ Erro ao cadastrar newsletter:",
+            erro
+        );
+
+
+        return res.status(500).json({
+
+            sucesso: false,
+
+            mensagem:
+                "Ocorreu um erro ao realizar o cadastro."
+
+        });
+
+    }
+
+});
 
 // ==========================================
 // INICIAR SERVIDOR
