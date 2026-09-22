@@ -11,22 +11,17 @@
     >
 
     <title>
-        Blog | Investimentos Visionários
+        Blog Investimentos Visionários | Finanças, Investimentos e Economia
     </title>
 
     <meta
         name="description"
-        content="Notícias, análises e conteúdos sobre economia, investimentos, finanças pessoais e mercado financeiro."
+        content="Conteúdos sobre investimentos, economia, finanças pessoais, renda fixa, tributação e planejamento financeiro no Blog Investimentos Visionários."
     >
 
     <meta
         name="keywords"
-        content="economia, investimentos, mercado financeiro, finanças pessoais, bolsa, ações, fundos imobiliários, Selic, inflação"
-    >
-
-    <meta
-        name="author"
-        content="Investimentos Visionários"
+        content="investimentos, educação financeira, renda fixa, economia, finanças pessoais, Selic, CDB, Tesouro Direto, Imposto de Renda"
     >
 
     <link
@@ -35,24 +30,53 @@
     >
 
 
-    <!-- Favicon -->
+    <!-- OPEN GRAPH -->
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:title"
+        content="Blog Investimentos Visionários"
+    >
+
+    <meta
+        property="og:description"
+        content="Informação para ajudar você a entender melhor seu dinheiro, seus investimentos e a economia."
+    >
+
+    <meta
+        property="og:url"
+        content="https://investimentosvisionarios.com.br/blog/"
+    >
+
+    <meta
+        property="og:image"
+        content="https://investimentosvisionarios.com.br/assets/img/logo.png"
+    >
+
+    <meta
+        property="og:site_name"
+        content="Investimentos Visionários"
+    >
+
+
+    <!-- FAVICON -->
 
     <link
         rel="icon"
-        type="image/png"
         href="../assets/img/logo.png"
     >
 
 
-    <!-- Bootstrap -->
+    <!-- BOOTSTRAP -->
 
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet"
     >
-
-
-    <!-- Bootstrap Icons -->
 
     <link
         rel="stylesheet"
@@ -60,23 +84,12 @@
     >
 
 
-    <!-- Google Fonts -->
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
-
-
-    <!-- CSS principal -->
+    <!-- CSS -->
 
     <link
         rel="stylesheet"
         href="../assets/css/style.css"
     >
-
-
-    <!-- CSS do Blog -->
 
     <link
         rel="stylesheet"
@@ -84,94 +97,1097 @@
     >
 
 
+    <!-- STRUCTURED DATA -->
+
+    <script type="application/ld+json">
+
+    {
+        "@context": "https://schema.org",
+
+        "@type": "Blog",
+
+        "name": "Blog Investimentos Visionários",
+
+        "description": "Conteúdos sobre investimentos, economia, finanças pessoais e educação financeira.",
+
+        "url": "https://investimentosvisionarios.com.br/blog/",
+
+        "publisher": {
+            "@type": "Organization",
+            "name": "Investimentos Visionários",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://investimentosvisionarios.com.br/assets/img/logo.png"
+            }
+        }
+
+    }
+
+    </script>
+
 </head>
 
 
 <body>
 
 
-    <!-- ===================================================== -->
-    <!-- NAVBAR -->
-    <!-- ===================================================== -->
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
 
-    <nav
-        class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top"
-    >
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-        <div class="container">
+    <div class="container">
 
+        <a
+            class="navbar-brand d-flex align-items-center"
+            href="../"
+        >
 
-            <a
-                class="navbar-brand d-flex align-items-center"
-                href="../"
+            <img
+                src="../assets/img/logo.png"
+                alt="Investimentos Visionários"
+                height="45"
+                class="me-2"
             >
+
+        </a>
+
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+        >
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div
+            class="collapse navbar-collapse"
+            id="navbarNav"
+        >
+
+            <ul class="navbar-nav ms-auto">
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="../"
+                    >
+                        Início
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link active"
+                        href="#"
+                    >
+                        Blog
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="../#ferramentas"
+                    >
+                        Calculadoras
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="../consultoria/"
+                    >
+                        Consultoria
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="../#contato"
+                    >
+                        Contato
+                    </a>
+
+                </li>
+
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section
+    class="py-5"
+    style="
+        background:
+        linear-gradient(
+            135deg,
+            #111111,
+            #1F1F1F
+        );
+        color:#FFFFFF;
+    "
+>
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-8">
+
+                <span
+                    class="badge mb-3"
+                    style="
+                        background:#00C853;
+                        color:#111111;
+                    "
+                >
+                    BLOG
+                </span>
+
+
+                <h1
+                    class="display-4 fw-bold"
+                >
+
+                    Informação também é investimento.
+
+                </h1>
+
+
+                <p
+                    class="lead mt-3"
+                    style="color:#D5D5D5;"
+                >
+
+                    Conteúdos sobre investimentos, economia,
+                    finanças pessoais e planejamento financeiro
+                    para ajudar você a tomar decisões com mais
+                    informação.
+
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-4 text-center mt-4 mt-lg-0">
 
                 <img
                     src="../assets/img/logo.png"
                     alt="Investimentos Visionários"
-                    style="height: 48px; width: auto;"
+                    class="img-fluid"
+                    style="max-width:280px;"
                 >
 
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CATEGORIAS
+===================================================== -->
+
+<section class="py-4 bg-light">
+
+    <div class="container">
+
+        <div
+            class="d-flex flex-wrap gap-2 justify-content-center"
+        >
+
+            <a
+                href="#ultimas-noticias"
+                class="btn btn-outline-dark"
+            >
+                Todas
             </a>
 
 
-            <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarBlog"
-                aria-controls="navbarBlog"
-                aria-expanded="false"
-                aria-label="Abrir menu"
+            <a
+                href="#economia"
+                class="btn btn-outline-success"
+            >
+                Economia
+            </a>
+
+
+            <a
+                href="#investimentos"
+                class="btn btn-outline-success"
+            >
+                Investimentos
+            </a>
+
+
+            <a
+                href="#tributacao"
+                class="btn btn-outline-success"
+            >
+                Tributação
+            </a>
+
+
+            <a
+                href="#financas"
+                class="btn btn-outline-success"
+            >
+                Finanças Pessoais
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     DESTAQUE
+===================================================== -->
+
+<section
+    id="economia"
+    class="py-5"
+>
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span
+                class="text-success fw-bold"
+            >
+                EM DESTAQUE
+            </span>
+
+
+            <h2
+                class="fw-bold mt-2"
             >
 
-                <span class="navbar-toggler-icon"></span>
+                A economia brasileira em foco
 
-            </button>
+            </h2>
 
+        </div>
+
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-10">
+
+                <div
+                    class="card border-0 shadow overflow-hidden"
+                >
+
+                    <div class="row g-0">
+
+
+                        <div class="col-lg-6">
+
+                            <img
+                                src="../assets/img/economia-eleicoes-2026.png"
+                                alt="Economia brasileira e eleições de 2026"
+                                class="img-fluid w-100 h-100"
+                                style="object-fit:cover;"
+                            >
+
+                        </div>
+
+
+                        <div class="col-lg-6">
+
+                            <div class="card-body p-4 p-lg-5">
+
+                                <span
+                                    class="badge mb-3"
+                                    style="
+                                        background:#00C853;
+                                        color:#111111;
+                                    "
+                                >
+                                    Economia
+                                </span>
+
+
+                                <h2
+                                    class="fw-bold"
+                                >
+
+                                    Como a eleição de 2026
+                                    está influenciando a
+                                    economia brasileira
+
+                                </h2>
+
+
+                                <p
+                                    class="text-muted mt-3"
+                                >
+
+                                    Juros, câmbio, inflação e
+                                    contas públicas entram no
+                                    radar dos investidores em
+                                    um ano marcado pela disputa
+                                    eleitoral.
+
+                                </p>
+
+
+                                <div
+                                    class="text-muted small mb-4"
+                                >
+
+                                    <i class="bi bi-calendar3"></i>
+
+                                    21 de setembro de 2026
+
+                                </div>
+
+
+                                <a
+                                    href="artigo.html"
+                                    class="btn"
+                                    style="
+                                        background:#D4AF37;
+                                        color:#111111;
+                                        font-weight:600;
+                                    "
+                                >
+
+                                    Ler matéria
+
+                                    <i
+                                        class="bi bi-arrow-right"
+                                    ></i>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ÚLTIMAS NOTÍCIAS
+===================================================== -->
+
+<section
+    id="ultimas-noticias"
+    class="py-5 bg-light"
+>
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span
+                class="text-success fw-bold"
+            >
+                CONTEÚDO ATUALIZADO
+            </span>
+
+
+            <h2
+                class="fw-bold mt-2"
+            >
+
+                Últimas notícias
+
+            </h2>
+
+
+            <p class="text-muted">
+
+                Confira os conteúdos mais recentes
+                publicados no Investimentos Visionários.
+
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- =================================================
+                 MATÉRIA 1
+            ================================================== -->
 
             <div
-                class="collapse navbar-collapse"
-                id="navbarBlog"
+                id="investimentos"
+                class="col-md-6 col-lg-4"
             >
 
-                <ul class="navbar-nav ms-auto align-items-lg-center">
+                <article
+                    class="card h-100 border-0 shadow-sm overflow-hidden"
+                >
+
+                    <img
+                        src="../assets/img/selic-renda-fixa-2026.png"
+                        alt="Selic caiu para 13,75% e renda fixa"
+                        class="card-img-top"
+                    >
 
 
-                    <li class="nav-item">
+                    <div class="card-body d-flex flex-column">
 
-                        <a
-                            class="nav-link"
-                            href="../"
+                        <span
+                            class="badge align-self-start mb-3"
+                            style="
+                                background:#00C853;
+                                color:#111111;
+                            "
+                        >
+                            Economia
+                        </span>
+
+
+                        <h3
+                            class="h5 fw-bold"
                         >
 
-                            Início
+                            Selic caiu para 13,75%:
+                            o que muda para quem investe
+                            em renda fixa?
+
+                        </h3>
+
+
+                        <p
+                            class="text-muted"
+                        >
+
+                            Entenda como a mudança da taxa
+                            básica de juros pode afetar CDB,
+                            Tesouro Selic, LCI, LCA e outros
+                            investimentos de renda fixa.
+
+                        </p>
+
+
+                        <div
+                            class="mt-auto"
+                        >
+
+                            <div
+                                class="text-muted small mb-3"
+                            >
+
+                                <i class="bi bi-calendar3"></i>
+
+                                22 de setembro de 2026
+
+                            </div>
+
+
+                            <a
+                                href="selic-renda-fixa-2026.html"
+                                class="btn btn-outline-success"
+                            >
+
+                                Ler matéria
+
+                                <i
+                                    class="bi bi-arrow-right"
+                                ></i>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 MATÉRIA 2
+            ================================================== -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <article
+                    class="card h-100 border-0 shadow-sm overflow-hidden"
+                >
+
+                    <img
+                        src="../assets/img/quanto-rende-1000-renda-fixa-2026.png"
+                        alt="Quanto rendem R$ 1.000 em investimentos de renda fixa"
+                        class="card-img-top"
+                    >
+
+
+                    <div class="card-body d-flex flex-column">
+
+                        <span
+                            class="badge align-self-start mb-3"
+                            style="
+                                background:#00C853;
+                                color:#111111;
+                            "
+                        >
+                            Investimentos
+                        </span>
+
+
+                        <h3
+                            class="h5 fw-bold"
+                        >
+
+                            Quanto rendem R$ 1.000
+                            em CDB, Tesouro Selic,
+                            LCI e LCA em 2026?
+
+                        </h3>
+
+
+                        <p
+                            class="text-muted"
+                        >
+
+                            Uma comparação didática mostra
+                            como rentabilidade, tributação,
+                            prazo e características do produto
+                            influenciam o resultado.
+
+                        </p>
+
+
+                        <div
+                            class="mt-auto"
+                        >
+
+                            <div
+                                class="text-muted small mb-3"
+                            >
+
+                                <i class="bi bi-calendar3"></i>
+
+                                22 de setembro de 2026
+
+                            </div>
+
+
+                            <a
+                                href="quanto-rende-1000-renda-fixa-2026.html"
+                                class="btn btn-outline-success"
+                            >
+
+                                Ler matéria
+
+                                <i
+                                    class="bi bi-arrow-right"
+                                ></i>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 MATÉRIA 3
+            ================================================== -->
+
+            <div
+                id="tributacao"
+                class="col-md-6 col-lg-4"
+            >
+
+                <article
+                    class="card h-100 border-0 shadow-sm overflow-hidden"
+                >
+
+                    <img
+                        src="../assets/img/imposto-renda-investimentos-2026.png"
+                        alt="Imposto de Renda 2026 para investidores"
+                        class="card-img-top"
+                    >
+
+
+                    <div class="card-body d-flex flex-column">
+
+                        <span
+                            class="badge align-self-start mb-3"
+                            style="
+                                background:#00C853;
+                                color:#111111;
+                            "
+                        >
+                            Tributação
+                        </span>
+
+
+                        <h3
+                            class="h5 fw-bold"
+                        >
+
+                            Imposto de Renda 2026:
+                            o que mudou para quem investe?
+
+                        </h3>
+
+
+                        <p
+                            class="text-muted"
+                        >
+
+                            Entenda os principais pontos sobre
+                            renda fixa, ações, day trade,
+                            dividendos, investimentos no exterior
+                            e declaração.
+
+                        </p>
+
+
+                        <div
+                            class="mt-auto"
+                        >
+
+                            <div
+                                class="text-muted small mb-3"
+                            >
+
+                                <i class="bi bi-calendar3"></i>
+
+                                22 de setembro de 2026
+
+                            </div>
+
+
+                            <a
+                                href="imposto-renda-investimentos-2026.html"
+                                class="btn btn-outline-success"
+                            >
+
+                                Ler matéria
+
+                                <i
+                                    class="bi bi-arrow-right"
+                                ></i>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 MATÉRIA 4
+            ================================================== -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <article
+                    class="card h-100 border-0 shadow-sm overflow-hidden"
+                >
+
+                    <img
+                        src="../assets/img/economia-eleicoes-2026.png"
+                        alt="Economia brasileira e eleições de 2026"
+                        class="card-img-top"
+                    >
+
+
+                    <div class="card-body d-flex flex-column">
+
+                        <span
+                            class="badge align-self-start mb-3"
+                            style="
+                                background:#00C853;
+                                color:#111111;
+                            "
+                        >
+                            Economia
+                        </span>
+
+
+                        <h3
+                            class="h5 fw-bold"
+                        >
+
+                            Como a eleição de 2026
+                            está influenciando a
+                            economia brasileira
+
+                        </h3>
+
+
+                        <p
+                            class="text-muted"
+                        >
+
+                            Entenda por que juros, inflação,
+                            câmbio e contas públicas estão no
+                            radar dos investidores durante o
+                            período eleitoral.
+
+                        </p>
+
+
+                        <div
+                            class="mt-auto"
+                        >
+
+                            <div
+                                class="text-muted small mb-3"
+                            >
+
+                                <i class="bi bi-calendar3"></i>
+
+                                21 de setembro de 2026
+
+                            </div>
+
+
+                            <a
+                                href="artigo.html"
+                                class="btn btn-outline-success"
+                            >
+
+                                Ler matéria
+
+                                <i
+                                    class="bi bi-arrow-right"
+                                ></i>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CTA CALCULADORAS
+===================================================== -->
+
+<section
+    id="financas"
+    class="py-5"
+>
+
+    <div class="container">
+
+        <div
+            class="p-4 p-lg-5 rounded text-center"
+            style="
+                background:#1F1F1F;
+                color:#FFFFFF;
+                border-top:4px solid #D4AF37;
+            "
+        >
+
+            <h2
+                class="fw-bold"
+            >
+
+                Transforme informação em ação.
+
+            </h2>
+
+
+            <p
+                class="mt-3 mb-4"
+                style="color:#D5D5D5;"
+            >
+
+                Faça simulações, compare cenários e
+                organize melhor suas decisões financeiras
+                utilizando nossas ferramentas gratuitas.
+
+            </p>
+
+
+            <a
+                href="../#ferramentas"
+                class="btn btn-lg"
+                style="
+                    background:#D4AF37;
+                    color:#111111;
+                    font-weight:600;
+                "
+            >
+
+                Acessar calculadoras
+
+                <i
+                    class="bi bi-arrow-right"
+                ></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     NEWSLETTER
+===================================================== -->
+
+<section
+    class="py-5 bg-dark text-white"
+>
+
+    <div class="container">
+
+        <div
+            class="row justify-content-center"
+        >
+
+            <div class="col-lg-8 text-center">
+
+                <h2
+                    class="fw-bold"
+                >
+
+                    Informação também é investimento.
+
+                </h2>
+
+
+                <p>
+
+                    Receba conteúdos sobre finanças,
+                    investimentos e economia.
+
+                </p>
+
+
+                <a
+                    href="../#newsletter"
+                    class="btn"
+                    style="
+                        background:#D4AF37;
+                        color:#111111;
+                        font-weight:600;
+                    "
+                >
+
+                    Quero receber conteúdos
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONSULTORIA
+===================================================== -->
+
+<section class="py-5">
+
+    <div class="container">
+
+        <div
+            class="text-center"
+        >
+
+            <h2
+                class="fw-bold"
+            >
+
+                Precisa de ajuda para organizar
+                suas finanças?
+
+            </h2>
+
+
+            <p
+                class="text-muted"
+            >
+
+                Conheça a consultoria financeira do
+                Investimentos Visionários.
+
+            </p>
+
+
+            <a
+                href="../consultoria/"
+                class="btn btn-success"
+            >
+
+                Conhecer consultoria
+
+                <i
+                    class="bi bi-arrow-right"
+                ></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer
+    class="py-5"
+    style="
+        background:#111111;
+        color:#FFFFFF;
+    "
+>
+
+    <div class="container">
+
+        <div class="row g-4">
+
+
+            <div class="col-lg-4">
+
+                <img
+                    src="../assets/img/logo.png"
+                    alt="Investimentos Visionários"
+                    height="50"
+                    class="mb-3"
+                >
+
+
+                <p
+                    style="color:#BDBDBD;"
+                >
+
+                    Educação financeira para decisões
+                    mais conscientes.
+
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-4">
+
+                <h5
+                    class="fw-bold"
+                >
+
+                    Blog
+
+                </h5>
+
+
+                <ul
+                    class="list-unstyled"
+                >
+
+                    <li class="mb-2">
+
+                        <a
+                            href="#ultimas-noticias"
+                            class="text-decoration-none text-light"
+                        >
+
+                            Últimas notícias
 
                         </a>
 
                     </li>
 
 
-                    <li class="nav-item">
+                    <li class="mb-2">
 
                         <a
-                            class="nav-link active"
-                            aria-current="page"
-                            href="index.html"
-                        >
-
-                            Blog
-
-                        </a>
-
-                    </li>
-
-
-                    <li class="nav-item">
-
-                        <a
-                            class="nav-link"
                             href="../#ferramentas"
+                            class="text-decoration-none text-light"
                         >
 
                             Calculadoras
@@ -181,11 +1197,11 @@
                     </li>
 
 
-                    <li class="nav-item">
+                    <li>
 
                         <a
-                            class="nav-link"
                             href="../consultoria/"
+                            class="text-decoration-none text-light"
                         >
 
                             Consultoria
@@ -194,1107 +1210,68 @@
 
                     </li>
 
-
-                    <li class="nav-item">
-
-                        <a
-                            class="nav-link"
-                            href="../#contato"
-                        >
-
-                            Contato
-
-                        </a>
-
-                    </li>
-
-
                 </ul>
 
             </div>
 
-        </div>
 
-    </nav>
+            <div class="col-lg-4">
 
-
-
-    <!-- ===================================================== -->
-    <!-- HERO DO BLOG -->
-    <!-- ===================================================== -->
-
-    <section
-        class="py-5"
-        style="
-            background:
-            linear-gradient(
-                135deg,
-                #111111,
-                #1f1f1f
-            );
-            color: white;
-        "
-    >
-
-        <div class="container py-4">
-
-            <div class="row align-items-center">
-
-
-                <div class="col-lg-8">
-
-
-                    <span
-                        class="badge mb-3"
-                        style="
-                            background:#00C853;
-                            color:#111111;
-                            font-size:0.85rem;
-                            padding:8px 14px;
-                        "
-                    >
-
-                        BLOG
-
-                    </span>
-
-
-                    <h1
-                        class="display-5 fw-bold"
-                    >
-
-                        Informação também é
-                        <span style="color:#D4AF37;">
-                            investimento.
-                        </span>
-
-                    </h1>
-
-
-                    <p
-                        class="lead mt-3"
-                        style="color:#dddddd;"
-                    >
-
-                        Notícias, análises e conteúdos para
-                        ajudar você a entender melhor a economia,
-                        os investimentos e suas decisões financeiras.
-
-                    </p>
-
-
-                </div>
-
-
-                <div class="col-lg-4 text-center mt-4 mt-lg-0">
-
-
-                    <img
-                        src="../assets/img/logo.png"
-                        alt="Investimentos Visionários"
-                        class="img-fluid"
-                        style="max-height:180px;"
-                    >
-
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ===================================================== -->
-    <!-- CATEGORIAS -->
-    <!-- ===================================================== -->
-
-    <section class="py-4 bg-light">
-
-        <div class="container">
-
-
-            <div
-                class="d-flex flex-wrap gap-2 justify-content-center"
-            >
-
-
-                <a
-                    href="#ultimas-noticias"
-                    class="btn btn-outline-dark btn-sm"
-                >
-
-                    Todas
-
-                </a>
-
-
-                <a
-                    href="#economia"
-                    class="btn btn-outline-success btn-sm"
-                >
-
-                    Economia
-
-                </a>
-
-
-                <a
-                    href="#investimentos"
-                    class="btn btn-outline-success btn-sm"
-                >
-
-                    Investimentos
-
-                </a>
-
-
-                <a
-                    href="#financas"
-                    class="btn btn-outline-success btn-sm"
-                >
-
-                    Finanças pessoais
-
-                </a>
-
-
-                <a
-                    href="#mercado"
-                    class="btn btn-outline-success btn-sm"
-                >
-
-                    Mercado financeiro
-
-                </a>
-
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ===================================================== -->
-    <!-- DESTAQUE -->
-    <!-- ===================================================== -->
-
-    <section class="py-5">
-
-        <div class="container">
-
-
-            <div class="row align-items-center g-4">
-
-
-                <div class="col-lg-7">
-
-
-                    <div
-                        class="rounded overflow-hidden shadow-sm"
-                    >
-
-                        <img
-    src="../assets/img/economia-eleicoes-2026.png"
-    alt="Economia brasileira e eleições de 2026"
-    class="img-fluid w-100"
->
-
-                    </div>
-
-
-                </div>
-
-
-                <div class="col-lg-5">
-
-
-                    <span
-                        class="blog-category"
-                    >
-
-                        Economia
-
-                    </span>
-
-
-                    <small
-                        class="d-block text-muted mt-2 mb-2"
-                    >
-
-                        21 de setembro de 2026
-
-                    </small>
-
-
-                    <h2
-                        class="fw-bold"
-                    >
-
-                        Como a eleição de 2026
-                        está influenciando a
-                        economia brasileira
-
-                    </h2>
-
-
-                    <p
-                        class="text-muted"
-                    >
-
-                        Juros, câmbio, inflação e contas públicas
-                        entram no radar dos investidores em um ano
-                        marcado pela disputa eleitoral.
-
-                    </p>
-
-
-                    <a
-                        href="artigo.html"
-                        class="btn btn-success"
-                    >
-
-                        Ler notícia
-
-                        <i
-                            class="bi bi-arrow-right ms-2"
-                        ></i>
-
-                    </a>
-
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ===================================================== -->
-    <!-- ÚLTIMAS NOTÍCIAS -->
-    <!-- ===================================================== -->
-
-    <section
-        id="ultimas-noticias"
-        class="py-5 bg-light"
-    >
-
-        <div class="container">
-
-
-            <div
-                class="text-center mb-5"
-            >
-
-                <span
-                    class="text-success fw-semibold"
-                >
-
-                    CONTEÚDO
-
-                </span>
-
-
-                <h2
-                    class="fw-bold mt-2"
-                >
-
-                    Últimas notícias
-
-                </h2>
-
-
-                <p
-                    class="text-muted"
-                >
-
-                    Acompanhe conteúdos sobre economia,
-                    investimentos e educação financeira.
-
-                </p>
-
-            </div>
-
-
-
-            <div class="row g-4">
-
-
-
-                <!-- ================================================= -->
-                <!-- ARTIGO 1 -->
-                <!-- ================================================= -->
-
-                <div
-                    class="col-lg-4 col-md-6"
-                    id="economia"
-                >
-
-                    <article
-                        class="blog-card h-100"
-                    >
-
-
-                        <div
-                            class="blog-card-image"
-                        >
-
-                            <img
-    src="../assets/img/economia-eleicoes-2026.png"
-    alt="Economia brasileira e eleições de 2026"
->
-
-                        </div>
-
-
-                        <div
-                            class="blog-card-content"
-                        >
-
-
-                            <span
-                                class="blog-category"
-                            >
-
-                                Economia
-
-                            </span>
-
-
-                            <small
-                                class="blog-date"
-                            >
-
-                                21 de setembro de 2026
-
-                            </small>
-
-
-                            <h3>
-
-                                Como a eleição de 2026 está
-                                influenciando a economia brasileira
-
-                            </h3>
-
-
-                            <p>
-
-                                Juros, câmbio, inflação e contas
-                                públicas entram no radar dos investidores
-                                em um ano marcado pela disputa eleitoral.
-
-                            </p>
-
-
-                            <a
-                                href="artigo.html"
-                                class="btn btn-success"
-                            >
-
-                                Ler notícia
-
-                                <i
-                                    class="bi bi-arrow-right ms-2"
-                                ></i>
-
-                            </a>
-
-
-                        </div>
-
-
-                    </article>
-
-                </div>
-
-
-
-                <!-- ================================================= -->
-                <!-- ARTIGO 2 -->
-                <!-- ================================================= -->
-
-                <div
-                    class="col-lg-4 col-md-6"
-                    id="investimentos"
-                >
-
-                    <article
-                        class="blog-card h-100"
-                    >
-
-
-                        <div
-                            class="blog-card-image"
-                        >
-
-                            <img
-                                src="../assets/img/logo.png"
-                                alt="Investimentos"
-                            >
-
-                        </div>
-
-
-                        <div
-                            class="blog-card-content"
-                        >
-
-
-                            <span
-                                class="blog-category"
-                            >
-
-                                Investimentos
-
-                            </span>
-
-
-                            <small
-                                class="blog-date"
-                            >
-
-                                Em breve
-
-                            </small>
-
-
-                            <h3>
-
-                                Conteúdos sobre investimentos
-
-                            </h3>
-
-
-                            <p>
-
-                                Em breve, novos conteúdos sobre
-                                ações, fundos imobiliários, renda fixa
-                                e construção de patrimônio.
-
-                            </p>
-
-
-                            <button
-                                type="button"
-                                class="btn btn-outline-success"
-                                disabled
-                            >
-
-                                Em breve
-
-                            </button>
-
-
-                        </div>
-
-
-                    </article>
-
-                </div>
-
-
-
-                <!-- ================================================= -->
-                <!-- ARTIGO 3 -->
-                <!-- ================================================= -->
-
-                <div
-                    class="col-lg-4 col-md-6"
-                    id="financas"
-                >
-
-                    <article
-                        class="blog-card h-100"
-                    >
-
-
-                        <div
-                            class="blog-card-image"
-                        >
-
-                            <img
-                                src="../assets/img/logo.png"
-                                alt="Finanças pessoais"
-                            >
-
-                        </div>
-
-
-                        <div
-                            class="blog-card-content"
-                        >
-
-
-                            <span
-                                class="blog-category"
-                            >
-
-                                Finanças pessoais
-
-                            </span>
-
-
-                            <small
-                                class="blog-date"
-                            >
-
-                                Em breve
-
-                            </small>
-
-
-                            <h3>
-
-                                Educação financeira na prática
-
-                            </h3>
-
-
-                            <p>
-
-                                Estratégias para organizar as finanças,
-                                controlar gastos, formar reservas e
-                                construir um futuro financeiro mais seguro.
-
-                            </p>
-
-
-                            <button
-                                type="button"
-                                class="btn btn-outline-success"
-                                disabled
-                            >
-
-                                Em breve
-
-                            </button>
-
-
-                        </div>
-
-
-                    </article>
-
-                </div>
-
-
-
-                <!-- ================================================= -->
-                <!-- ARTIGO 4 -->
-                <!-- ================================================= -->
-
-                <div
-                    class="col-lg-4 col-md-6"
-                    id="mercado"
-                >
-
-                    <article
-                        class="blog-card h-100"
-                    >
-
-
-                        <div
-                            class="blog-card-image"
-                        >
-
-                            <img
-                                src="../assets/img/logo.png"
-                                alt="Mercado financeiro"
-                            >
-
-                        </div>
-
-
-                        <div
-                            class="blog-card-content"
-                        >
-
-
-                            <span
-                                class="blog-category"
-                            >
-
-                                Mercado financeiro
-
-                            </span>
-
-
-                            <small
-                                class="blog-date"
-                            >
-
-                                Em breve
-
-                            </small>
-
-
-                            <h3>
-
-                                Mercado financeiro
-
-                            </h3>
-
-
-                            <p>
-
-                                Acompanhe análises e explicações sobre
-                                os principais acontecimentos que movimentam
-                                os mercados.
-
-                            </p>
-
-
-                            <button
-                                type="button"
-                                class="btn btn-outline-success"
-                                disabled
-                            >
-
-                                Em breve
-
-                            </button>
-
-
-                        </div>
-
-
-                    </article>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ===================================================== -->
-    <!-- NEWSLETTER -->
-    <!-- ===================================================== -->
-
-    <section
-        class="py-5"
-        style="
-            background:#111111;
-            color:white;
-        "
-    >
-
-        <div class="container">
-
-
-            <div
-                class="row justify-content-center text-center"
-            >
-
-                <div class="col-lg-8">
-
-
-                    <span
-                        class="text-success fw-semibold"
-                    >
-
-                        FIQUE POR DENTRO
-
-                    </span>
-
-
-                    <h2
-                        class="fw-bold mt-2"
-                    >
-
-                        Receba novos conteúdos
-
-                    </h2>
-
-
-                    <p
-                        class="text-light"
-                    >
-
-                        Cadastre-se para receber novidades,
-                        conteúdos financeiros, ferramentas e
-                        materiais gratuitos do Investimentos Visionários.
-
-                    </p>
-
-
-                    <a
-                        href="../#newsletter"
-                        class="btn btn-success mt-2"
-                    >
-
-                        Quero receber conteúdos
-
-                        <i
-                            class="bi bi-arrow-right ms-2"
-                        ></i>
-
-                    </a>
-
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ===================================================== -->
-    <!-- CTA CONSULTORIA -->
-    <!-- ===================================================== -->
-
-    <section class="py-5">
-
-        <div class="container">
-
-
-            <div
-                class="rounded p-4 p-lg-5 text-center"
-                style="
-                    background:#1F1F1F;
-                    color:white;
-                "
-            >
-
-
-                <h2
+                <h5
                     class="fw-bold"
                 >
 
-                    Quer organizar melhor sua
-                    vida financeira?
+                    Investimentos Visionários
 
-                </h2>
+                </h5>
 
 
                 <p
-                    class="mt-3 mb-4"
-                    style="color:#dddddd;"
+                    style="color:#BDBDBD;"
                 >
 
-                    Conheça a consultoria financeira do
-                    Investimentos Visionários e veja como
-                    podemos trabalhar juntos na construção
-                    dos seus objetivos.
+                    Conteúdo, ferramentas e educação
+                    financeira.
 
                 </p>
 
-
-                <a
-                    href="../consultoria/"
-                    class="btn btn-success"
-                >
-
-                    Conhecer a consultoria
-
-                    <i
-                        class="bi bi-arrow-right ms-2"
-                    ></i>
-
-                </a>
-
-
             </div>
-
 
         </div>
 
-    </section>
 
+        <hr
+            class="my-4"
+            style="border-color:#333333;"
+        >
 
 
-    <!-- ===================================================== -->
-    <!-- FOOTER -->
-    <!-- ===================================================== -->
+        <div
+            class="text-center"
+        >
 
-    <footer
-        class="py-5"
-        style="
-            background:#111111;
-            color:white;
-        "
-    >
-
-        <div class="container">
-
-
-            <div class="row g-4">
-
-
-                <div class="col-lg-5">
-
-
-                    <img
-                        src="../assets/img/logo.png"
-                        alt="Investimentos Visionários"
-                        style="
-                            max-width:220px;
-                            height:auto;
-                        "
-                        class="mb-3"
-                    >
-
-
-                    <p
-                        style="color:#bbbbbb;"
-                    >
-
-                        Informação, educação financeira e
-                        ferramentas para ajudar você a tomar
-                        decisões financeiras mais conscientes.
-
-                    </p>
-
-
-                </div>
-
-
-
-                <div class="col-lg-2 col-md-4">
-
-
-                    <h5
-                        class="fw-bold"
-                    >
-
-                        Navegação
-
-                    </h5>
-
-
-                    <ul
-                        class="list-unstyled mt-3"
-                    >
-
-
-                        <li class="mb-2">
-
-                            <a
-                                href="../"
-                                class="text-decoration-none"
-                                style="color:#bbbbbb;"
-                            >
-
-                                Início
-
-                            </a>
-
-                        </li>
-
-
-                        <li class="mb-2">
-
-                            <a
-                                href="index.html"
-                                class="text-decoration-none"
-                                style="color:#bbbbbb;"
-                            >
-
-                                Blog
-
-                            </a>
-
-                        </li>
-
-
-                        <li class="mb-2">
-
-                            <a
-                                href="../#ferramentas"
-                                class="text-decoration-none"
-                                style="color:#bbbbbb;"
-                            >
-
-                                Calculadoras
-
-                            </a>
-
-                        </li>
-
-
-                        <li>
-
-                            <a
-                                href="../consultoria/"
-                                class="text-decoration-none"
-                                style="color:#bbbbbb;"
-                            >
-
-                                Consultoria
-
-                            </a>
-
-                        </li>
-
-
-                    </ul>
-
-                </div>
-
-
-
-                <div class="col-lg-2 col-md-4">
-
-
-                    <h5
-                        class="fw-bold"
-                    >
-
-                        Conteúdos
-
-                    </h5>
-
-
-                    <ul
-                        class="list-unstyled mt-3"
-                    >
-
-
-                        <li class="mb-2">
-
-                            <a
-                                href="#economia"
-                                class="text-decoration-none"
-                                style="color:#bbbbbb;"
-                            >
-
-                                Economia
-
-                            </a>
-
-                        </li>
-
-
-                        <li class="mb-2">
-
-                            <a
-                                href="#investimentos"
-                                class="text-decoration-none"
-                                style="color:#bbbbbb;"
-                            >
-
-                                Investimentos
-
-                            </a>
-
-                        </li>
-
-
-                        <li class="mb-2">
-
-                            <a
-                                href="#financas"
-                                class="text-decoration-none"
-                                style="color:#bbbbbb;"
-                            >
-
-                                Finanças pessoais
-
-                            </a>
-
-                        </li>
-
-
-                        <li>
-
-                            <a
-                                href="#mercado"
-                                class="text-decoration-none"
-                                style="color:#bbbbbb;"
-                            >
-
-                                Mercado financeiro
-
-                            </a>
-
-                        </li>
-
-
-                    </ul>
-
-                </div>
-
-
-
-                <div class="col-lg-3 col-md-4">
-
-
-                    <h5
-                        class="fw-bold"
-                    >
-
-                        Investimentos Visionários
-
-                    </h5>
-
-
-                    <p
-                        class="mt-3"
-                        style="color:#bbbbbb;"
-                    >
-
-                        Conhecimento é uma das ferramentas
-                        mais importantes para construir um
-                        futuro financeiro melhor.
-
-                    </p>
-
-
-                </div>
-
-
-            </div>
-
-
-            <hr
-                class="my-4"
-                style="border-color:#333333;"
-            >
-
-
-            <div
-                class="text-center"
+            <small
                 style="color:#888888;"
             >
 
                 © 2026 Investimentos Visionários.
                 Todos os direitos reservados.
 
-            </div>
-
+            </small>
 
         </div>
 
-    </footer>
+    </div>
+
+</footer>
 
 
 
-    <!-- ===================================================== -->
-    <!-- BOOTSTRAP JS -->
-    <!-- ===================================================== -->
+<!-- BOOTSTRAP JS -->
 
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    ></script>
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+></script>
 
 
 </body>
