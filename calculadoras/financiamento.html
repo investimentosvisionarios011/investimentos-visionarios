@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de Financiamento | SAC e PRICE | Investimentos Visionários</title>
+<meta name="description" content="Calcule financiamento pelo sistema SAC ou PRICE. Veja parcelas, juros totais, valor total pago e evolução do saldo devedor.">
+<link rel="canonical" href="https://investimentosvisionarios.com.br/calculadoras/financiamento.html">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<style>
+:root{--black:#111;--charcoal:#1f1f1f;--gold:#d4af37;--green:#00c853;--darkgreen:#009624;--light:#f5f5f5}
+body{background:var(--light)}.navbar{background:var(--black)!important}.brand-logo{max-height:48px;width:auto}
+.hero{background:linear-gradient(135deg,#111,#1f1f1f);color:#fff}.hero h1 span{color:var(--green)}
+.cardx{border:0;border-radius:18px;box-shadow:0 8px 28px #00000014;background:#fff}
+.form-control,.form-select{min-height:48px;border-radius:10px}.form-control:focus,.form-select:focus{border-color:var(--green);box-shadow:0 0 0 .2rem #00c85326}
+.btn-success{background:var(--green);border-color:var(--green);color:#111;font-weight:700}.btn-success:hover{background:var(--darkgreen);border-color:var(--darkgreen);color:#fff}
+.btn-outline-success{color:var(--darkgreen);border-color:var(--green);font-weight:700}
+.highlight{background:linear-gradient(135deg,#111,#1f1f1f);color:#fff;border-radius:16px;padding:24px}.highlight .value{color:var(--green);font-size:1.65rem;font-weight:800}
+.metric{background:#fff;border-radius:14px;padding:18px;height:100%;border-left:4px solid var(--green)}.metric small{color:#666}.metric strong{display:block;margin-top:4px;font-size:1.15rem}
+.sac{border-top:5px solid var(--green)}.price{border-top:5px solid var(--gold)}
+.table-wrap{max-height:520px;overflow:auto}.table thead th{position:sticky;top:0;background:var(--charcoal);color:#fff;z-index:2}
+.info{background:#fff;border-left:4px solid var(--gold);border-radius:10px;padding:18px}.footer{background:#111;color:#fff}
+@media(max-width:768px){.hero{text-align:center}}
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark">
+<div class="container">
+<a class="navbar-brand" href="../"><img src="../assets/img/logo.png" class="brand-logo" alt="Investimentos Visionários"></a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
+<div class="collapse navbar-collapse" id="nav"><ul class="navbar-nav ms-auto">
+<li class="nav-item"><a class="nav-link" href="../">Início</a></li>
+<li class="nav-item"><a class="nav-link" href="../#ferramentas">Ferramentas</a></li>
+<li class="nav-item"><a class="nav-link" href="../blog/">Blog</a></li>
+<li class="nav-item"><a class="nav-link" href="../consultoria/">Consultoria</a></li>
+</ul></div>
+</div>
+</nav>
+
+<header class="hero py-5"><div class="container py-4"><div class="row align-items-center g-4">
+<div class="col-lg-8"><span class="badge bg-success text-dark mb-3">CALCULADORA GRATUITA</span>
+<h1 class="display-5 fw-bold">Calculadora de <span>Financiamento</span></h1>
+<p class="lead mt-3 mb-0">Simule seu financiamento pelos sistemas <strong>SAC</strong> e <strong>PRICE</strong> e veja quanto você poderá pagar ao longo do contrato.</p></div>
+<div class="col-lg-4 text-lg-end"><i class="bi bi-calculator-fill" style="font-size:7rem;color:#d4af37" aria-hidden="true"></i></div>
+</div></div></header>
+
+<main>
+<section class="py-5"><div class="container"><div class="row g-4">
+<div class="col-lg-5"><div class="card cardx p-4">
+<h2 class="h4 fw-bold mb-4"><i class="bi bi-sliders me-2 text-success"></i>Dados do financiamento</h2>
+<div class="mb-3"><label for="bem" class="form-label">Valor do bem (R$)</label><input type="number" class="form-control" id="bem" min="0" step="0.01" value="400000"></div>
+<div class="mb-3"><label for="entrada" class="form-label">Entrada (R$)</label><input type="number" class="form-control" id="entrada" min="0" step="0.01" value="100000"></div>
+<div class="mb-3"><label for="taxa" class="form-label">Taxa de juros mensal (%)</label><input type="number" class="form-control" id="taxa" min="0" step="0.0001" value="0.80"><div class="form-text">Informe a taxa mensal.</div></div>
+<div class="mb-3"><label for="prazo" class="form-label">Prazo (anos)</label><input type="number" class="form-control" id="prazo" min="1" max="50" step="1" value="30"><div class="form-text"><span id="meses">360</span> meses.</div></div>
+<div class="mb-4"><label for="sistema" class="form-label">Sistema de amortização</label><select class="form-select" id="sistema"><option value="SAC">SAC — parcelas decrescentes</option><option value="PRICE">PRICE — parcelas fixas</option></select></div>
+<button id="calcular" class="btn btn-success btn-lg w-100"><i class="bi bi-calculator me-2"></i>Calcular financiamento</button>
+<button id="limpar" class="btn btn-outline-success w-100 mt-2">Limpar</button>
+</div></div>
+
+<div class="col-lg-7">
+<div class="highlight mb-4"><div class="small text-uppercase opacity-75">Sistema selecionado</div><h2 id="sistemaResultado" class="h3 mt-1 mb-3">SAC — parcelas decrescentes</h2>
+<div class="row g-3"><div class="col-md-6"><div class="small opacity-75">Primeira parcela</div><div id="primeira" class="value">R$ 0,00</div></div>
+<div class="col-md-6"><div class="small opacity-75">Última parcela</div><div id="ultima" class="value">R$ 0,00</div></div></div></div>
+<div class="row g-3 mb-4">
+<div class="col-md-4"><div class="metric"><small>Valor financiado</small><strong id="financiado">R$ 0,00</strong></div></div>
+<div class="col-md-4"><div class="metric"><small>Total de juros</small><strong id="juros">R$ 0,00</strong></div></div>
+<div class="col-md-4"><div class="metric"><small>Total pago</small><strong id="total">R$ 0,00</strong></div></div>
+</div>
+<div class="info"><strong><i class="bi bi-lightbulb text-warning me-2"></i>Importante</strong><p class="mb-0 mt-2 text-muted">Esta simulação considera principal e juros informados. Um financiamento real pode incluir seguros, tarifas, impostos, correção monetária e outros encargos. Para comparar propostas, confira o <strong>CET (Custo Efetivo Total)</strong>.</p></div>
+</div></div></div></section>
+
+<section class="py-5 bg-white"><div class="container"><div class="text-center mb-5"><h2 class="fw-bold">SAC x PRICE</h2><p class="text-muted">Compare os dois sistemas usando os mesmos dados.</p></div>
+<div class="row g-4">
+<div class="col-lg-6"><div class="card cardx sac h-100 p-4"><div class="d-flex justify-content-between align-items-center mb-3"><h3 class="h4 mb-0">SAC</h3><span class="badge bg-success text-dark">Amortização constante</span></div><p class="text-muted">A amortização do principal é constante. Como o saldo diminui, os juros também tendem a cair e as parcelas diminuem.</p><div class="row g-3">
+<div class="col-6"><small>1ª parcela</small><strong id="s1" class="d-block fs-5">R$ 0,00</strong></div><div class="col-6"><small>Última parcela</small><strong id="sl" class="d-block fs-5">R$ 0,00</strong></div><div class="col-6"><small>Total de juros</small><strong id="sj" class="d-block fs-5">R$ 0,00</strong></div><div class="col-6"><small>Total pago</small><strong id="st" class="d-block fs-5">R$ 0,00</strong></div></div></div></div>
+<div class="col-lg-6"><div class="card cardx price h-100 p-4"><div class="d-flex justify-content-between align-items-center mb-3"><h3 class="h4 mb-0">PRICE</h3><span class="badge text-dark" style="background:#d4af37">Parcela fixa</span></div><p class="text-muted">A prestação calculada permanece constante quando taxa e condições do contrato permanecem constantes. No início, a parcela contém mais juros.</p><div class="row g-3">
+<div class="col-6"><small>1ª parcela</small><strong id="p1" class="d-block fs-5">R$ 0,00</strong></div><div class="col-6"><small>Última parcela</small><strong id="pl" class="d-block fs-5">R$ 0,00</strong></div><div class="col-6"><small>Total de juros</small><strong id="pj" class="d-block fs-5">R$ 0,00</strong></div><div class="col-6"><small>Total pago</small><strong id="pt" class="d-block fs-5">R$ 0,00</strong></div></div></div></div>
+</div></div></section>
+
+<section class="py-5"><div class="container"><div class="text-center mb-4"><h2 class="fw-bold">Evolução do financiamento</h2><p class="text-muted">Veja juros, amortização e saldo devedor mês a mês.</p></div>
+<div class="card cardx p-3 p-md-4"><div class="table-responsive table-wrap"><table class="table table-hover align-middle mb-0">
+<thead><tr><th>Parcela</th><th>Valor</th><th>Juros</th><th>Amortização</th><th>Saldo devedor</th></tr></thead>
+<tbody id="tabela"></tbody></table></div></div></div></section>
+
+<section class="py-5 bg-white"><div class="container"><div class="row g-4">
+<div class="col-lg-6"><h2 class="fw-bold">Como funciona o SAC?</h2><p>No Sistema de Amortização Constante, o valor amortizado do principal é constante em cada parcela. Como o saldo devedor diminui, os juros calculados sobre ele também tendem a diminuir.</p></div>
+<div class="col-lg-6"><h2 class="fw-bold">Como funciona o PRICE?</h2><p>No sistema PRICE, a prestação calculada é constante quando a taxa e as condições permanecem constantes. A composição entre juros e amortização muda ao longo do contrato.</p></div>
+</div><div class="info mt-4"><strong><i class="bi bi-exclamation-circle text-warning me-2"></i>Simulação educacional</strong><p class="mb-0 mt-2 text-muted">Esta ferramenta não substitui a proposta da instituição financeira. Contratos reais podem ter CET, seguros, tarifas, impostos, correção monetária e outras condições. Confira sempre o contrato.</p></div></div></section>
+</main>
+
+<footer class="footer py-5"><div class="container"><div class="row g-4">
+<div class="col-lg-4"><img src="../assets/img/logo.png" width="180" alt="Investimentos Visionários"><p class="mt-3">Educação financeira para quem deseja conquistar liberdade financeira.</p></div>
+<div class="col-lg-4"><h5>Calculadoras</h5><ul class="list-unstyled">
+<li class="mb-2"><a href="juros-compostos.html" class="text-light text-decoration-none">Juros Compostos</a></li>
+<li class="mb-2"><a href="cdi.html" class="text-light text-decoration-none">CDI</a></li>
+<li class="mb-2"><a href="tesouro-direto.html" class="text-light text-decoration-none">Tesouro Direto</a></li>
+<li class="mb-2"><a href="ipca.html" class="text-light text-decoration-none">IPCA</a></li>
+<li class="mb-2"><a href="reserva-emergencia.html" class="text-light text-decoration-none">Reserva de Emergência</a></li>
+<li class="mb-2"><a href="fire.html" class="text-light text-decoration-none">FIRE</a></li>
+<li class="mb-2"><a href="comparador.html" class="text-light text-decoration-none">Comparador de Investimentos</a></li>
+<li class="mb-2"><a href="dividendos.html" class="text-light text-decoration-none">Dividendos</a></li>
+<li class="mb-2"><a href="selic.html" class="text-light text-decoration-none">Selic</a></li>
+<li class="mb-2"><a href="aposentadoria.html" class="text-light text-decoration-none">Aposentadoria</a></li>
+<li class="mb-2"><a href="financiamento.html" class="text-success text-decoration-none fw-bold">Financiamento</a></li>
+</ul></div>
+<div class="col-lg-4"><h5>Contato</h5><p><i class="bi bi-envelope text-success me-2"></i><a href="mailto:contato@investimentosvisionarios.com.br" class="text-light text-decoration-none">contato@investimentosvisionarios.com.br</a></p><p><i class="bi bi-whatsapp text-success me-2"></i><a href="https://wa.me/5511970256673" target="_blank" rel="noopener noreferrer" class="text-light text-decoration-none">(11) 97025-6673</a></p></div>
+</div><hr class="border-secondary"><p class="text-center mb-0 text-secondary">© 2026 Investimentos Visionários. Todos os direitos reservados.</p></div></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+(() => {
+"use strict";
+const $=id=>document.getElementById(id), brl=new Intl.NumberFormat("pt-BR",{style:"currency",currency:"BRL"});
+const n=v=>Number.isFinite(Number(v))?Number(v):0, money=v=>brl.format(v||0);
+function sac(P,i,N){let A=P/N,s=P,a=[];for(let k=1;k<=N;k++){let j=s*i,am=Math.min(A,s),pay=j+am;s=Math.max(0,s-am);a.push({k,pay,j,am,s});}return a;}
+function price(P,i,N){let pay=i===0?P/N:P*i/(1-Math.pow(1+i,-N)),s=P,a=[];for(let k=1;k<=N;k++){let j=s*i,am=pay-j;if(k===N)am=s;let p=j+am;s=Math.max(0,s-am);a.push({k,pay:p,j,am,s});}return a;}
+function sum(a){return{first:a[0]?.pay||0,last:a[a.length-1]?.pay||0,j:a.reduce((x,r)=>x+r.j,0),t:a.reduce((x,r)=>x+r.pay,0)};}
+function render(a){$("tabela").innerHTML=a.map(r=>`<tr><td>${r.k}</td><td>${money(r.pay)}</td><td>${money(r.j)}</td><td>${money(r.am)}</td><td>${money(r.s)}</td></tr>`).join("");}
+function calc(){
+ const P0=n($("bem").value),E=n($("entrada").value),i=n($("taxa").value)/100,N=Math.round(n($("prazo").value)*12);
+ $("meses").textContent=N.toLocaleString("pt-BR");
+ if(P0<=0||E<0||E>=P0||N<1||i<0)return;
+ const P=P0-E,A=sac(P,i,N),B=price(P,i,N),sa=sum(A),pr=sum(B),sel=$("sistema").value==="SAC"?A:B,rs=$("sistema").value==="SAC"?sa:pr;
+ $("sistemaResultado").textContent=$("sistema").value==="SAC"?"SAC — parcelas decrescentes":"PRICE — parcelas fixas";
+ $("primeira").textContent=money(rs.first);$("ultima").textContent=money(rs.last);$("financiado").textContent=money(P);$("juros").textContent=money(rs.j);$("total").textContent=money(rs.t);
+ $("s1").textContent=money(sa.first);$("sl").textContent=money(sa.last);$("sj").textContent=money(sa.j);$("st").textContent=money(sa.t);
+ $("p1").textContent=money(pr.first);$("pl").textContent=money(pr.last);$("pj").textContent=money(pr.j);$("pt").textContent=money(pr.t);
+ render(sel);
+}
+$("calcular").onclick=calc;["bem","entrada","taxa","prazo","sistema"].forEach(id=>$(id).addEventListener("input",calc));
+$("limpar").onclick=()=>{["bem","entrada","taxa","prazo"].forEach(id=>$(id).value="");$("sistema").value="SAC";$("meses").textContent="0";$("tabela").innerHTML="";["primeira","ultima","financiado","juros","total","s1","sl","sj","st","p1","pl","pj","pt"].forEach(id=>$(id).textContent="R$ 0,00");$("sistemaResultado").textContent="SAC";};
+calc();
+})();
+</script>
+</body>
+</html>
