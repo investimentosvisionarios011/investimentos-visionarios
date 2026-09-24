@@ -24,13 +24,153 @@ function formatarMoedaReserva(valor) {
 
 
 // ==========================================
+// OBTER VALOR NUMÉRICO
+// Converte R$ 10.000,00 para 10000
+// ==========================================
+
+function obterValorNumericoReserva(valor) {
+
+    if (
+        valor === null ||
+        valor === undefined ||
+        valor === ""
+    ) {
+
+        return 0;
+
+    }
+
+
+    let texto =
+        String(valor)
+            .trim();
+
+
+    // Remove R$, espaços e pontos de milhar
+
+    texto =
+        texto
+            .replace(/R\$/gi, "")
+            .replace(/\s/g, "")
+            .replace(/\./g, "")
+            .replace(",", ".");
+
+
+    const numero =
+        Number(texto);
+
+
+    return Number.isFinite(numero)
+        ? numero
+        : 0;
+
+}
+
+
+// ==========================================
+// PREPARAR CAMPOS MONETÁRIOS
+// ==========================================
+
+function prepararCamposMonetariosReserva() {
+
+    const campos = [
+
+        "reservaDespesas",
+        "reservaAtual",
+        "reservaAporte"
+
+    ];
+
+
+    campos.forEach(
+        function(id) {
+
+            const campo =
+                document.getElementById(id);
+
+
+            if (!campo) {
+
+                return;
+
+            }
+
+
+            // Transformar em campo de texto
+            // para permitir a máscara monetária
+
+            campo.type = "text";
+
+            campo.inputMode = "decimal";
+
+
+            // ==================================
+            // AO ENTRAR NO CAMPO
+            // ==================================
+
+            campo.addEventListener(
+                "focus",
+                function() {
+
+                    const valor =
+                        obterValorNumericoReserva(
+                            campo.value
+                        );
+
+
+                    if (valor > 0) {
+
+                        campo.value =
+                            valor
+                                .toFixed(2)
+                                .replace(".", ",");
+
+                    }
+
+                }
+            );
+
+
+            // ==================================
+            // AO SAIR DO CAMPO
+            // ==================================
+
+            campo.addEventListener(
+                "blur",
+                function() {
+
+                    const valor =
+                        obterValorNumericoReserva(
+                            campo.value
+                        );
+
+
+                    if (campo.value !== "") {
+
+                        campo.value =
+                            formatarMoedaReserva(
+                                valor
+                            );
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+// ==========================================
 // CALCULAR
 // ==========================================
 
 function calcularReserva() {
 
     const despesas =
-        Number(
+        obterValorNumericoReserva(
             document.getElementById(
                 "reservaDespesas"
             )?.value
@@ -46,20 +186,24 @@ function calcularReserva() {
 
 
     const valorAtual =
-        Number(
+        obterValorNumericoReserva(
             document.getElementById(
                 "reservaAtual"
             )?.value
-        ) || 0;
+        );
 
 
     const aporte =
-        Number(
+        obterValorNumericoReserva(
             document.getElementById(
                 "reservaAporte"
             )?.value
-        ) || 0;
+        );
 
+
+    // ==========================================
+    // VALIDAÇÕES
+    // ==========================================
 
     if (
         !Number.isFinite(despesas) ||
@@ -341,13 +485,32 @@ function limparReserva() {
         );
 
 
-    if (despesas) despesas.value = "";
+    if (despesas) {
 
-    if (perfil) perfil.value = "6";
+        despesas.value = "";
 
-    if (atual) atual.value = "";
+    }
 
-    if (aporte) aporte.value = "";
+
+    if (perfil) {
+
+        perfil.value = "6";
+
+    }
+
+
+    if (atual) {
+
+        atual.value = "";
+
+    }
+
+
+    if (aporte) {
+
+        aporte.value = "";
+
+    }
 
 
     atualizarReserva(
@@ -382,6 +545,19 @@ function limparReserva() {
 }
 
 
-console.log(
-    "🛡️ Calculadora de Reserva de Emergência carregada!"
+// ==========================================
+// INICIALIZAÇÃO
+// ==========================================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        prepararCamposMonetariosReserva();
+
+        console.log(
+            "🛡️ Calculadora de Reserva de Emergência carregada!"
+        );
+
+    }
 );

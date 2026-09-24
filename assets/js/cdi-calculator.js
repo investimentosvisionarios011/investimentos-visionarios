@@ -7,7 +7,7 @@ let taxaCDIAtual = 0;
 
 
 // ==========================================
-// FORMATAÇÃO
+// FORMATAÇÃO DE MOEDA
 // ==========================================
 
 function formatarMoedaCDI(valor) {
@@ -20,6 +20,190 @@ function formatarMoedaCDI(valor) {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2
         }
+    );
+
+}
+
+
+// ==========================================
+// CONVERTER VALOR MONETÁRIO
+// ==========================================
+
+function obterValorNumericoCDI(valor) {
+
+    if (
+        valor === null ||
+        valor === undefined ||
+        valor === ""
+    ) {
+
+        return 0;
+
+    }
+
+
+    let texto = String(valor);
+
+    // Remove R$ e espaços
+    texto = texto
+        .replace(/R\$/g, "")
+        .replace(/\s/g, "");
+
+
+    // Converte formato brasileiro
+    // 10.000,00 → 10000.00
+
+    texto = texto
+        .replace(/\./g, "")
+        .replace(",", ".");
+
+
+    const numero =
+        parseFloat(texto);
+
+
+    return Number.isFinite(numero)
+        ? numero
+        : 0;
+
+}
+
+
+// ==========================================
+// PREPARAR CAMPOS MONETÁRIOS
+// ==========================================
+
+function prepararCamposMonetariosCDI() {
+
+    const campos = [
+        "cdiValorInicial",
+        "cdiAporteMensal"
+    ];
+
+
+    campos.forEach(function(id) {
+
+        const campo =
+            document.getElementById(id);
+
+
+        if (!campo) {
+            return;
+        }
+
+
+        // Permite digitação numérica
+
+        campo.addEventListener(
+            "focus",
+            function() {
+
+                const valor =
+                    obterValorNumericoCDI(
+                        this.value
+                    );
+
+
+                this.value =
+                    valor > 0
+                        ? valor
+                        : "";
+
+            }
+        );
+
+
+        // Formata ao sair do campo
+
+        campo.addEventListener(
+            "blur",
+            function() {
+
+                const valor =
+                    obterValorNumericoCDI(
+                        this.value
+                    );
+
+
+                if (valor > 0) {
+
+                    this.value =
+                        formatarMoedaCDI(
+                            valor
+                        );
+
+                } else {
+
+                    this.value = "";
+
+                }
+
+            }
+        );
+
+    });
+
+}
+
+
+// ==========================================
+// OBTER PRAZO EM MESES
+// ==========================================
+
+function obterPrazoEmMesesCDI() {
+
+    const campoPrazo =
+        document.getElementById(
+            "cdiPrazo"
+        );
+
+
+    const campoUnidade =
+        document.getElementById(
+            "cdiUnidadePrazo"
+        );
+
+
+    if (!campoPrazo) {
+
+        return 0;
+
+    }
+
+
+    const prazo =
+        Number(
+            campoPrazo.value
+        );
+
+
+    if (
+        !Number.isFinite(prazo) ||
+        prazo <= 0
+    ) {
+
+        return 0;
+
+    }
+
+
+    const unidade =
+        campoUnidade
+            ? campoUnidade.value
+            : "meses";
+
+
+    if (unidade === "anos") {
+
+        return Math.round(
+            prazo * 12
+        );
+
+    }
+
+
+    return Math.round(
+        prazo
     );
 
 }
@@ -94,6 +278,10 @@ async function carregarTaxaCDI() {
         taxaCDIAtual =
             cdi;
 
+
+        // ==========================================
+        // MOSTRAR CDI NA TELA
+        // ==========================================
 
         if (elementoTaxa) {
 
@@ -198,24 +386,32 @@ function converterTaxaAnualParaMensal(
 function calcularCDI() {
 
     // ==========================================
-    // CAMPOS
+    // VALOR INICIAL
     // ==========================================
 
     const valorInicial =
-        Number(
+        obterValorNumericoCDI(
             document.getElementById(
                 "cdiValorInicial"
             )?.value
-        ) || 0;
+        );
 
+
+    // ==========================================
+    // APORTE MENSAL
+    // ==========================================
 
     const aporteMensal =
-        Number(
+        obterValorNumericoCDI(
             document.getElementById(
                 "cdiAporteMensal"
             )?.value
-        ) || 0;
+        );
 
+
+    // ==========================================
+    // PERCENTUAL DO CDI
+    // ==========================================
 
     const percentualCDI =
         Number(
@@ -225,12 +421,12 @@ function calcularCDI() {
         );
 
 
+    // ==========================================
+    // PRAZO
+    // ==========================================
+
     const meses =
-        Number(
-            document.getElementById(
-                "cdiMeses"
-            )?.value
-        );
+        obterPrazoEmMesesCDI();
 
 
     // ==========================================
@@ -285,7 +481,7 @@ function calcularCDI() {
     ) {
 
         alert(
-            "Informe um prazo válido em meses."
+            "Informe um prazo válido."
         );
 
         return;
@@ -303,6 +499,10 @@ function calcularCDI() {
             percentualCDI / 100
         );
 
+
+    // ==========================================
+    // TAXA MENSAL
+    // ==========================================
 
     const taxaMensal =
         converterTaxaAnualParaMensal(
@@ -336,12 +536,16 @@ function calcularCDI() {
         mes++
     ) {
 
+        // Rendimento do mês
+
         patrimonio *=
             (
                 1 +
                 taxaMensal
             );
 
+
+        // Aporte mensal
 
         patrimonio +=
             aporteMensal;
@@ -524,11 +728,21 @@ function limparCDI() {
         );
 
 
-    const meses =
+    const prazo =
         document.getElementById(
-            "cdiMeses"
+            "cdiPrazo"
         );
 
+
+    const unidadePrazo =
+        document.getElementById(
+            "cdiUnidadePrazo"
+        );
+
+
+    // ==========================================
+    // LIMPAR VALOR INICIAL
+    // ==========================================
 
     if (valorInicial) {
 
@@ -538,6 +752,10 @@ function limparCDI() {
     }
 
 
+    // ==========================================
+    // LIMPAR APORTE
+    // ==========================================
+
     if (aporteMensal) {
 
         aporteMensal.value =
@@ -545,6 +763,10 @@ function limparCDI() {
 
     }
 
+
+    // ==========================================
+    // RESTAURAR PERCENTUAL
+    // ==========================================
 
     if (percentualCDI) {
 
@@ -554,13 +776,33 @@ function limparCDI() {
     }
 
 
-    if (meses) {
+    // ==========================================
+    // LIMPAR PRAZO
+    // ==========================================
 
-        meses.value =
+    if (prazo) {
+
+        prazo.value =
             "";
 
     }
 
+
+    // ==========================================
+    // RESTAURAR UNIDADE
+    // ==========================================
+
+    if (unidadePrazo) {
+
+        unidadePrazo.value =
+            "meses";
+
+    }
+
+
+    // ==========================================
+    // RESTAURAR RESULTADOS
+    // ==========================================
 
     atualizarResultadoCDI(
         "cdiTotalInvestido",
@@ -606,7 +848,7 @@ function limparCDI() {
 
 
 // ==========================================
-// INICIAR
+// INICIALIZAÇÃO
 // ==========================================
 
 console.log(
@@ -617,6 +859,8 @@ console.log(
 document.addEventListener(
     "DOMContentLoaded",
     function() {
+
+        prepararCamposMonetariosCDI();
 
         carregarTaxaCDI();
 

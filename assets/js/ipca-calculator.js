@@ -1,24 +1,157 @@
 // ==========================================
+// INVESTIMENTOS VISIONÁRIOS
 // CALCULADORA IPCA
-// Investimentos Visionários
 // ==========================================
 
 let taxaIPCAAtual = 0;
 
 
 // ==========================================
-// FORMATAR MOEDA
+// FORMATAÇÃO DE MOEDA
 // ==========================================
 
 function formatarMoedaIPCA(valor) {
 
-    return Number(valor).toLocaleString(
-        "pt-BR",
-        {
-            style: "currency",
-            currency: "BRL",
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
+    if (!isFinite(valor)) {
+        valor = 0;
+    }
+
+    return valor.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+    });
+
+}
+
+
+// ==========================================
+// CONVERTER CAMPO MONETÁRIO
+// ==========================================
+
+function obterValorNumericoIPCA(valor) {
+
+    if (typeof valor === "number") {
+        return valor;
+    }
+
+    if (!valor) {
+        return 0;
+    }
+
+    let texto = String(valor).trim();
+
+    texto = texto
+        .replace(/R\$/gi, "")
+        .replace(/\s/g, "")
+        .replace(/\./g, "")
+        .replace(",", ".");
+
+    const numero = parseFloat(texto);
+
+    return isNaN(numero) ? 0 : numero;
+
+}
+
+
+// ==========================================
+// CONVERTER TAXA DIGITADA
+// ==========================================
+
+function obterTaxaNumericaIPCA(valor) {
+
+    if (typeof valor === "number") {
+        return isFinite(valor) ? valor : 0;
+    }
+
+    if (!valor) {
+        return 0;
+    }
+
+    let texto = String(valor).trim();
+
+    // Remove espaços
+    texto = texto.replace(/\s/g, "");
+
+    // Se houver vírgula, ela é o separador decimal brasileiro
+    if (texto.includes(",")) {
+
+        texto = texto.replace(/\./g, "");
+        texto = texto.replace(",", ".");
+
+    }
+
+    const numero = parseFloat(texto);
+
+    return isNaN(numero) ? 0 : numero;
+
+}
+
+
+// ==========================================
+// PREPARAR CAMPO MONETÁRIO
+// ==========================================
+
+function prepararCamposMonetariosIPCA() {
+
+    const campo =
+        document.getElementById(
+            "ipcaValorInicial"
+        );
+
+    if (!campo) {
+        return;
+    }
+
+    campo.type = "text";
+    campo.inputMode = "decimal";
+
+    campo.addEventListener(
+        "focus",
+        function () {
+
+            const valor =
+                obterValorNumericoIPCA(
+                    this.value
+                );
+
+            if (valor > 0) {
+
+                this.value =
+                    valor
+                        .toFixed(2)
+                        .replace(".", ",");
+
+            } else {
+
+                this.value = "";
+
+            }
+
+        }
+    );
+
+    campo.addEventListener(
+        "blur",
+        function () {
+
+            const valor =
+                obterValorNumericoIPCA(
+                    this.value
+                );
+
+            if (valor > 0) {
+
+                this.value =
+                    formatarMoedaIPCA(
+                        valor
+                    );
+
+            } else {
+
+                this.value = "";
+
+            }
+
         }
     );
 
@@ -26,100 +159,219 @@ function formatarMoedaIPCA(valor) {
 
 
 // ==========================================
-// CARREGAR IPCA
+// CONVERTER TAXA ANUAL PARA MENSAL
+// ==========================================
+
+function taxaMensalIPCA(taxaAnual) {
+
+    return (
+        Math.pow(
+            1 + (taxaAnual / 100),
+            1 / 12
+        ) - 1
+    );
+
+}
+
+
+// ==========================================
+// CONVERTER TAXA MENSAL PARA ANUAL
+// ==========================================
+
+function taxaAnualIPCA(taxaMensal) {
+
+    return (
+        Math.pow(
+            1 + (taxaMensal / 100),
+            12
+        ) - 1
+    ) * 100;
+
+}
+
+
+// ==========================================
+// OBTER RENTABILIDADE ANUAL
+// ==========================================
+
+function obterRentabilidadeAnualIPCA() {
+
+    const campo =
+        document.getElementById(
+            "ipcaRentabilidade"
+        );
+
+    const unidade =
+        document.getElementById(
+            "ipcaUnidadeRentabilidade"
+        );
+
+    if (!campo) {
+        return 0;
+    }
+
+    const taxa =
+        obterTaxaNumericaIPCA(
+            campo.value
+        );
+
+    if (
+        unidade &&
+        unidade.value === "mensal"
+    ) {
+
+        return taxaAnualIPCA(taxa);
+
+    }
+
+    return taxa;
+
+}
+
+
+// ==========================================
+// OBTER RENTABILIDADE MENSAL
+// ==========================================
+
+function obterRentabilidadeMensalIPCA() {
+
+    const campo =
+        document.getElementById(
+            "ipcaRentabilidade"
+        );
+
+    const unidade =
+        document.getElementById(
+            "ipcaUnidadeRentabilidade"
+        );
+
+    if (!campo) {
+        return 0;
+    }
+
+    const taxa =
+        obterTaxaNumericaIPCA(
+            campo.value
+        );
+
+    if (
+        unidade &&
+        unidade.value === "mensal"
+    ) {
+
+        return taxa / 100;
+
+    }
+
+    return taxaMensalIPCA(taxa);
+
+}
+
+
+// ==========================================
+// OBTER PRAZO EM MESES
+// ==========================================
+
+function obterPrazoEmMesesIPCA() {
+
+    const campo =
+        document.getElementById(
+            "ipcaPrazo"
+        );
+
+    const unidade =
+        document.getElementById(
+            "ipcaUnidadePrazo"
+        );
+
+    if (!campo) {
+        return 0;
+    }
+
+    const prazo =
+        obterTaxaNumericaIPCA(
+            campo.value
+        );
+
+    if (
+        unidade &&
+        unidade.value === "anos"
+    ) {
+
+        return Math.round(
+            prazo * 12
+        );
+
+    }
+
+    return Math.round(prazo);
+
+}
+
+
+// ==========================================
+// CARREGAR IPCA ATUAL
 // ==========================================
 
 async function carregarIPCAAtual() {
 
-    const elemento =
-        document.getElementById(
-            "ipcaTaxaAtual"
-        );
-
-
     try {
-
-        console.log(
-            "📊 Buscando IPCA atual..."
-        );
-
 
         const resposta =
             await fetch(
                 "/api/indicadores"
             );
 
-
         if (!resposta.ok) {
 
             throw new Error(
-                `Erro HTTP ${resposta.status}`
+                "Erro ao carregar indicadores."
             );
 
         }
-
 
         const dados =
             await resposta.json();
 
-
-        console.log(
-            "📊 Indicadores recebidos:",
-            dados
-        );
-
-
-     const ipca =
-    Number(
-        dados?.ipca?.valor12Meses
-    );
-
-
-        if (
-            !Number.isFinite(ipca) ||
-            ipca <= 0
-        ) {
-
-            throw new Error(
-                "IPCA inválido recebido da API."
-            );
-
-        }
-
-
         taxaIPCAAtual =
-            ipca;
+            parseFloat(
+                dados?.ipca?.valor12Meses
+            ) || 0;
 
+        const elemento =
+            document.getElementById(
+                "ipcaTaxaAtual"
+            );
 
         if (elemento) {
 
             elemento.textContent =
-                taxaIPCAAtual
-                    .toFixed(2)
-                    .replace(".", ",")
-                + "%";
+                taxaIPCAAtual.toLocaleString(
+                    "pt-BR",
+                    {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2
+                    }
+                ) + "%";
 
         }
-
-
-        console.log(
-            `✅ IPCA atual: ${taxaIPCAAtual}%`
-        );
-
 
     } catch (erro) {
 
         console.error(
-            "❌ Erro ao carregar IPCA:",
+            "Erro ao carregar IPCA:",
             erro
         );
 
+        taxaIPCAAtual = 0;
+
+        const elemento =
+            document.getElementById(
+                "ipcaTaxaAtual"
+            );
 
         if (elemento) {
-
-            elemento.textContent =
-                "Indisponível";
-
+            elemento.textContent = "--";
         }
 
     }
@@ -128,55 +380,34 @@ async function carregarIPCAAtual() {
 
 
 // ==========================================
-// CALCULAR
+// CALCULAR IPCA
 // ==========================================
 
 function calcularIPCA() {
 
     const valorInicial =
-        Number(
+        obterValorNumericoIPCA(
             document.getElementById(
                 "ipcaValorInicial"
             )?.value
         );
 
+    const rentabilidadeMensal =
+        obterRentabilidadeMensalIPCA();
 
-    const rentabilidadeNominal =
-        Number(
-            document.getElementById(
-                "ipcaRentabilidade"
-            )?.value
-        );
+    const rentabilidadeAnual =
+        obterRentabilidadeAnualIPCA();
+
+    const prazoMeses =
+        obterPrazoEmMesesIPCA();
 
 
-    const anos =
-        Number(
-            document.getElementById(
-                "ipcaAnos"
-            )?.value
-        );
-
+    // ======================================
+    // VALIDAÇÕES
+    // ======================================
 
     if (
-        !Number.isFinite(
-            taxaIPCAAtual
-        ) ||
-        taxaIPCAAtual <= 0
-    ) {
-
-        alert(
-            "O IPCA ainda não foi carregado."
-        );
-
-        return;
-
-    }
-
-
-    if (
-        !Number.isFinite(
-            valorInicial
-        ) ||
+        !valorInicial ||
         valorInicial <= 0
     ) {
 
@@ -188,12 +419,8 @@ function calcularIPCA() {
 
     }
 
-
     if (
-        !Number.isFinite(
-            rentabilidadeNominal
-        ) ||
-        rentabilidadeNominal < 0
+        rentabilidadeMensal < 0
     ) {
 
         alert(
@@ -204,16 +431,26 @@ function calcularIPCA() {
 
     }
 
-
     if (
-        !Number.isInteger(
-            anos
-        ) ||
-        anos <= 0
+        !prazoMeses ||
+        prazoMeses <= 0
     ) {
 
         alert(
-            "Informe um prazo válido em anos."
+            "Informe um prazo válido."
+        );
+
+        return;
+
+    }
+
+    if (
+        !taxaIPCAAtual ||
+        taxaIPCAAtual < 0
+    ) {
+
+        alert(
+            "Não foi possível obter o IPCA atual."
         );
 
         return;
@@ -221,161 +458,155 @@ function calcularIPCA() {
     }
 
 
-    // ==========================================
+    // ======================================
+    // IPCA MENSAL
+    // ======================================
+
+    const ipcaMensal =
+        taxaMensalIPCA(
+            taxaIPCAAtual
+        );
+
+
+    // ======================================
     // VALOR FINAL NOMINAL
-    // ==========================================
+    // ======================================
 
     const valorFinalNominal =
         valorInicial *
         Math.pow(
-            1 +
-            rentabilidadeNominal / 100,
-            anos
+            1 + rentabilidadeMensal,
+            prazoMeses
         );
 
 
-    // ==========================================
+    // ======================================
     // GANHO NOMINAL
-    // ==========================================
+    // ======================================
 
     const ganhoNominal =
         valorFinalNominal -
         valorInicial;
 
 
-    // ==========================================
-    // TAXA REAL
-    // Fisher:
-    // (1 + nominal) / (1 + inflação) - 1
-    // ==========================================
+    // ======================================
+    // RENTABILIDADE REAL ANUAL
+    // ======================================
 
-    const taxaRealAnual =
+    const rentabilidadeRealAnual =
         (
             (
                 1 +
-                rentabilidadeNominal / 100
-            )
-            /
+                rentabilidadeAnual / 100
+            ) /
             (
                 1 +
                 taxaIPCAAtual / 100
             )
-            -
-            1
-        );
+            - 1
+        ) * 100;
 
 
-    // ==========================================
-    // VALOR REAL FINAL
-    // ==========================================
+    // ======================================
+    // INFLAÇÃO ACUMULADA
+    // ======================================
 
     const inflacaoAcumulada =
         Math.pow(
-            1 +
-            taxaIPCAAtual / 100,
-            anos
+            1 + ipcaMensal,
+            prazoMeses
         );
 
 
-    const valorFinalReal =
+    // ======================================
+    // VALOR REAL
+    // ======================================
+
+    const valorReal =
         valorFinalNominal /
         inflacaoAcumulada;
 
 
-    // ==========================================
-    // RENTABILIDADE REAL ACUMULADA
-    // ==========================================
+    // ======================================
+    // ATUALIZAR RESULTADOS
+    // ======================================
 
-    const rentabilidadeRealAcumulada =
-        (
-            valorFinalReal /
-            valorInicial -
-            1
-        ) * 100;
-
-
-    // ==========================================
-    // RESULTADOS
-    // ==========================================
-
-    atualizarResultadoIPCA(
-        "ipcaValorInicialResultado",
-        formatarMoedaIPCA(
-            valorInicial
-        )
-    );
-
-
-    atualizarResultadoIPCA(
-        "ipcaValorFinalNominal",
-        formatarMoedaIPCA(
-            valorFinalNominal
-        )
-    );
-
-
-    atualizarResultadoIPCA(
-        "ipcaGanhoNominal",
-        formatarMoedaIPCA(
-            ganhoNominal
-        )
-    );
-
-
-    atualizarResultadoIPCA(
-        "ipcaRentabilidadeReal",
-        rentabilidadeRealAcumulada
-            .toFixed(2)
-            .replace(".", ",")
-        + "%"
-    );
-
-
-    atualizarResultadoIPCA(
-        "ipcaValorReal",
-        formatarMoedaIPCA(
-            valorFinalReal
-        )
-    );
-
-
-    console.log(
-        "✅ Simulação IPCA:",
-        {
-            valorInicial,
-            rentabilidadeNominal,
-            taxaIPCAAtual,
-            taxaRealAnual:
-                taxaRealAnual * 100,
-            anos,
-            valorFinalNominal,
-            valorFinalReal,
-            rentabilidadeRealAcumulada
-        }
-    );
-
-}
-
-
-// ==========================================
-// ATUALIZAR RESULTADO
-// ==========================================
-
-function atualizarResultadoIPCA(
-    id,
-    valor
-) {
-
-    const elemento =
+    const resultadoInicial =
         document.getElementById(
-            id
+            "ipcaValorInicialResultado"
+        );
+
+    const resultadoFinal =
+        document.getElementById(
+            "ipcaValorFinalNominal"
+        );
+
+    const resultadoGanho =
+        document.getElementById(
+            "ipcaGanhoNominal"
+        );
+
+    const resultadoRentabilidadeReal =
+        document.getElementById(
+            "ipcaRentabilidadeReal"
+        );
+
+    const resultadoValorReal =
+        document.getElementById(
+            "ipcaValorReal"
         );
 
 
-    if (elemento) {
+    if (resultadoInicial) {
 
-        elemento.textContent =
-            valor;
+        resultadoInicial.textContent =
+            formatarMoedaIPCA(
+                valorInicial
+            );
+
+    }
+
+
+    if (resultadoFinal) {
+
+        resultadoFinal.textContent =
+            formatarMoedaIPCA(
+                valorFinalNominal
+            );
+
+    }
+
+
+    if (resultadoGanho) {
+
+        resultadoGanho.textContent =
+            formatarMoedaIPCA(
+                ganhoNominal
+            );
+
+    }
+
+
+    if (resultadoRentabilidadeReal) {
+
+        resultadoRentabilidadeReal.textContent =
+            rentabilidadeRealAnual.toLocaleString(
+                "pt-BR",
+                {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                }
+            ) + "% a.a.";
+
+    }
+
+
+    if (resultadoValorReal) {
+
+        resultadoValorReal.textContent =
+            formatarMoedaIPCA(
+                valorReal
+            );
 
     }
 
@@ -383,81 +614,123 @@ function atualizarResultadoIPCA(
 
 
 // ==========================================
-// LIMPAR
+// LIMPAR CALCULADORA
 // ==========================================
 
 function limparIPCA() {
 
-    const campos = [
+    const valorInicial =
+        document.getElementById(
+            "ipcaValorInicial"
+        );
 
-        "ipcaValorInicial",
+    const rentabilidade =
+        document.getElementById(
+            "ipcaRentabilidade"
+        );
 
-        "ipcaRentabilidade",
+    const prazo =
+        document.getElementById(
+            "ipcaPrazo"
+        );
 
-        "ipcaAnos"
+    const unidadeRentabilidade =
+        document.getElementById(
+            "ipcaUnidadeRentabilidade"
+        );
 
-    ];
-
-
-    campos.forEach(
-        id => {
-
-            const elemento =
-                document.getElementById(
-                    id
-                );
-
-
-            if (elemento) {
-
-                elemento.value =
-                    "";
-
-            }
-
-        }
-    );
+    const unidadePrazo =
+        document.getElementById(
+            "ipcaUnidadePrazo"
+        );
 
 
-    atualizarResultadoIPCA(
-        "ipcaValorInicialResultado",
-        "R$ 0,00"
-    );
+    if (valorInicial) {
+        valorInicial.value = "";
+    }
+
+    if (rentabilidade) {
+        rentabilidade.value = "";
+    }
+
+    if (prazo) {
+        prazo.value = "";
+    }
+
+    if (unidadeRentabilidade) {
+        unidadeRentabilidade.value =
+            "anual";
+    }
+
+    if (unidadePrazo) {
+        unidadePrazo.value =
+            "anos";
+    }
 
 
-    atualizarResultadoIPCA(
-        "ipcaValorFinalNominal",
-        "R$ 0,00"
-    );
+    const resultadoInicial =
+        document.getElementById(
+            "ipcaValorInicialResultado"
+        );
+
+    const resultadoFinal =
+        document.getElementById(
+            "ipcaValorFinalNominal"
+        );
+
+    const resultadoGanho =
+        document.getElementById(
+            "ipcaGanhoNominal"
+        );
+
+    const resultadoRentabilidadeReal =
+        document.getElementById(
+            "ipcaRentabilidadeReal"
+        );
+
+    const resultadoValorReal =
+        document.getElementById(
+            "ipcaValorReal"
+        );
 
 
-    atualizarResultadoIPCA(
-        "ipcaGanhoNominal",
-        "R$ 0,00"
-    );
+    if (resultadoInicial) {
+        resultadoInicial.textContent =
+            "R$ 0,00";
+    }
 
+    if (resultadoFinal) {
+        resultadoFinal.textContent =
+            "R$ 0,00";
+    }
 
-    atualizarResultadoIPCA(
-        "ipcaRentabilidadeReal",
-        "0%"
-    );
+    if (resultadoGanho) {
+        resultadoGanho.textContent =
+            "R$ 0,00";
+    }
 
+    if (resultadoRentabilidadeReal) {
+        resultadoRentabilidadeReal.textContent =
+            "0%";
+    }
 
-    atualizarResultadoIPCA(
-        "ipcaValorReal",
-        "R$ 0,00"
-    );
+    if (resultadoValorReal) {
+        resultadoValorReal.textContent =
+            "R$ 0,00";
+    }
 
 }
 
 
 // ==========================================
-// INICIAR
+// INICIALIZAÇÃO
 // ==========================================
 
 document.addEventListener(
     "DOMContentLoaded",
-    function() {
+    function () {
+
+        prepararCamposMonetariosIPCA();
 
         carregarIPCAAtual();
 

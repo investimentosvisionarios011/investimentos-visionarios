@@ -10,7 +10,6 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-
     <!-- SEO -->
 
     <title>Comparador de Investimentos Grátis | Compare Rentabilidades</title>
@@ -30,7 +29,6 @@
         href="https://investimentosvisionarios.com.br/calculadoras/comparador.html"
     >
 
-
     <!-- FAVICON -->
 
     <link
@@ -38,7 +36,6 @@
         type="image/png"
         href="../assets/img/favicon.png"
     >
-
 
     <!-- OPEN GRAPH -->
 
@@ -77,7 +74,6 @@
         content="https://investimentosvisionarios.com.br/assets/img/logo.png"
     >
 
-
     <!-- TWITTER / REDES SOCIAIS -->
 
     <meta
@@ -100,14 +96,12 @@
         content="https://investimentosvisionarios.com.br/assets/img/logo.png"
     >
 
-
     <!-- BOOTSTRAP -->
 
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet"
     >
-
 
     <!-- BOOTSTRAP ICONS -->
 
@@ -116,14 +110,12 @@
         rel="stylesheet"
     >
 
-
     <!-- GOOGLE FONTS -->
 
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet"
     >
-
 
     <!-- CSS PRINCIPAL -->
 
@@ -147,8 +139,11 @@
             class="navbar-brand fw-bold"
             href="../index.html"
         >
+
             <i class="bi bi-graph-up-arrow text-success"></i>
+
             Investimentos Visionários
+
         </a>
 
         <button
@@ -157,7 +152,9 @@
             data-bs-toggle="collapse"
             data-bs-target="#menu"
         >
+
             <span class="navbar-toggler-icon"></span>
+
         </button>
 
         <div
@@ -168,30 +165,42 @@
             <ul class="navbar-nav ms-auto">
 
                 <li class="nav-item">
+
                     <a
                         class="nav-link"
                         href="../index.html"
                     >
+
                         Início
+
                     </a>
+
                 </li>
 
                 <li class="nav-item">
+
                     <a
                         class="nav-link"
                         href="../index.html#ferramentas"
                     >
+
                         Ferramentas
+
                     </a>
+
                 </li>
 
                 <li class="nav-item">
+
                     <a
                         class="nav-link active"
                         href="#"
                     >
+
                         Comparador
+
                     </a>
+
                 </li>
 
             </ul>
@@ -214,12 +223,16 @@
             <div class="col-lg-8">
 
                 <h1>
+
                     Comparador de Investimentos
+
                 </h1>
 
                 <p>
+
                     Compare Poupança, CDI e Tesouro Selic
                     utilizando as taxas atuais do mercado.
+
                 </p>
 
             </div>
@@ -250,28 +263,42 @@
                 <div class="card shadow p-4">
 
                     <h2 class="mb-4">
+
                         Dados da simulação
+
                     </h2>
 
 
                     <div class="alert alert-success">
 
                         <div>
+
                             Selic atual:
+
                             <strong id="comparadorSelic">
+
                                 --
+
                             </strong>
+
                         </div>
 
                         <div>
+
                             CDI atual:
+
                             <strong id="comparadorCdi">
+
                                 --
+
                             </strong>
+
                         </div>
 
                     </div>
 
+
+                    <!-- VALOR INICIAL -->
 
                     <div class="mb-3">
 
@@ -279,20 +306,23 @@
                             class="form-label"
                             for="comparadorValorInicial"
                         >
+
                             Valor Inicial (R$)
+
                         </label>
 
                         <input
-                            type="number"
+                            type="text"
+                            inputmode="decimal"
                             class="form-control"
                             id="comparadorValorInicial"
-                            min="0"
-                            step="0.01"
-                            placeholder="Ex.: 10000"
+                            placeholder="Ex.: R$ 10.000,00"
                         >
 
                     </div>
 
+
+                    <!-- APORTE MENSAL -->
 
                     <div class="mb-3">
 
@@ -300,20 +330,23 @@
                             class="form-label"
                             for="comparadorAporte"
                         >
+
                             Aporte Mensal (R$)
+
                         </label>
 
                         <input
-                            type="number"
+                            type="text"
+                            inputmode="decimal"
                             class="form-control"
                             id="comparadorAporte"
-                            min="0"
-                            step="0.01"
-                            placeholder="Ex.: 500"
+                            placeholder="Ex.: R$ 500,00"
                         >
 
                     </div>
 
+
+                    <!-- PRAZO -->
 
                     <div class="mb-4">
 
@@ -321,17 +354,45 @@
                             class="form-label"
                             for="comparadorMeses"
                         >
-                            Prazo (meses)
+
+                            Prazo
+
                         </label>
 
-                        <input
-                            type="number"
-                            class="form-control"
-                            id="comparadorMeses"
-                            min="1"
-                            step="1"
-                            placeholder="Ex.: 24"
-                        >
+                        <div class="input-group">
+
+                            <input
+                                type="number"
+                                class="form-control"
+                                id="comparadorMeses"
+                                min="1"
+                                step="1"
+                                placeholder="Ex.: 24"
+                            >
+
+                            <select
+                                class="form-select"
+                                id="comparadorUnidadePrazo"
+                                style="max-width: 130px;"
+                            >
+
+                                <option value="meses">
+                                    Meses
+                                </option>
+
+                                <option value="anos">
+                                    Anos
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <small class="text-muted">
+
+                            Informe o prazo em meses ou anos.
+
+                        </small>
 
                     </div>
 
@@ -375,7 +436,9 @@
                 <div class="card shadow p-4 h-100">
 
                     <h3>
+
                         Resultado
+
                     </h3>
 
                     <hr>
@@ -391,23 +454,33 @@
                             <div class="border rounded p-3 h-100">
 
                                 <h5>
+
                                     Poupança
+
                                 </h5>
 
                                 <p class="mb-1">
+
                                     Patrimônio líquido
+
                                 </p>
 
                                 <h4 id="comparadorPoupancaFinal">
+
                                     R$ 0,00
+
                                 </h4>
 
                                 <p class="mb-1 mt-3">
+
                                     Rendimento
+
                                 </p>
 
                                 <strong id="comparadorPoupancaRendimento">
+
                                     R$ 0,00
+
                                 </strong>
 
                             </div>
@@ -422,23 +495,33 @@
                             <div class="border rounded p-3 h-100">
 
                                 <h5>
+
                                     100% do CDI
+
                                 </h5>
 
                                 <p class="mb-1">
+
                                     Patrimônio líquido
+
                                 </p>
 
                                 <h4 id="comparadorCdiFinal">
+
                                     R$ 0,00
+
                                 </h4>
 
                                 <p class="mb-1 mt-3">
+
                                     Rendimento
+
                                 </p>
 
                                 <strong id="comparadorCdiRendimento">
+
                                     R$ 0,00
+
                                 </strong>
 
                             </div>
@@ -453,23 +536,33 @@
                             <div class="border rounded p-3 h-100">
 
                                 <h5>
+
                                     Tesouro Selic
+
                                 </h5>
 
                                 <p class="mb-1">
+
                                     Patrimônio líquido
+
                                 </p>
 
                                 <h4 id="comparadorSelicFinal">
+
                                     R$ 0,00
+
                                 </h4>
 
                                 <p class="mb-1 mt-3">
+
                                     Rendimento
+
                                 </p>
 
                                 <strong id="comparadorSelicRendimento">
+
                                     R$ 0,00
+
                                 </strong>
 
                             </div>
@@ -483,23 +576,31 @@
 
 
                     <p class="mb-1">
+
                         Melhor resultado da simulação
+
                     </p>
 
                     <h2
                         id="comparadorMelhor"
                         class="text-success"
                     >
+
                         --
+
                     </h2>
 
 
                     <p class="mt-3 mb-1">
+
                         Diferença para o pior resultado
+
                     </p>
 
                     <h4 id="comparadorDiferenca">
+
                         R$ 0,00
+
                     </h4>
 
                 </div>
@@ -529,27 +630,35 @@
                 <!-- O QUE É -->
 
                 <h2 class="mb-4">
+
                     Como comparar investimentos?
+
                 </h2>
 
                 <p>
+
                     Comparar investimentos vai além de observar apenas
                     qual alternativa apresenta a maior taxa de rendimento.
                     Prazo, tributação, liquidez, risco e características
                     de cada produto também podem influenciar o resultado.
+
                 </p>
 
                 <p>
+
                     Nosso comparador permite visualizar, em uma mesma
                     simulação, o crescimento estimado de um valor aplicado
                     na <strong>Poupança, em um investimento equivalente
                     a 100% do CDI e no Tesouro Selic</strong>.
+
                 </p>
 
                 <p>
+
                     Dessa forma, fica mais fácil visualizar como diferenças
                     de rentabilidade podem afetar o patrimônio ao longo
                     do tempo.
+
                 </p>
 
 
@@ -559,45 +668,68 @@
                 <!-- COMO USAR -->
 
                 <h2 class="mb-4">
+
                     Como usar o Comparador de Investimentos?
+
                 </h2>
 
                 <p>
+
                     Para realizar a comparação, informe:
+
                 </p>
 
                 <ul>
 
                     <li>
+
                         <strong>Valor inicial:</strong>
                         quanto será considerado no início da simulação.
+
                     </li>
 
                     <li>
+
                         <strong>Aporte mensal:</strong>
                         quanto pretende adicionar ao investimento
                         todos os meses.
+
                     </li>
 
                     <li>
+
                         <strong>Prazo:</strong>
-                        durante quantos meses deseja realizar
-                        a projeção.
+                        durante quanto tempo deseja realizar
+                        a projeção. Você pode informar o prazo
+                        em <strong>meses ou anos</strong>.
+
                     </li>
 
                 </ul>
 
                 <p>
-                    A ferramenta utiliza as referências apresentadas
-                    para Selic e CDI e calcula o resultado estimado
-                    das três alternativas.
+
+                    Quando o prazo for informado em anos, a ferramenta
+                    converte automaticamente o período para meses para
+                    realizar os cálculos da simulação.
+
                 </p>
 
                 <p>
+
+                    A ferramenta utiliza as referências apresentadas
+                    para Selic e CDI e calcula o resultado estimado
+                    das três alternativas.
+
+                </p>
+
+                <p>
+
                     Depois de clicar em <strong>Comparar</strong>,
                     você poderá visualizar o patrimônio líquido estimado,
                     o rendimento de cada alternativa, o melhor resultado
                     da simulação e a diferença em relação ao pior resultado.
+
                 </p>
 
 
@@ -607,25 +739,33 @@
                 <!-- POUPANÇA -->
 
                 <h2 class="mb-4">
+
                     Como funciona a Poupança?
+
                 </h2>
 
                 <p>
+
                     A Poupança é uma modalidade tradicional de aplicação
                     financeira no Brasil e possui regras próprias
                     de remuneração.
+
                 </p>
 
                 <p>
+
                     Sua rentabilidade depende das regras vigentes e da
                     relação com a taxa Selic, além da Taxa Referencial (TR)
                     quando aplicável.
+
                 </p>
 
                 <p>
+
                     Embora seja simples e bastante conhecida, sua
                     rentabilidade pode ser diferente da oferecida por
                     outras alternativas de renda fixa.
+
                 </p>
 
 
@@ -635,19 +775,25 @@
                 <!-- CDI -->
 
                 <h2 class="mb-4">
+
                     O que significa um investimento render 100% do CDI?
+
                 </h2>
 
                 <p>
+
                     Significa que a remuneração do investimento acompanha
                     integralmente a taxa CDI utilizada como referência.
+
                 </p>
 
                 <p>
+
                     O CDI é amplamente utilizado como referência para
                     investimentos de renda fixa. Entretanto, produtos
                     atrelados ao CDI podem possuir condições diferentes
                     de liquidez, risco, tributação e vencimento.
+
                 </p>
 
 
@@ -657,20 +803,26 @@
                 <!-- TESOURO SELIC -->
 
                 <h2 class="mb-4">
+
                     Como funciona o Tesouro Selic?
+
                 </h2>
 
                 <p>
+
                     O Tesouro Selic é um título público federal cuja
                     rentabilidade está vinculada à taxa Selic, conforme
                     as características do título.
+
                 </p>
 
                 <p>
+
                     Embora acompanhe essa referência, o resultado efetivo
                     de uma aplicação também pode ser influenciado por
                     tributação, custos, prazo e pelas condições de compra
                     e venda do título.
+
                 </p>
 
 
@@ -680,32 +832,42 @@
                 <!-- RENTABILIDADE NÃO É TUDO -->
 
                 <h2 class="mb-4">
+
                     O investimento que rende mais é sempre o melhor?
+
                 </h2>
 
                 <p>
+
                     Não necessariamente. A rentabilidade é importante,
                     mas não deve ser analisada isoladamente.
+
                 </p>
 
                 <div class="card shadow-sm border-0 p-4 my-4">
 
                     <h4>
+
                         💡 Antes de escolher, compare também
+
                     </h4>
 
                     <p class="mb-0">
+
                         Liquidez, risco, tributação, prazo, custos,
                         garantias e objetivo financeiro podem ser tão
                         importantes quanto a rentabilidade apresentada.
+
                     </p>
 
                 </div>
 
                 <p>
+
                     Um investimento adequado para uma reserva de emergência,
                     por exemplo, pode não ser a mesma alternativa utilizada
                     para um objetivo de longo prazo.
+
                 </p>
 
 
@@ -715,26 +877,34 @@
                 <!-- EFEITO DO TEMPO -->
 
                 <h2 class="mb-4">
+
                     Por que pequenas diferenças de rentabilidade importam?
+
                 </h2>
 
                 <p>
+
                     Em períodos curtos, diferenças entre taxas podem parecer
                     pequenas. Porém, quando o dinheiro permanece investido
                     por períodos maiores, a capitalização dos rendimentos
                     pode ampliar a distância entre os resultados.
+
                 </p>
 
                 <p>
+
                     O mesmo acontece com os aportes mensais: cada novo
                     aporte aumenta o capital que participa da evolução
                     do patrimônio.
+
                 </p>
 
                 <p>
+
                     O comparador ajuda justamente a visualizar essas
                     diferenças utilizando os mesmos valores e o mesmo
                     prazo para as três alternativas simuladas.
+
                 </p>
 
 
@@ -744,67 +914,89 @@
                 <!-- PERGUNTAS FREQUENTES -->
 
                 <h2 class="mb-4">
+
                     Perguntas frequentes sobre comparação de investimentos
+
                 </h2>
 
 
                 <h3 class="h5 mt-4">
+
                     CDI rende mais que a Poupança?
+
                 </h3>
 
                 <p>
+
                     Isso depende das taxas vigentes, do percentual do CDI,
                     da tributação e das regras da Poupança no período.
                     A calculadora permite comparar os resultados estimados
                     utilizando as referências consideradas pela ferramenta.
+
                 </p>
 
 
                 <h3 class="h5 mt-4">
+
                     Tesouro Selic rende mais que a Poupança?
+
                 </h3>
 
                 <p>
+
                     O resultado depende das condições de cada alternativa
                     e do período analisado. Tributação, taxas e regras
                     específicas também podem afetar o valor líquido.
+
                 </p>
 
 
                 <h3 class="h5 mt-4">
+
                     100% do CDI e Tesouro Selic rendem a mesma coisa?
+
                 </h3>
 
                 <p>
+
                     Não necessariamente. CDI e Selic são referências
                     diferentes, ainda que normalmente apresentem relação
                     próxima. Além disso, características específicas
                     dos investimentos podem produzir resultados líquidos
                     diferentes.
+
                 </p>
 
 
                 <h3 class="h5 mt-4">
+
                     O comparador considera Imposto de Renda?
+
                 </h3>
 
                 <p>
+
                     Nos investimentos sujeitos à tributação dentro da
                     lógica da ferramenta, o resultado líquido considera
                     uma estimativa de Imposto de Renda. O valor real pode
                     variar conforme o produto e as regras aplicáveis.
+
                 </p>
 
 
                 <h3 class="h5 mt-4">
+
                     O melhor resultado da simulação é uma recomendação?
+
                 </h3>
 
                 <p>
+
                     Não. Ele indica apenas qual alternativa apresentou
                     o maior resultado dentro das premissas matemáticas
                     utilizadas na simulação. Isso não significa que seja
                     o investimento mais adequado para cada pessoa.
+
                 </p>
 
 
@@ -835,6 +1027,7 @@
 
 </section>
 
+
 <!-- ==========================================
      CTA CONSULTORIA
 ========================================== -->
@@ -850,7 +1043,9 @@
                 <div class="col-lg-8">
 
                     <span class="calc-consultoria-label">
+
                         O próximo passo
+
                     </span>
 
                     <h2 class="calc-consultoria-title">
@@ -860,7 +1055,9 @@
                         <br>
 
                         <span>
+
                             Uma estratégia ajuda a definir o caminho.
+
                         </span>
 
                     </h2>
@@ -901,6 +1098,7 @@
 
 </section>
 
+
 <!-- RODAPÉ -->
 
 <footer>
@@ -918,8 +1116,10 @@
                 >
 
                 <p class="mt-3">
+
                     Educação financeira para quem deseja
                     conquistar liberdade financeira.
+
                 </p>
 
             </div>
@@ -928,17 +1128,25 @@
             <div class="col-lg-4">
 
                 <h5>
+
                     Ferramentas
+
                 </h5>
 
                 <ul class="list-unstyled">
 
                     <li>Juros Compostos</li>
+
                     <li>CDI</li>
+
                     <li>Tesouro Direto</li>
+
                     <li>IPCA</li>
+
                     <li>Reserva de Emergência</li>
+
                     <li>FIRE</li>
+
                     <li>Comparador</li>
 
                 </ul>
@@ -949,13 +1157,19 @@
             <div class="col-lg-4">
 
                 <h5>
+
                     Contato
+
                 </h5>
 
                 <p>
+
                     Instagram
+
                     <br>
+
                     @investimentosvisionarios
+
                 </p>
 
             </div>
@@ -965,7 +1179,9 @@
         <hr>
 
         <div class="text-center">
+
             © 2026 Investimentos Visionários
+
         </div>
 
     </div>

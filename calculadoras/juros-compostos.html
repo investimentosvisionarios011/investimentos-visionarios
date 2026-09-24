@@ -289,94 +289,146 @@
 
                 <!-- VALOR INICIAL -->
 
-                <div class="mb-3">
+<div class="mb-3">
 
-                    <label
-                        class="form-label"
-                        for="valorInicial"
-                    >
-                        Valor Inicial (R$)
-                    </label>
+    <label
+        class="form-label"
+        for="valorInicial"
+    >
+        Valor Inicial (R$)
+    </label>
 
-                    <input
-                        type="number"
-                        class="form-control"
-                        id="valorInicial"
-                        min="0"
-                        step="0.01"
-                        placeholder="Ex.: 10000"
-                    >
+    <input
+        type="text"
+        inputmode="decimal"
+        class="form-control"
+        id="valorInicial"
+        placeholder="Ex.: R$ 10.000,00"
+    >
 
-                </div>
+</div>
 
 
                 <!-- APORTE MENSAL -->
 
-                <div class="mb-3">
+<div class="mb-3">
 
-                    <label
-                        class="form-label"
-                        for="aporteMensal"
-                    >
-                        Aporte Mensal (R$)
-                    </label>
+    <label
+        class="form-label"
+        for="aporteMensal"
+    >
+        Aporte Mensal (R$)
+    </label>
 
-                    <input
-                        type="number"
-                        class="form-control"
-                        id="aporteMensal"
-                        min="0"
-                        step="0.01"
-                        placeholder="Ex.: 500"
-                    >
+    <input
+        type="text"
+        inputmode="decimal"
+        class="form-control"
+        id="aporteMensal"
+        placeholder="Ex.: R$ 500,00"
+    >
 
-                </div>
+</div>
 
 
                 <!-- TAXA -->
 
-                <div class="mb-3">
+<div class="mb-3">
 
-                    <label
-                        class="form-label"
-                        for="taxa"
-                    >
-                        Taxa (% ao mês)
-                    </label>
+    <label
+        class="form-label"
+        for="taxa"
+    >
+        Taxa de Juros
+    </label>
 
-                    <input
-                        type="number"
-                        class="form-control"
-                        id="taxa"
-                        min="0"
-                        step="0.01"
-                        placeholder="Ex.: 1"
-                    >
+    <div class="row g-2">
 
-                </div>
+        <div class="col-md-7">
+
+            <input
+                type="number"
+                class="form-control"
+                id="taxa"
+                min="0"
+                step="0.0001"
+                placeholder="Ex.: 1"
+            >
+
+        </div>
+
+        <div class="col-md-5">
+
+            <select
+                class="form-select"
+                id="unidadeTaxa"
+            >
+
+                <option value="mensal" selected>
+                    % ao mês
+                </option>
+
+                <option value="anual">
+                    % ao ano
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+</div>
 
 
                 <!-- TEMPO -->
 
-                <div class="mb-4">
+<div class="mb-4">
 
-                    <label
-                        class="form-label"
-                        for="meses"
-                    >
-                        Tempo (meses)
-                    </label>
+    <label
+        class="form-label"
+        for="meses"
+    >
+        Prazo
+    </label>
 
-                    <input
-                        type="number"
-                        class="form-control"
-                        id="meses"
-                        min="1"
-                        step="1"
-                        placeholder="Ex.: 120"
-                    >
+    <div class="row g-2">
 
-                </div>
+        <div class="col-md-7">
+
+            <input
+                type="number"
+                class="form-control"
+                id="meses"
+                min="1"
+                step="1"
+                placeholder="Ex.: 120"
+            >
+
+        </div>
+
+        <div class="col-md-5">
+
+            <select
+                class="form-select"
+                id="unidadePrazo"
+            >
+
+                <option value="meses" selected>
+                    Meses
+                </option>
+
+                <option value="anos">
+                    Anos
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+</div>
 
 
                 <!-- BOTÕES -->
@@ -665,14 +717,16 @@
                     </li>
 
                     <li>
-                        <strong>Taxa de juros:</strong>
-                        a rentabilidade mensal estimada do investimento.
-                    </li>
+    <strong>Taxa de juros:</strong>
+    a rentabilidade estimada do investimento, que pode ser informada
+    ao mês ou ao ano.
+</li>
 
-                    <li>
-                        <strong>Tempo:</strong>
-                        por quantos meses o dinheiro permanecerá investido.
-                    </li>
+<li>
+    <strong>Tempo:</strong>
+    por quanto tempo o dinheiro permanecerá investido,
+    podendo ser informado em meses ou anos.
+</li>
                 </ul>
 
                 <p>

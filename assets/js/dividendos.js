@@ -24,17 +24,205 @@ function formatarMoedaDividendos(valor) {
 
 
 // ==========================================
+// OBTER VALOR NUMÉRICO DOS CAMPOS
+// ==========================================
+
+function obterValorNumericoDividendos(valor) {
+
+    if (
+        valor === null ||
+        valor === undefined ||
+        valor === ""
+    ) {
+
+        return 0;
+
+    }
+
+
+    let texto =
+        String(valor)
+            .trim();
+
+
+    // ==========================================
+    // REMOVER R$
+    // ==========================================
+
+    texto =
+        texto.replace(
+            /R\$\s?/g,
+            ""
+        );
+
+
+    // ==========================================
+    // FORMATO BRASILEIRO
+    // Exemplo: 10.000,50
+    // ==========================================
+
+    if (
+        texto.includes(",")
+    ) {
+
+        texto =
+            texto.replace(
+                /\./g,
+                ""
+            );
+
+
+        texto =
+            texto.replace(
+                ",",
+                "."
+            );
+
+    }
+
+
+    // ==========================================
+    // REMOVER CARACTERES RESTANTES
+    // ==========================================
+
+    texto =
+        texto.replace(
+            /[^\d.-]/g,
+            ""
+        );
+
+
+    const numero =
+        Number(texto);
+
+
+    return Number.isFinite(numero)
+        ? numero
+        : 0;
+
+}
+
+
+// ==========================================
+// PREPARAR CAMPOS MONETÁRIOS
+// ==========================================
+
+function prepararCamposMonetariosDividendos() {
+
+    const campos =
+        [
+            "divPatrimonio",
+            "divRendaDesejada"
+        ];
+
+
+    campos.forEach(
+        function(id) {
+
+            const campo =
+                document.getElementById(id);
+
+
+            if (!campo) {
+
+                return;
+
+            }
+
+
+            // ==================================
+            // ALTERAR TIPO
+            // ==================================
+
+            campo.type =
+                "text";
+
+
+            campo.inputMode =
+                "decimal";
+
+
+            // ==================================
+            // AO ENTRAR NO CAMPO
+            // ==================================
+
+            campo.addEventListener(
+                "focus",
+                function() {
+
+                    const valor =
+                        obterValorNumericoDividendos(
+                            campo.value
+                        );
+
+
+                    if (valor > 0) {
+
+                        campo.value =
+                            valor
+                                .toFixed(2)
+                                .replace(
+                                    ".",
+                                    ","
+                                );
+
+                    }
+
+                }
+            );
+
+
+            // ==================================
+            // AO SAIR DO CAMPO
+            // ==================================
+
+            campo.addEventListener(
+                "blur",
+                function() {
+
+                    const valor =
+                        obterValorNumericoDividendos(
+                            campo.value
+                        );
+
+
+                    if (valor > 0) {
+
+                        campo.value =
+                            formatarMoedaDividendos(
+                                valor
+                            );
+
+                    }
+
+                    else {
+
+                        campo.value =
+                            "";
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+// ==========================================
 // CALCULAR
 // ==========================================
 
 function calcularDividendos() {
 
     const patrimonio =
-        Number(
+        obterValorNumericoDividendos(
             document.getElementById(
                 "divPatrimonio"
             )?.value
-        ) || 0;
+        );
 
 
     const dividendYield =
@@ -46,11 +234,11 @@ function calcularDividendos() {
 
 
     const rendaDesejada =
-        Number(
+        obterValorNumericoDividendos(
             document.getElementById(
                 "divRendaDesejada"
             )?.value
-        ) || 0;
+        );
 
 
     if (
@@ -98,7 +286,9 @@ function calcularDividendos() {
     // ==========================================
 
     let patrimonioNecessario = 0;
+
     let quantoFalta = 0;
+
     let percentualMeta = 0;
 
 
@@ -288,17 +478,26 @@ function limparDividendos() {
 
 
     if (patrimonio) {
-        patrimonio.value = "";
+
+        patrimonio.value =
+            "";
+
     }
 
 
     if (yieldInput) {
-        yieldInput.value = "";
+
+        yieldInput.value =
+            "";
+
     }
 
 
     if (renda) {
-        renda.value = "";
+
+        renda.value =
+            "";
+
     }
 
 
@@ -352,6 +551,19 @@ function limparDividendos() {
 }
 
 
-console.log(
-    "💰 Calculadora de Dividendos carregada!"
+// ==========================================
+// INICIALIZAÇÃO
+// ==========================================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        prepararCamposMonetariosDividendos();
+
+        console.log(
+            "💰 Calculadora de Dividendos carregada!"
+        );
+
+    }
 );

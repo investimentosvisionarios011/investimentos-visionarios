@@ -3,6 +3,7 @@
 // Investimentos Visionários
 // ==========================================
 
+
 let comparadorSelicAtual = 0;
 let comparadorCdiAtual = 0;
 
@@ -22,6 +23,190 @@ function formatarMoedaComparador(valor) {
             maximumFractionDigits: 2
         }
     );
+
+}
+
+
+// ==========================================
+// CONVERTER CAMPO MONETÁRIO
+// ==========================================
+
+function obterValorNumericoComparador(valor) {
+
+    if (
+        valor === null ||
+        valor === undefined ||
+        valor === ""
+    ) {
+
+        return 0;
+
+    }
+
+
+    let texto =
+        String(valor)
+            .trim()
+            .replace(/R\$/gi, "")
+            .replace(/\s/g, "");
+
+
+    if (texto.includes(",")) {
+
+        texto =
+            texto
+                .replace(/\./g, "")
+                .replace(",", ".");
+
+    } else {
+
+        texto =
+            texto.replace(/[^\d.-]/g, "");
+
+    }
+
+
+    const numero =
+        Number(texto);
+
+
+    return Number.isFinite(numero)
+        ? numero
+        : 0;
+
+}
+
+
+// ==========================================
+// PREPARAR CAMPOS MONETÁRIOS
+// ==========================================
+
+function prepararCamposMonetariosComparador() {
+
+    const campos = [
+
+        document.getElementById(
+            "comparadorValorInicial"
+        ),
+
+        document.getElementById(
+            "comparadorAporte"
+        )
+
+    ];
+
+
+    campos.forEach(campo => {
+
+        if (!campo) {
+            return;
+        }
+
+
+        campo.type = "text";
+
+        campo.inputMode = "decimal";
+
+
+        // ==================================
+        // AO ENTRAR NO CAMPO
+        // ==================================
+
+        campo.addEventListener(
+            "focus",
+            function () {
+
+                const numero =
+                    obterValorNumericoComparador(
+                        this.value
+                    );
+
+
+                if (numero > 0) {
+
+                    this.value =
+                        numero
+                            .toFixed(2)
+                            .replace(".", ",");
+
+                }
+
+            }
+        );
+
+
+        // ==================================
+        // AO SAIR DO CAMPO
+        // ==================================
+
+        campo.addEventListener(
+            "blur",
+            function () {
+
+                const numero =
+                    obterValorNumericoComparador(
+                        this.value
+                    );
+
+
+                if (numero > 0) {
+
+                    this.value =
+                        formatarMoedaComparador(
+                            numero
+                        );
+
+                } else {
+
+                    this.value = "";
+
+                }
+
+            }
+        );
+
+    });
+
+}
+
+
+// ==========================================
+// OBTER PRAZO EM MESES
+// ==========================================
+
+function obterPrazoEmMesesComparador() {
+
+    const prazo =
+        Number(
+            document.getElementById(
+                "comparadorMeses"
+            )?.value
+        );
+
+
+    const unidade =
+        document.getElementById(
+            "comparadorUnidadePrazo"
+        )?.value || "meses";
+
+
+    if (!Number.isFinite(prazo)) {
+
+        return 0;
+
+    }
+
+
+    if (unidade === "anos") {
+
+        return Math.round(
+            prazo * 12
+        );
+
+    }
+
+
+    return Math.round(prazo);
 
 }
 
@@ -66,7 +251,9 @@ async function carregarTaxasComparador() {
 
 
         if (
-            !Number.isFinite(comparadorSelicAtual) ||
+            !Number.isFinite(
+                comparadorSelicAtual
+            ) ||
             comparadorSelicAtual <= 0
         ) {
 
@@ -78,7 +265,9 @@ async function carregarTaxasComparador() {
 
 
         if (
-            !Number.isFinite(comparadorCdiAtual) ||
+            !Number.isFinite(
+                comparadorCdiAtual
+            ) ||
             comparadorCdiAtual <= 0
         ) {
 
@@ -89,22 +278,38 @@ async function carregarTaxasComparador() {
         }
 
 
-        document.getElementById(
-            "comparadorSelic"
-        ).textContent =
-            comparadorSelicAtual
-                .toFixed(2)
-                .replace(".", ",")
-            + "%";
+        const elementoSelic =
+            document.getElementById(
+                "comparadorSelic"
+            );
 
 
-        document.getElementById(
-            "comparadorCdi"
-        ).textContent =
-            comparadorCdiAtual
-                .toFixed(2)
-                .replace(".", ",")
-            + "%";
+        if (elementoSelic) {
+
+            elementoSelic.textContent =
+                comparadorSelicAtual
+                    .toFixed(2)
+                    .replace(".", ",")
+                + "%";
+
+        }
+
+
+        const elementoCdi =
+            document.getElementById(
+                "comparadorCdi"
+            );
+
+
+        if (elementoCdi) {
+
+            elementoCdi.textContent =
+                comparadorCdiAtual
+                    .toFixed(2)
+                    .replace(".", ",")
+                + "%";
+
+        }
 
 
         console.log(
@@ -137,14 +342,18 @@ async function carregarTaxasComparador() {
 
 
         if (selic) {
+
             selic.textContent =
                 "Indisponível";
+
         }
 
 
         if (cdi) {
+
             cdi.textContent =
                 "Indisponível";
+
         }
 
     }
@@ -236,28 +445,28 @@ function simularComparador(
 function calcularComparador() {
 
     const valorInicial =
-        Number(
+        obterValorNumericoComparador(
             document.getElementById(
                 "comparadorValorInicial"
             )?.value
-        ) || 0;
+        );
 
 
     const aporte =
-        Number(
+        obterValorNumericoComparador(
             document.getElementById(
                 "comparadorAporte"
             )?.value
-        ) || 0;
+        );
 
 
     const meses =
-        Number(
-            document.getElementById(
-                "comparadorMeses"
-            )?.value
-        );
+        obterPrazoEmMesesComparador();
 
+
+    // ==========================================
+    // VALIDAÇÕES
+    // ==========================================
 
     if (
         comparadorSelicAtual <= 0 ||
@@ -300,6 +509,10 @@ function calcularComparador() {
 
     }
 
+
+    // ==========================================
+    // TOTAL INVESTIDO
+    // ==========================================
 
     const totalInvestido =
         valorInicial +
@@ -598,11 +811,39 @@ function limparComparador() {
         );
 
 
-    if (valor) valor.value = "";
+    const unidadePrazo =
+        document.getElementById(
+            "comparadorUnidadePrazo"
+        );
 
-    if (aporte) aporte.value = "";
 
-    if (meses) meses.value = "";
+    if (valor) {
+
+        valor.value = "";
+
+    }
+
+
+    if (aporte) {
+
+        aporte.value = "";
+
+    }
+
+
+    if (meses) {
+
+        meses.value = "";
+
+    }
+
+
+    if (unidadePrazo) {
+
+        unidadePrazo.value =
+            "meses";
+
+    }
 
 
     atualizarComparador(
@@ -662,6 +903,8 @@ function limparComparador() {
 document.addEventListener(
     "DOMContentLoaded",
     function() {
+
+        prepararCamposMonetariosComparador();
 
         carregarTaxasComparador();
 

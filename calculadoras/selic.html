@@ -10,7 +10,6 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-
     <!-- SEO -->
 
     <title>Calculadora Selic Grátis | Simule seu Rendimento</title>
@@ -139,7 +138,7 @@
 
 <!-- MENU -->
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
     <div class="container">
 
@@ -147,9 +146,13 @@
             class="navbar-brand fw-bold"
             href="../index.html"
         >
+
             <i class="bi bi-graph-up-arrow text-success"></i>
+
             Investimentos Visionários
+
         </a>
+
 
         <button
             class="navbar-toggler"
@@ -157,8 +160,11 @@
             data-bs-toggle="collapse"
             data-bs-target="#menu"
         >
+
             <span class="navbar-toggler-icon"></span>
+
         </button>
+
 
         <div
             class="collapse navbar-collapse"
@@ -168,30 +174,44 @@
             <ul class="navbar-nav ms-auto">
 
                 <li class="nav-item">
+
                     <a
                         class="nav-link"
                         href="../index.html"
                     >
+
                         Início
+
                     </a>
+
                 </li>
 
+
                 <li class="nav-item">
+
                     <a
                         class="nav-link"
                         href="../index.html#ferramentas"
                     >
+
                         Ferramentas
+
                     </a>
+
                 </li>
 
+
                 <li class="nav-item">
+
                     <a
                         class="nav-link active"
                         href="#"
                     >
+
                         Selic
+
                     </a>
+
                 </li>
 
             </ul>
@@ -214,15 +234,20 @@
             <div class="col-lg-8">
 
                 <h1>
+
                     Calculadora Selic
+
                 </h1>
 
                 <p>
+
                     Simule quanto seu dinheiro pode render
                     utilizando a taxa Selic atual.
+
                 </p>
 
             </div>
+
 
             <div class="col-lg-4 text-center">
 
@@ -253,7 +278,9 @@
                 <div class="card shadow p-4">
 
                     <h2 class="mb-4">
+
                         Dados da simulação
+
                     </h2>
 
 
@@ -262,11 +289,15 @@
                         Selic atual:
 
                         <strong id="selicTaxaAtual">
+
                             --
+
                         </strong>
 
                     </div>
 
+
+                    <!-- VALOR INICIAL -->
 
                     <div class="mb-3">
 
@@ -274,20 +305,23 @@
                             for="selicValorInicial"
                             class="form-label"
                         >
+
                             Valor Inicial (R$)
+
                         </label>
 
                         <input
-                            type="number"
+                            type="text"
+                            inputmode="decimal"
                             class="form-control"
                             id="selicValorInicial"
-                            min="0"
-                            step="0.01"
-                            placeholder="Ex.: 10000"
+                            placeholder="Ex.: R$ 10.000,00"
                         >
 
                     </div>
 
+
+                    <!-- APORTE MENSAL -->
 
                     <div class="mb-3">
 
@@ -295,20 +329,23 @@
                             for="selicAporteMensal"
                             class="form-label"
                         >
+
                             Aporte Mensal (R$)
+
                         </label>
 
                         <input
-                            type="number"
+                            type="text"
+                            inputmode="decimal"
                             class="form-control"
                             id="selicAporteMensal"
-                            min="0"
-                            step="0.01"
-                            placeholder="Ex.: 500"
+                            placeholder="Ex.: R$ 500,00"
                         >
 
                     </div>
 
+
+                    <!-- PRAZO -->
 
                     <div class="mb-4">
 
@@ -316,22 +353,62 @@
                             for="selicMeses"
                             class="form-label"
                         >
-                            Prazo (meses)
+
+                            Prazo
+
                         </label>
 
-                        <input
-                            type="number"
-                            class="form-control"
-                            id="selicMeses"
-                            min="1"
-                            step="1"
-                            placeholder="Ex.: 24"
-                        >
+
+                        <div class="input-group">
+
+                            <input
+                                type="number"
+                                class="form-control"
+                                id="selicMeses"
+                                min="1"
+                                step="1"
+                                placeholder="Ex.: 24"
+                            >
+
+
+                            <select
+                                class="form-select"
+                                id="selicUnidadePrazo"
+                                style="max-width:130px;"
+                            >
+
+                                <option
+                                    value="meses"
+                                    selected
+                                >
+
+                                    Meses
+
+                                </option>
+
+
+                                <option value="anos">
+
+                                    Anos
+
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <small class="text-muted">
+
+                            Informe o prazo em meses ou anos.
+
+                        </small>
 
                     </div>
 
 
                     <div class="d-flex gap-2 flex-wrap">
+
 
                         <button
                             type="button"
@@ -340,6 +417,7 @@
                         >
 
                             <i class="bi bi-calculator"></i>
+
                             Calcular
 
                         </button>
@@ -352,9 +430,11 @@
                         >
 
                             <i class="bi bi-arrow-clockwise"></i>
+
                             Limpar
 
                         </button>
+
 
                     </div>
 
@@ -370,7 +450,9 @@
                 <div class="card shadow p-4 h-100">
 
                     <h3>
+
                         Resultado
+
                     </h3>
 
                     <hr>
@@ -384,11 +466,15 @@
                             <div class="border rounded p-3 h-100">
 
                                 <p class="mb-1">
+
                                     Total Investido
+
                                 </p>
 
                                 <h4 id="selicTotalInvestido">
+
                                     R$ 0,00
+
                                 </h4>
 
                             </div>
@@ -401,11 +487,15 @@
                             <div class="border rounded p-3 h-100">
 
                                 <p class="mb-1">
+
                                     Rendimento Bruto
+
                                 </p>
 
                                 <h4 id="selicRendimentoBruto">
+
                                     R$ 0,00
+
                                 </h4>
 
                             </div>
@@ -418,15 +508,21 @@
                             <div class="border rounded p-3 h-100">
 
                                 <p class="mb-1">
+
                                     Imposto de Renda estimado
+
                                 </p>
 
                                 <h4 id="selicIr">
+
                                     R$ 0,00
+
                                 </h4>
 
                                 <small id="selicAliquota">
+
                                     Alíquota: 0%
+
                                 </small>
 
                             </div>
@@ -439,14 +535,18 @@
                             <div class="border rounded p-3 h-100">
 
                                 <p class="mb-1">
+
                                     Rendimento Líquido
+
                                 </p>
 
                                 <h4
                                     id="selicRendimentoLiquido"
                                     class="text-success"
                                 >
+
                                     R$ 0,00
+
                                 </h4>
 
                             </div>
@@ -459,14 +559,18 @@
                             <div class="border rounded p-3 h-100">
 
                                 <p class="mb-1">
+
                                     Patrimônio Final
+
                                 </p>
 
                                 <h4
                                     id="selicPatrimonioFinal"
                                     class="text-success"
                                 >
+
                                     R$ 0,00
+
                                 </h4>
 
                             </div>
@@ -479,16 +583,21 @@
                             <div class="border rounded p-3 h-100">
 
                                 <p class="mb-1">
+
                                     Média de rendimento por mês
+
                                 </p>
 
                                 <h4 id="selicMediaMensal">
+
                                     R$ 0,00
+
                                 </h4>
 
                             </div>
 
                         </div>
+
 
                     </div>
 
@@ -519,26 +628,34 @@
                 <!-- O QUE É SELIC -->
 
                 <h2 class="mb-4">
+
                     O que é a taxa Selic?
+
                 </h2>
 
                 <p>
+
                     A <strong>Selic</strong> é a taxa básica de juros
                     da economia brasileira e funciona como uma das
                     principais referências para as demais taxas de juros
                     praticadas no país.
+
                 </p>
 
                 <p>
+
                     Alterações na Selic podem influenciar o custo do crédito,
                     financiamentos e a rentabilidade de diversos investimentos,
                     especialmente produtos de renda fixa.
+
                 </p>
 
                 <p>
+
                     Por isso, acompanhar a taxa Selic ajuda a compreender
                     melhor o cenário econômico e o comportamento de diferentes
                     alternativas de investimento.
+
                 </p>
 
 
@@ -548,47 +665,70 @@
                 <!-- COMO USAR -->
 
                 <h2 class="mb-4">
+
                     Como usar a Calculadora Selic?
+
                 </h2>
 
                 <p>
+
                     Nossa calculadora utiliza a taxa Selic exibida pela
                     ferramenta como referência para realizar uma simulação
                     de rendimento.
+
                 </p>
 
                 <p>
+
                     Para calcular, informe:
+
                 </p>
 
                 <ul>
 
                     <li>
+
                         <strong>Valor inicial:</strong>
                         quanto você deseja considerar no início
                         da simulação.
+
                     </li>
 
                     <li>
+
                         <strong>Aporte mensal:</strong>
                         quanto pretende acrescentar ao investimento
                         todos os meses.
+
                     </li>
 
                     <li>
+
                         <strong>Prazo:</strong>
-                        durante quantos meses deseja manter
-                        a simulação.
+                        durante quanto tempo deseja manter
+                        a simulação. Você pode informar o período
+                        em <strong>meses ou anos</strong>.
+
                     </li>
 
                 </ul>
 
                 <p>
+
+                    Quando o prazo for informado em anos, a ferramenta
+                    fará automaticamente a conversão para meses para
+                    realizar a projeção.
+
+                </p>
+
+                <p>
+
                     Depois de clicar em <strong>Calcular</strong>,
                     a ferramenta apresentará o total investido,
                     rendimento bruto, estimativa de Imposto de Renda,
                     rendimento líquido, patrimônio final e uma média
                     de rendimento mensal.
+
                 </p>
 
 
@@ -598,26 +738,34 @@
                 <!-- CÁLCULO -->
 
                 <h2 class="mb-4">
+
                     Como a Calculadora Selic estima o rendimento?
+
                 </h2>
 
                 <p>
+
                     A taxa Selic é normalmente apresentada em termos anuais.
                     Para realizar uma projeção mês a mês, a ferramenta
                     converte essa taxa anual em uma
                     <strong>taxa mensal equivalente</strong>.
+
                 </p>
 
                 <p>
+
                     Em seguida, a taxa é utilizada na evolução do patrimônio
                     durante o prazo informado, considerando também os
                     aportes mensais realizados na simulação.
+
                 </p>
 
                 <p>
+
                     Dessa forma, o cálculo considera o efeito da
                     capitalização ao longo do tempo em vez de simplesmente
                     dividir a taxa anual por 12.
+
                 </p>
 
 
@@ -627,36 +775,47 @@
                 <!-- SELIC E INVESTIMENTOS -->
 
                 <h2 class="mb-4">
+
                     Como a Selic influencia os investimentos?
+
                 </h2>
 
                 <p>
+
                     A Selic exerce forte influência sobre a renda fixa.
                     Quando a taxa básica de juros muda, a remuneração
                     oferecida por diversos produtos financeiros também
                     pode ser afetada.
+
                 </p>
 
                 <p>
+
                     Alguns investimentos possuem relação mais direta
                     com taxas de juros de curto prazo, enquanto outros
                     podem responder de maneira diferente às mudanças
                     no cenário econômico.
+
                 </p>
+
 
                 <div class="card shadow-sm border-0 p-4 my-4">
 
                     <h4>
+
                         💡 Selic alta não significa rendimento igual
                         para todos os investimentos
+
                     </h4>
 
                     <p class="mb-0">
+
                         Cada produto possui suas próprias regras,
                         rentabilidade, tributação, custos, liquidez
                         e riscos. A Selic é uma referência importante,
                         mas não representa automaticamente o rendimento
                         líquido que o investidor receberá.
+
                     </p>
 
                 </div>
@@ -668,27 +827,35 @@
                 <!-- SELIC X CDI -->
 
                 <h2 class="mb-4">
+
                     Qual a diferença entre Selic e CDI?
+
                 </h2>
 
                 <p>
+
                     Selic e CDI são referências diferentes, embora
                     normalmente apresentem uma relação próxima.
+
                 </p>
 
                 <p>
+
                     A Selic é a taxa básica de juros da economia brasileira.
                     Já o CDI está relacionado às operações de curtíssimo
                     prazo realizadas entre instituições financeiras e
                     é amplamente utilizado como referência para produtos
                     de renda fixa.
+
                 </p>
 
                 <p>
+
                     Por isso, investimentos vinculados à Selic e investimentos
                     que pagam determinado percentual do CDI podem apresentar
                     resultados semelhantes em alguns cenários, mas não
                     devem ser considerados exatamente iguais.
+
                 </p>
 
 
@@ -698,20 +865,26 @@
                 <!-- SELIC X TESOURO -->
 
                 <h2 class="mb-4">
+
                     Selic e Tesouro Selic são a mesma coisa?
+
                 </h2>
 
                 <p>
+
                     Não. A Selic é uma taxa de juros, enquanto o
                     <strong>Tesouro Selic</strong> é um título público
                     federal cuja rentabilidade está vinculada à taxa Selic,
                     conforme as características do título.
+
                 </p>
 
                 <p>
+
                     Portanto, dizer que a Selic está em determinado nível
                     não significa que o rendimento líquido de um investimento
                     em Tesouro Selic será exatamente igual a esse percentual.
+
                 </p>
 
 
@@ -721,77 +894,103 @@
                 <!-- PERGUNTAS FREQUENTES -->
 
                 <h2 class="mb-4">
+
                     Perguntas frequentes sobre a Selic
+
                 </h2>
 
 
                 <h3 class="h5 mt-4">
+
                     Quanto rende um investimento pela Selic?
+
                 </h3>
 
                 <p>
+
                     O resultado depende da taxa utilizada, do valor investido,
                     dos aportes, do prazo, da tributação e das características
                     do produto. A calculadora acima permite fazer uma
                     simulação utilizando a referência apresentada
                     pela ferramenta.
+
                 </p>
 
 
                 <h3 class="h5 mt-4">
+
                     A Selic permanece igual durante todo o investimento?
+
                 </h3>
 
                 <p>
+
                     Não necessariamente. A taxa Selic pode ser alterada
                     ao longo do tempo. A calculadora utiliza a taxa exibida
                     como referência para projetar o período informado,
                     portanto o resultado deve ser interpretado como
                     uma simulação.
+
                 </p>
 
 
                 <h3 class="h5 mt-4">
+
                     A calculadora considera juros compostos?
+
                 </h3>
 
                 <p>
+
                     A simulação considera a capitalização da taxa ao longo
                     dos períodos utilizados no cálculo, além dos aportes
                     mensais informados.
+
                 </p>
 
 
                 <h3 class="h5 mt-4">
+
                     A calculadora considera Imposto de Renda?
+
                 </h3>
 
                 <p>
+
                     A ferramenta apresenta uma estimativa de Imposto de
                     Renda dentro da lógica da simulação. A tributação real
                     depende do produto financeiro e das regras aplicáveis.
+
                 </p>
 
 
                 <h3 class="h5 mt-4">
+
                     A média mensal significa que receberei esse valor todos os meses?
+
                 </h3>
 
                 <p>
+
                     Não. A média apresentada é uma referência matemática
                     baseada no rendimento estimado durante a simulação.
                     Ela não representa uma promessa de pagamento mensal.
+
                 </p>
 
 
                 <h3 class="h5 mt-4">
+
                     O rendimento apresentado é garantido?
+
                 </h3>
 
                 <p>
+
                     Não. A taxa Selic pode mudar e investimentos reais
                     possuem características próprias. Os valores calculados
                     são apenas projeções baseadas nas premissas utilizadas.
+
                 </p>
 
 
@@ -822,6 +1021,7 @@
 
 </section>
 
+
 <!-- ==========================================
      CTA CONSULTORIA
 ========================================== -->
@@ -837,8 +1037,11 @@
                 <div class="col-lg-8">
 
                     <span class="calc-consultoria-label">
+
                         O próximo passo
+
                     </span>
+
 
                     <h2 class="calc-consultoria-title">
 
@@ -847,10 +1050,13 @@
                         <br>
 
                         <span>
+
                             Uma estratégia ajuda a definir o caminho.
+
                         </span>
 
                     </h2>
+
 
                     <p class="calc-consultoria-text">
 
@@ -864,6 +1070,7 @@
                     </p>
 
                 </div>
+
 
                 <div class="col-lg-4 text-lg-end calc-consultoria-action">
 
@@ -888,6 +1095,7 @@
 
 </section>
 
+
 <!-- RODAPÉ -->
 
 <footer>
@@ -895,6 +1103,7 @@
     <div class="container">
 
         <div class="row g-4">
+
 
             <div class="col-lg-4">
 
@@ -905,8 +1114,10 @@
                 >
 
                 <p class="mt-3">
+
                     Educação financeira para quem deseja
                     conquistar liberdade financeira.
+
                 </p>
 
             </div>
@@ -915,19 +1126,29 @@
             <div class="col-lg-4">
 
                 <h5>
+
                     Ferramentas
+
                 </h5>
 
                 <ul class="list-unstyled">
 
                     <li>Juros Compostos</li>
+
                     <li>CDI</li>
+
                     <li>Tesouro Direto</li>
+
                     <li>IPCA</li>
+
                     <li>Reserva de Emergência</li>
+
                     <li>FIRE</li>
+
                     <li>Comparador</li>
+
                     <li>Dividendos</li>
+
                     <li>Selic</li>
 
                 </ul>
@@ -938,23 +1159,33 @@
             <div class="col-lg-4">
 
                 <h5>
+
                     Contato
+
                 </h5>
 
                 <p>
+
                     Instagram
+
                     <br>
+
                     @investimentosvisionarios
+
                 </p>
 
             </div>
+
 
         </div>
 
         <hr>
 
+
         <div class="text-center">
+
             © 2026 Investimentos Visionários
+
         </div>
 
     </div>
@@ -965,6 +1196,7 @@
 <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 ></script>
+
 
 <script src="../assets/js/selic-calculator.js"></script>
 

@@ -302,11 +302,12 @@
                         </label>
 
                         <input
-                            type="number"
+                            type="text"
+                            inputmode="decimal"
                             class="form-control"
                             id="tesouroValorInicial"
-                            min="0"
-                            step="0.01"
+                            autocomplete="off"
+                            placeholder="Ex.: R$ 10.000,00"
                         >
 
                     </div>
@@ -322,11 +323,12 @@
                         </label>
 
                         <input
-                            type="number"
+                            type="text"
+                            inputmode="decimal"
                             class="form-control"
                             id="tesouroAporteMensal"
-                            min="0"
-                            step="0.01"
+                            autocomplete="off"
+                            placeholder="Ex.: R$ 500,00"
                         >
 
                     </div>
@@ -338,16 +340,44 @@
                             class="form-label"
                             for="tesouroPrazo"
                         >
-                            Prazo (meses)
+                            Prazo
                         </label>
 
-                        <input
-                            type="number"
-                            class="form-control"
-                            id="tesouroPrazo"
-                            min="1"
-                            step="1"
-                        >
+                        <div class="row g-2">
+
+                            <div class="col-md-7">
+
+                                <input
+                                    type="number"
+                                    class="form-control"
+                                    id="tesouroPrazo"
+                                    min="1"
+                                    step="1"
+                                    placeholder="Ex.: 24"
+                                >
+
+                            </div>
+
+                            <div class="col-md-5">
+
+                                <select
+                                    class="form-select"
+                                    id="tesouroUnidadePrazo"
+                                >
+
+                                    <option value="meses">
+                                        Meses
+                                    </option>
+
+                                    <option value="anos">
+                                        Anos
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
 
                     </div>
 
@@ -361,16 +391,44 @@
                             class="form-label"
                             for="tesouroTaxa"
                         >
-                            Taxa anual (%)
+                            Taxa do título
                         </label>
 
-                        <input
-                            type="number"
-                            class="form-control"
-                            id="tesouroTaxa"
-                            min="0"
-                            step="0.01"
-                        >
+                        <div class="row g-2">
+
+                            <div class="col-md-7">
+
+                                <input
+                                    type="number"
+                                    class="form-control"
+                                    id="tesouroTaxa"
+                                    min="0"
+                                    step="0.01"
+                                    placeholder="Ex.: 10,50"
+                                >
+
+                            </div>
+
+                            <div class="col-md-5">
+
+                                <select
+                                    class="form-select"
+                                    id="tesouroUnidadeTaxa"
+                                >
+
+                                    <option value="ano">
+                                        % ao ano
+                                    </option>
+
+                                    <option value="mes">
+                                        % ao mês
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
 
                     </div>
 
@@ -393,6 +451,7 @@
                             id="tesouroIpca"
                             min="0"
                             step="0.01"
+                            placeholder="Ex.: 4,50"
                         >
 
                     </div>
@@ -518,6 +577,7 @@
 
 </main>
 
+
 <!-- ==========================================
      CONTEÚDO EDUCACIONAL - TESOURO DIRETO
 ========================================== -->
@@ -634,12 +694,13 @@
 
                     <li>
                         <strong>Prazo:</strong>
-                        o período da simulação, informado em meses.
+                        o período da simulação, informado em meses ou anos.
                     </li>
 
                     <li>
-                        <strong>Taxa anual:</strong>
-                        a taxa utilizada para projetar a rentabilidade.
+                        <strong>Taxa do título:</strong>
+                        a taxa utilizada para projetar a rentabilidade,
+                        informada em % ao mês ou % ao ano.
                     </li>
 
                 </ul>
@@ -647,6 +708,9 @@
                 <p>
                     Para a simulação do Tesouro IPCA+, a ferramenta também
                     permite informar o <strong>IPCA anual</strong>.
+                    A taxa real do título pode ser informada em % ao mês
+                    ou % ao ano; a calculadora faz a conversão necessária
+                    para a simulação.
                 </p>
 
                 <p>
@@ -791,90 +855,12 @@
 
 </section>
 
-<!-- ==========================================
-     CTA CONSULTORIA
-========================================== -->
-
-<section class="calc-consultoria-cta">
-
-    <div class="container">
-
-        <div class="calc-consultoria-container">
-
-            <div class="row align-items-center g-4">
-
-                <!-- TEXTO -->
-
-                <div class="col-lg-8">
-
-                    <span class="calc-consultoria-label">
-                        O próximo passo
-                    </span>
-
-                    <h2 class="calc-consultoria-title">
-
-                        A simulação mostra os números.
-
-                        <br>
-
-                        <span>
-                            Uma estratégia ajuda a definir o caminho.
-                        </span>
-
-                    </h2>
-
-                    <p class="calc-consultoria-text">
-
-                        Cada objetivo financeiro exige uma estratégia diferente.
-
-                        Se você deseja organizar sua vida financeira
-                        e construir um planejamento alinhado aos seus
-                        objetivos, conheça a consultoria da
-                        Investimentos Visionários.
-
-                    </p>
-
-                </div>
-
-
-                <!-- BOTÃO -->
-
-                <div class="col-lg-4 text-lg-end calc-consultoria-action">
-
-                    <a
-                        href="../consultoria/"
-                        class="calc-consultoria-button"
-                    >
-
-                        <i class="bi bi-compass me-2"></i>
-
-                        Conheça nossa Consultoria
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ==========================================
-     RODAPÉ
-========================================== -->
 
 <footer>
 
     <div class="container">
 
         <div class="row g-4">
-
-
-            <!-- LOGO -->
 
             <div class="col-lg-4">
 
@@ -885,141 +871,35 @@
                 >
 
                 <p class="mt-3">
-
                     Educação financeira para quem deseja
                     conquistar liberdade financeira.
-
                 </p>
 
             </div>
 
-
-            <!-- CALCULADORAS -->
-
             <div class="col-lg-4">
 
                 <h5>
-                    Calculadoras
+                    Ferramentas
                 </h5>
 
                 <ul class="list-unstyled">
 
-                    <li class="mb-2">
-
-                        <a
-                            href="juros-compostos.html"
-                            class="text-light text-decoration-none"
-                        >
-                            Juros Compostos
-                        </a>
-
+                    <li>
+                        Juros Compostos
                     </li>
 
-                    <li class="mb-2">
-
-                        <a
-                            href="cdi.html"
-                            class="text-light text-decoration-none"
-                        >
-                            CDI
-                        </a>
-
+                    <li>
+                        CDI
                     </li>
 
-                    <li class="mb-2">
-
-                        <a
-                            href="tesouro-direto.html"
-                            class="text-light text-decoration-none"
-                        >
-                            Tesouro Direto
-                        </a>
-
-                    </li>
-
-                    <li class="mb-2">
-
-                        <a
-                            href="ipca.html"
-                            class="text-light text-decoration-none"
-                        >
-                            IPCA
-                        </a>
-
-                    </li>
-
-                    <li class="mb-2">
-
-                        <a
-                            href="reserva-emergencia.html"
-                            class="text-light text-decoration-none"
-                        >
-                            Reserva de Emergência
-                        </a>
-
-                    </li>
-
-                    <li class="mb-2">
-
-                        <a
-                            href="fire.html"
-                            class="text-light text-decoration-none"
-                        >
-                            FIRE
-                        </a>
-
-                    </li>
-
-                    <li class="mb-2">
-
-                        <a
-                            href="comparador.html"
-                            class="text-light text-decoration-none"
-                        >
-                            Comparador de Investimentos
-                        </a>
-
-                    </li>
-
-                    <li class="mb-2">
-
-                        <a
-                            href="dividendos.html"
-                            class="text-light text-decoration-none"
-                        >
-                            Dividendos
-                        </a>
-
-                    </li>
-
-                    <li class="mb-2">
-
-                        <a
-                            href="selic.html"
-                            class="text-light text-decoration-none"
-                        >
-                            Selic
-                        </a>
-
-                    </li>
-
-                    <li class="mb-2">
-
-                        <a
-                            href="aposentadoria.html"
-                            class="text-light text-decoration-none"
-                        >
-                            Aposentadoria
-                        </a>
-
+                    <li>
+                        Tesouro Direto
                     </li>
 
                 </ul>
 
             </div>
-
-
-            <!-- CONTATO -->
 
             <div class="col-lg-4">
 
@@ -1027,69 +907,20 @@
                     Contato
                 </h5>
 
-                <p class="mb-2">
-
-                    <i class="bi bi-whatsapp text-success me-2"></i>
-
-                    <a
-                        href="https://wa.me/5511970256673"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="text-decoration-none text-light"
-                    >
-                        (11) 97025-6673
-                    </a>
-
-                </p>
-
-
-                <p class="mb-2">
-
-                    <i class="bi bi-envelope text-success me-2"></i>
-
-                    <a
-                        href="mailto:contato@investimentosvisionarios.com.br"
-                        class="text-decoration-none text-light"
-                    >
-                        contato@investimentosvisionarios.com.br
-                    </a>
-
-                </p>
-
-
-                <p class="mb-0">
-
-                    <i class="bi bi-instagram text-success me-2"></i>
-
-                    <a
-                        href="https://www.instagram.com/investimentosvisionarios/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="text-decoration-none text-light"
-                    >
-                        @investimentosvisionarios
-                    </a>
-
+                <p>
+                    Instagram
+                    <br>
+                    @investimentosvisionarios
                 </p>
 
             </div>
 
         </div>
 
-
         <hr>
 
-
         <div class="text-center">
-
             © 2026 Investimentos Visionários
-
-            <br>
-
-            <small class="text-secondary">
-                Idealizado e desenvolvido por Junior Blanco
-            </small>
-
         </div>
 
     </div>

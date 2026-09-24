@@ -26,6 +26,147 @@ function formatarMoedaSelic(valor) {
 
 
 // ==========================================
+// OBTER VALOR NUMÉRICO
+// Aceita valores como:
+// R$ 10.000,00
+// 10.000,00
+// 10000
+// ==========================================
+
+function obterValorNumericoSelic(valor) {
+
+    if (valor === null || valor === undefined) {
+        return 0;
+    }
+
+    let texto = String(valor).trim();
+
+    if (!texto) {
+        return 0;
+    }
+
+    // Remove R$, espaços e outros caracteres
+    texto = texto.replace(/[^\d,.-]/g, "");
+
+    // Se houver vírgula, considera formato brasileiro
+    if (texto.includes(",")) {
+
+        texto = texto
+            .replace(/\./g, "")
+            .replace(",", ".");
+
+    } else {
+
+        // Caso seja apenas número
+        // mantém o ponto como decimal
+        texto = texto.replace(/(\..*)\./g, "$1");
+
+    }
+
+    const numero = Number(texto);
+
+    return Number.isFinite(numero)
+        ? numero
+        : 0;
+
+}
+
+
+// ==========================================
+// PREPARAR CAMPOS MONETÁRIOS
+// ==========================================
+
+function prepararCamposMonetariosSelic() {
+
+    const campos = [
+        "selicValorInicial",
+        "selicAporteMensal"
+    ];
+
+
+    campos.forEach(function(id) {
+
+        const campo =
+            document.getElementById(id);
+
+
+        if (!campo) {
+            return;
+        }
+
+
+        campo.type = "text";
+        campo.inputMode = "decimal";
+
+
+        // ------------------------------------------
+        // Ao entrar no campo
+        // mostra somente o número
+        // ------------------------------------------
+
+        campo.addEventListener(
+            "focus",
+            function() {
+
+                const valor =
+                    obterValorNumericoSelic(
+                        campo.value
+                    );
+
+
+                if (valor > 0) {
+
+                    campo.value =
+                        String(valor)
+                            .replace(".", ",");
+
+                } else {
+
+                    campo.value = "";
+
+                }
+
+            }
+        );
+
+
+        // ------------------------------------------
+        // Ao sair do campo
+        // aplica máscara R$
+        // ------------------------------------------
+
+        campo.addEventListener(
+            "blur",
+            function() {
+
+                const valor =
+                    obterValorNumericoSelic(
+                        campo.value
+                    );
+
+
+                if (valor > 0) {
+
+                    campo.value =
+                        formatarMoedaSelic(
+                            valor
+                        );
+
+                } else {
+
+                    campo.value = "";
+
+                }
+
+            }
+        );
+
+    });
+
+}
+
+
+// ==========================================
 // CARREGAR SELIC ATUAL
 // ==========================================
 
@@ -138,6 +279,61 @@ function converterSelicMensal(
 
 
 // ==========================================
+// OBTER PRAZO EM MESES
+// ==========================================
+
+function obterPrazoEmMesesSelic() {
+
+    const campoPrazo =
+        document.getElementById(
+            "selicMeses"
+        );
+
+
+    const unidadePrazo =
+        document.getElementById(
+            "selicUnidadePrazo"
+        );
+
+
+    const valorPrazo =
+        Number(
+            campoPrazo?.value
+        );
+
+
+    if (
+        !Number.isFinite(valorPrazo) ||
+        valorPrazo <= 0
+    ) {
+
+        return 0;
+
+    }
+
+
+    const unidade =
+        unidadePrazo?.value ||
+        "meses";
+
+
+    if (unidade === "anos") {
+
+        return Math.round(
+            valorPrazo * 12
+        );
+
+    }
+
+
+    return Math.round(
+        valorPrazo
+    );
+
+}
+
+
+// ==========================================
 // ALÍQUOTA DE IR
 // ==========================================
 
@@ -176,27 +372,23 @@ function obterAliquotaSelic(meses) {
 function calcularSelic() {
 
     const valorInicial =
-        Number(
+        obterValorNumericoSelic(
             document.getElementById(
                 "selicValorInicial"
             )?.value
-        ) || 0;
+        );
 
 
     const aporteMensal =
-        Number(
+        obterValorNumericoSelic(
             document.getElementById(
                 "selicAporteMensal"
             )?.value
-        ) || 0;
+        );
 
 
     const meses =
-        Number(
-            document.getElementById(
-                "selicMeses"
-            )?.value
-        );
+        obterPrazoEmMesesSelic();
 
 
     // ==========================================
@@ -236,7 +428,7 @@ function calcularSelic() {
     ) {
 
         alert(
-            "Informe um prazo válido em meses."
+            "Informe um prazo válido em meses ou anos."
         );
 
         return;
@@ -469,9 +661,15 @@ function limparSelic() {
         );
 
 
-    const meses =
+    const prazo =
         document.getElementById(
             "selicMeses"
+        );
+
+
+    const unidadePrazo =
+        document.getElementById(
+            "selicUnidadePrazo"
         );
 
 
@@ -489,9 +687,16 @@ function limparSelic() {
     }
 
 
-    if (meses) {
+    if (prazo) {
 
-        meses.value = "";
+        prazo.value = "";
+
+    }
+
+
+    if (unidadePrazo) {
+
+        unidadePrazo.value = "meses";
 
     }
 
@@ -547,6 +752,8 @@ function limparSelic() {
 document.addEventListener(
     "DOMContentLoaded",
     function() {
+
+        prepararCamposMonetariosSelic();
 
         carregarSelicAtual();
 

@@ -10,7 +10,6 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-
     <!-- SEO -->
 
     <title>Calculadora FIRE Grátis | Independência Financeira</title>
@@ -134,6 +133,7 @@
 
 </head>
 
+
 <body>
 
 
@@ -147,9 +147,13 @@
             class="navbar-brand fw-bold"
             href="../index.html"
         >
+
             <i class="bi bi-graph-up-arrow text-success"></i>
+
             Investimentos Visionários
+
         </a>
+
 
         <button
             class="navbar-toggler"
@@ -157,8 +161,11 @@
             data-bs-toggle="collapse"
             data-bs-target="#menu"
         >
+
             <span class="navbar-toggler-icon"></span>
+
         </button>
+
 
         <div
             class="collapse navbar-collapse"
@@ -168,30 +175,44 @@
             <ul class="navbar-nav ms-auto">
 
                 <li class="nav-item">
+
                     <a
                         class="nav-link"
                         href="../index.html"
                     >
+
                         Início
+
                     </a>
+
                 </li>
 
+
                 <li class="nav-item">
+
                     <a
                         class="nav-link"
                         href="../index.html#ferramentas"
                     >
+
                         Ferramentas
+
                     </a>
+
                 </li>
 
+
                 <li class="nav-item">
+
                     <a
                         class="nav-link active"
                         href="#"
                     >
+
                         FIRE
+
                     </a>
+
                 </li>
 
             </ul>
@@ -214,15 +235,20 @@
             <div class="col-lg-8">
 
                 <h1>
+
                     Calculadora FIRE
+
                 </h1>
 
                 <p>
+
                     Descubra quanto patrimônio você precisa acumular
                     para atingir a independência financeira.
+
                 </p>
 
             </div>
+
 
             <div class="col-lg-4 text-center">
 
@@ -253,9 +279,13 @@
                 <div class="card shadow p-4">
 
                     <h2 class="mb-4">
+
                         Calcule sua independência financeira
+
                     </h2>
 
+
+                    <!-- CUSTO MENSAL -->
 
                     <div class="mb-3">
 
@@ -263,20 +293,24 @@
                             class="form-label"
                             for="fireCustoMensal"
                         >
+
                             Custo de vida mensal desejado (R$)
+
                         </label>
 
+
                         <input
-                            type="number"
+                            type="text"
+                            inputmode="decimal"
                             class="form-control"
                             id="fireCustoMensal"
-                            min="0"
-                            step="0.01"
-                            placeholder="Ex.: 6000"
+                            placeholder="Ex.: R$ 6.000,00"
                         >
 
                     </div>
 
+
+                    <!-- TAXA DE RETIRADA -->
 
                     <div class="mb-3">
 
@@ -284,8 +318,11 @@
                             class="form-label"
                             for="fireTaxaRetirada"
                         >
+
                             Taxa de retirada anual (%)
+
                         </label>
+
 
                         <input
                             type="number"
@@ -296,12 +333,17 @@
                             value="4"
                         >
 
+
                         <small class="text-muted">
+
                             A regra dos 4% é apenas uma referência.
+
                         </small>
 
                     </div>
 
+
+                    <!-- PATRIMÔNIO ATUAL -->
 
                     <div class="mb-3">
 
@@ -309,20 +351,24 @@
                             class="form-label"
                             for="firePatrimonioAtual"
                         >
+
                             Patrimônio atual investido (R$)
+
                         </label>
 
+
                         <input
-                            type="number"
+                            type="text"
+                            inputmode="decimal"
                             class="form-control"
                             id="firePatrimonioAtual"
-                            min="0"
-                            step="0.01"
-                            placeholder="Ex.: 100000"
+                            placeholder="Ex.: R$ 100.000,00"
                         >
 
                     </div>
 
+
+                    <!-- APORTE MENSAL -->
 
                     <div class="mb-3">
 
@@ -330,20 +376,24 @@
                             class="form-label"
                             for="fireAporteMensal"
                         >
+
                             Aporte mensal (R$)
+
                         </label>
 
+
                         <input
-                            type="number"
+                            type="text"
+                            inputmode="decimal"
                             class="form-control"
                             id="fireAporteMensal"
-                            min="0"
-                            step="0.01"
-                            placeholder="Ex.: 2000"
+                            placeholder="Ex.: R$ 2.000,00"
                         >
 
                     </div>
 
+
+                    <!-- RENTABILIDADE -->
 
                     <div class="mb-4">
 
@@ -351,20 +401,61 @@
                             class="form-label"
                             for="fireRentabilidade"
                         >
-                            Rentabilidade esperada (% ao ano)
+
+                            Rentabilidade esperada
+
                         </label>
 
-                        <input
-                            type="number"
-                            class="form-control"
-                            id="fireRentabilidade"
-                            min="0"
-                            step="0.01"
-                            placeholder="Ex.: 8"
-                        >
+
+                        <div class="row g-2">
+
+                            <div class="col-md-7">
+
+                                <input
+                                    type="number"
+                                    class="form-control"
+                                    id="fireRentabilidade"
+                                    min="0"
+                                    step="0.0001"
+                                    placeholder="Ex.: 8"
+                                >
+
+                            </div>
+
+
+                            <div class="col-md-5">
+
+                                <select
+                                    class="form-select"
+                                    id="fireUnidadeRentabilidade"
+                                >
+
+                                    <option
+                                        value="anual"
+                                        selected
+                                    >
+
+                                        % ao ano
+
+                                    </option>
+
+
+                                    <option value="mensal">
+
+                                        % ao mês
+
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
 
                     </div>
 
+
+                    <!-- BOTÕES -->
 
                     <div class="d-flex gap-2 flex-wrap">
 
@@ -407,21 +498,28 @@
                 <div class="card shadow p-4 h-100">
 
                     <h3>
+
                         Resultado
+
                     </h3>
+
 
                     <hr>
 
 
                     <p>
+
                         Patrimônio necessário
+
                     </p>
 
                     <h2
                         id="firePatrimonioNecessario"
                         class="text-success"
                     >
+
                         R$ 0,00
+
                     </h2>
 
 
@@ -429,11 +527,15 @@
 
 
                     <p>
+
                         Renda anual desejada
+
                     </p>
 
                     <h4 id="fireRendaAnual">
+
                         R$ 0,00
+
                     </h4>
 
 
@@ -441,11 +543,15 @@
 
 
                     <p>
+
                         Patrimônio atual
+
                     </p>
 
                     <h4 id="firePatrimonioAtualResultado">
+
                         R$ 0,00
+
                     </h4>
 
 
@@ -453,11 +559,15 @@
 
 
                     <p>
+
                         Quanto falta
+
                     </p>
 
                     <h4 id="fireQuantoFalta">
+
                         R$ 0,00
+
                     </h4>
 
 
@@ -465,11 +575,15 @@
 
 
                     <p>
+
                         Percentual da meta atingido
+
                     </p>
 
                     <h4 id="firePercentualMeta">
+
                         0%
+
                     </h4>
 
 
@@ -477,11 +591,15 @@
 
 
                     <p>
+
                         Tempo estimado para atingir o FIRE
+
                     </p>
 
                     <h4 id="fireTempoEstimado">
+
                         --
+
                     </h4>
 
                 </div>
@@ -511,28 +629,36 @@
                 <!-- O QUE É FIRE -->
 
                 <h2 class="mb-4">
+
                     O que é FIRE?
+
                 </h2>
 
                 <p>
+
                     FIRE é a sigla para
                     <strong>Financial Independence, Retire Early</strong>,
                     expressão que pode ser traduzida como
                     independência financeira e aposentadoria antecipada.
+
                 </p>
 
                 <p>
+
                     A ideia é construir um patrimônio capaz de ajudar
                     a sustentar seu custo de vida por meio dos recursos
                     acumulados, reduzindo ou eliminando a dependência
                     exclusiva da renda do trabalho.
+
                 </p>
 
                 <p>
+
                     Alcançar independência financeira não significa
                     necessariamente parar de trabalhar. Para muitas pessoas,
                     significa conquistar maior liberdade para decidir
                     como utilizar seu tempo e sua capacidade de trabalho.
+
                 </p>
 
 
@@ -542,38 +668,52 @@
                 <!-- COMO CALCULAR -->
 
                 <h2 class="mb-4">
+
                     Quanto patrimônio preciso para atingir a independência financeira?
+
                 </h2>
 
                 <p>
+
                     Uma maneira de fazer essa estimativa é partir da renda
                     anual desejada e de uma taxa de retirada anual.
+
                 </p>
 
                 <p>
+
                     Se uma pessoa deseja manter determinado custo de vida,
                     a calculadora transforma esse valor mensal em uma
                     necessidade anual e estima o patrimônio correspondente
                     à taxa de retirada escolhida.
+
                 </p>
+
 
                 <div class="card border-0 shadow-sm p-4 my-4 text-center">
 
                     <p class="mb-0 fs-5">
+
                         <strong>
+
                             Patrimônio estimado =
                             Renda anual desejada ÷ Taxa de retirada
+
                         </strong>
+
                     </p>
 
                 </div>
 
+
                 <p>
+
                     Essa é uma estimativa matemática. Na vida real,
                     fatores como inflação, impostos, rentabilidade,
                     longevidade, custos, mudanças no padrão de vida
                     e comportamento dos mercados podem alterar
                     significativamente o resultado.
+
                 </p>
 
 
@@ -583,32 +723,43 @@
                 <!-- REGRA DOS 4% -->
 
                 <h2 class="mb-4">
+
                     O que é a regra dos 4%?
+
                 </h2>
 
                 <p>
+
                     A chamada <strong>regra dos 4%</strong> é uma referência
                     conhecida em discussões sobre independência financeira
                     e planejamento de retiradas.
+
                 </p>
 
                 <p>
+
                     De forma simplificada, ela considera uma retirada inicial
                     equivalente a 4% do patrimônio em um ano, dentro de
                     determinadas premissas de planejamento.
+
                 </p>
+
 
                 <div class="card shadow-sm border-0 p-4 my-4">
 
                     <h4>
+
                         🔥 4% não é uma garantia
+
                     </h4>
 
                     <p class="mb-0">
+
                         Uma taxa de retirada adequada depende do horizonte,
                         composição da carteira, inflação, sequência dos
                         retornos, custos, impostos e necessidades individuais.
                         Por isso, a calculadora permite alterar a taxa utilizada.
+
                     </p>
 
                 </div>
@@ -620,49 +771,71 @@
                 <!-- COMO USAR -->
 
                 <h2 class="mb-4">
+
                     Como usar a Calculadora FIRE?
+
                 </h2>
 
                 <p>
+
                     Para realizar sua simulação, informe:
+
                 </p>
 
                 <ul>
 
                     <li>
+
                         <strong>Custo de vida mensal desejado:</strong>
                         quanto você gostaria de ter disponível mensalmente.
+
                     </li>
 
+
                     <li>
+
                         <strong>Taxa de retirada anual:</strong>
                         percentual do patrimônio considerado para as
                         retiradas anuais.
+
                     </li>
 
+
                     <li>
+
                         <strong>Patrimônio atual:</strong>
                         quanto você já possui investido.
+
                     </li>
 
+
                     <li>
+
                         <strong>Aporte mensal:</strong>
                         quanto pretende continuar investindo todos os meses.
+
                     </li>
 
+
                     <li>
+
                         <strong>Rentabilidade esperada:</strong>
-                        taxa anual utilizada na projeção do patrimônio.
+                        taxa de rentabilidade que pode ser informada
+                        ao mês ou ao ano e utilizada na projeção do patrimônio.
+
                     </li>
 
                 </ul>
 
+
                 <p>
+
                     Depois de clicar em <strong>Calcular</strong>,
                     a ferramenta apresentará o patrimônio estimado para
                     sua meta, a renda anual desejada, quanto você já possui,
                     quanto ainda falta, o percentual da meta atingido
                     e uma estimativa de tempo para alcançar o objetivo.
+
                 </p>
 
 
@@ -672,27 +845,35 @@
                 <!-- APORTES E TEMPO -->
 
                 <h2 class="mb-4">
+
                     Como aportes e tempo influenciam a independência financeira?
+
                 </h2>
 
                 <p>
+
                     A construção de patrimônio depende de vários fatores,
                     e a rentabilidade é apenas um deles. O valor investido
                     regularmente e o tempo disponível também exercem
                     grande influência sobre a trajetória financeira.
+
                 </p>
 
                 <p>
+
                     Aportes recorrentes aumentam o patrimônio disponível
                     para capitalização, enquanto horizontes mais longos
                     oferecem mais períodos para que os rendimentos possam
                     se acumular.
+
                 </p>
 
                 <p>
+
                     Ao mesmo tempo, reduzir de forma sustentável o custo
                     de vida desejado pode diminuir o patrimônio estimado
                     necessário para atingir a independência financeira.
+
                 </p>
 
 
@@ -702,80 +883,106 @@
                 <!-- PERGUNTAS FREQUENTES -->
 
                 <h2 class="mb-4">
+
                     Perguntas frequentes sobre FIRE
+
                 </h2>
 
 
                 <h3 class="h5 mt-4">
+
                     FIRE significa que preciso parar de trabalhar?
+
                 </h3>
 
                 <p>
+
                     Não. Independência financeira pode significar ter
                     patrimônio suficiente para reduzir a dependência
                     da renda do trabalho. Continuar trabalhando ou não
                     é uma decisão individual.
+
                 </p>
 
 
                 <h3 class="h5 mt-4">
+
                     Quanto dinheiro preciso para viver de renda?
+
                 </h3>
 
                 <p>
+
                     O valor depende do custo de vida desejado, da taxa
                     de retirada considerada, do horizonte financeiro
                     e de diversas outras premissas. A calculadora acima
                     permite fazer uma estimativa inicial.
+
                 </p>
 
 
                 <h3 class="h5 mt-4">
+
                     A regra dos 4% funciona para qualquer pessoa?
+
                 </h3>
 
                 <p>
+
                     Não necessariamente. Ela é uma referência baseada
                     em determinadas premissas e não deve ser interpretada
                     como uma taxa universal ou garantida para qualquer
                     cenário.
+
                 </p>
 
 
                 <h3 class="h5 mt-4">
+
                     Uma rentabilidade maior reduz o tempo para atingir o FIRE?
+
                 </h3>
 
                 <p>
+
                     Na projeção matemática, uma rentabilidade positiva
                     maior pode reduzir o tempo estimado para alcançar
                     determinado patrimônio. Porém, retornos maiores
                     não são garantidos e frequentemente envolvem
                     diferentes níveis de risco.
+
                 </p>
 
 
                 <h3 class="h5 mt-4">
+
                     O que acontece se meu custo de vida aumentar?
+
                 </h3>
 
                 <p>
+
                     Se a renda desejada para manter seu padrão de vida
                     aumentar, o patrimônio estimado necessário também
                     poderá aumentar. Por isso, planejamento para independência
                     financeira deve ser revisto periodicamente.
+
                 </p>
 
 
                 <h3 class="h5 mt-4">
+
                     O tempo apresentado pela calculadora é uma previsão?
+
                 </h3>
 
                 <p>
+
                     Não. Trata-se de uma projeção baseada nos valores
                     informados, especialmente aporte e rentabilidade.
                     Na prática, os retornos dos investimentos e as
                     circunstâncias financeiras podem variar.
+
                 </p>
 
 
@@ -806,6 +1013,7 @@
 
 </section>
 
+
 <!-- ==========================================
      CTA CONSULTORIA
 ========================================== -->
@@ -818,11 +1026,15 @@
 
             <div class="row align-items-center g-4">
 
+
                 <div class="col-lg-8">
 
                     <span class="calc-consultoria-label">
+
                         O próximo passo
+
                     </span>
+
 
                     <h2 class="calc-consultoria-title">
 
@@ -831,10 +1043,13 @@
                         <br>
 
                         <span>
+
                             Uma estratégia ajuda a definir o caminho.
+
                         </span>
 
                     </h2>
+
 
                     <p class="calc-consultoria-text">
 
@@ -848,6 +1063,7 @@
                     </p>
 
                 </div>
+
 
                 <div class="col-lg-4 text-lg-end calc-consultoria-action">
 
@@ -872,6 +1088,7 @@
 
 </section>
 
+
 <!-- RODAPÉ -->
 
 <footer>
@@ -879,6 +1096,7 @@
     <div class="container">
 
         <div class="row g-4">
+
 
             <div class="col-lg-4">
 
@@ -888,9 +1106,12 @@
                     alt="Investimentos Visionários"
                 >
 
+
                 <p class="mt-3">
+
                     Educação financeira para quem deseja
                     conquistar liberdade financeira.
+
                 </p>
 
             </div>
@@ -899,8 +1120,11 @@
             <div class="col-lg-4">
 
                 <h5>
+
                     Ferramentas
+
                 </h5>
+
 
                 <ul class="list-unstyled">
 
@@ -919,23 +1143,33 @@
             <div class="col-lg-4">
 
                 <h5>
+
                     Contato
+
                 </h5>
 
                 <p>
+
                     Instagram
+
                     <br>
+
                     @investimentosvisionarios
+
                 </p>
 
             </div>
 
         </div>
 
+
         <hr>
 
+
         <div class="text-center">
+
             © 2026 Investimentos Visionários
+
         </div>
 
     </div>
@@ -947,7 +1181,9 @@
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 ></script>
 
+
 <script src="../assets/js/fire-calculator.js"></script>
+
 
 </body>
 

@@ -10,13 +10,148 @@
 
 function formatarMoedaAposentadoria(valor) {
 
-    return Number(valor).toLocaleString(
+    return Number(valor || 0).toLocaleString(
         "pt-BR",
         {
             style: "currency",
             currency: "BRL",
             minimumFractionDigits: 2,
             maximumFractionDigits: 2
+        }
+    );
+
+}
+
+
+// ==========================================
+// OBTER VALOR MONETÁRIO
+// Converte R$ 10.000,00 para 10000
+// ==========================================
+
+function obterValorNumericoAposentadoria(valor) {
+
+    if (valor === null || valor === undefined) {
+        return 0;
+    }
+
+    let texto = String(valor).trim();
+
+    if (!texto) {
+        return 0;
+    }
+
+    // Remove R$, espaços e outros caracteres
+    texto = texto.replace(/[^\d,.-]/g, "");
+
+    // Caso esteja no padrão brasileiro:
+    // 10.000,00 -> 10000.00
+    if (
+        texto.includes(",") &&
+        texto.includes(".")
+    ) {
+
+        texto = texto.replace(/\./g, "");
+        texto = texto.replace(",", ".");
+
+    }
+    else if (texto.includes(",")) {
+
+        texto = texto.replace(",", ".");
+
+    }
+
+    const numero = Number(texto);
+
+    return Number.isFinite(numero)
+        ? numero
+        : 0;
+
+}
+
+
+// ==========================================
+// PREPARAR CAMPOS MONETÁRIOS
+// ==========================================
+
+function prepararCamposMonetariosAposentadoria() {
+
+    const campos = [
+        "aposPatrimonioAtual",
+        "aposAporteMensal"
+    ];
+
+
+    campos.forEach(
+        function(id) {
+
+            const campo =
+                document.getElementById(id);
+
+
+            if (!campo) {
+                return;
+            }
+
+
+            campo.type = "text";
+            campo.inputMode = "decimal";
+
+
+            campo.addEventListener(
+                "focus",
+                function() {
+
+                    const valor =
+                        obterValorNumericoAposentadoria(
+                            campo.value
+                        );
+
+
+                    if (valor > 0) {
+
+                        campo.value =
+                            valor
+                            .toString()
+                            .replace(".", ",");
+
+                    }
+                    else {
+
+                        campo.value = "";
+
+                    }
+
+                }
+            );
+
+
+            campo.addEventListener(
+                "blur",
+                function() {
+
+                    const valor =
+                        obterValorNumericoAposentadoria(
+                            campo.value
+                        );
+
+
+                    if (valor > 0) {
+
+                        campo.value =
+                            formatarMoedaAposentadoria(
+                                valor
+                            );
+
+                    }
+                    else {
+
+                        campo.value = "";
+
+                    }
+
+                }
+            );
+
         }
     );
 
@@ -35,6 +170,75 @@ function taxaMensalAposentadoria(taxaAnual) {
             1 / 12
         ) - 1
     );
+
+}
+
+
+// ==========================================
+// CONVERTER TAXA MENSAL PARA ANUAL
+// ==========================================
+
+function taxaAnualAposentadoria(taxaMensal) {
+
+    return (
+        Math.pow(
+            1 + taxaMensal / 100,
+            12
+        ) - 1
+    ) * 100;
+
+}
+
+
+// ==========================================
+// OBTER RENTABILIDADE ANUAL
+// ==========================================
+
+function obterRentabilidadeAnualAposentadoria() {
+
+    const campo =
+        document.getElementById(
+            "aposRentabilidade"
+        );
+
+
+    const unidade =
+        document.getElementById(
+            "aposUnidadeRentabilidade"
+        );
+
+
+    if (!campo) {
+        return 0;
+    }
+
+
+    const taxa =
+        Number(
+            String(campo.value)
+                .replace(",", ".")
+        );
+
+
+    if (!Number.isFinite(taxa)) {
+        return 0;
+    }
+
+
+    // Se já estiver em % ao ano
+    if (
+        !unidade ||
+        unidade.value === "anual"
+    ) {
+
+        return taxa;
+
+    }
+
+
+    // Se estiver em % ao mês,
+    // converte matematicamente para anual
+    return taxaAnualAposentadoria(taxa);
 
 }
 
@@ -62,34 +266,32 @@ function calcularAposentadoria() {
 
 
     const patrimonioAtual =
-        Number(
+        obterValorNumericoAposentadoria(
             document.getElementById(
                 "aposPatrimonioAtual"
-            )?.value
-        ) || 0;
-
-
-    const aporteMensal =
-        Number(
-            document.getElementById(
-                "aposAporteMensal"
-            )?.value
-        ) || 0;
-
-
-    const rentabilidadeAnual =
-        Number(
-            document.getElementById(
-                "aposRentabilidade"
             )?.value
         );
 
 
+    const aporteMensal =
+        obterValorNumericoAposentadoria(
+            document.getElementById(
+                "aposAporteMensal"
+            )?.value
+        );
+
+
+    const rentabilidadeAnual =
+        obterRentabilidadeAnualAposentadoria();
+
+
     const taxaRetirada =
         Number(
-            document.getElementById(
-                "aposTaxaRetirada"
-            )?.value
+            String(
+                document.getElementById(
+                    "aposTaxaRetirada"
+                )?.value
+            ).replace(",", ".")
         );
 
 
@@ -145,7 +347,7 @@ function calcularAposentadoria() {
     ) {
 
         alert(
-            "Informe uma rentabilidade anual válida."
+            "Informe uma rentabilidade válida."
         );
 
         return;
@@ -411,6 +613,12 @@ function limparAposentadoria() {
         );
 
 
+    const unidadeRentabilidade =
+        document.getElementById(
+            "aposUnidadeRentabilidade"
+        );
+
+
     const retirada =
         document.getElementById(
             "aposTaxaRetirada"
@@ -420,6 +628,13 @@ function limparAposentadoria() {
     if (rentabilidade) {
 
         rentabilidade.value = "8";
+
+    }
+
+
+    if (unidadeRentabilidade) {
+
+        unidadeRentabilidade.value = "anual";
 
     }
 
@@ -473,6 +688,20 @@ function limparAposentadoria() {
     );
 
 }
+
+
+// ==========================================
+// INICIALIZAÇÃO
+// ==========================================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        prepararCamposMonetariosAposentadoria();
+
+    }
+);
 
 
 console.log(

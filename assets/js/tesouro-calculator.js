@@ -24,6 +24,151 @@ function formatarMoedaTesouro(valor) {
 
 
 // ==========================================
+// OBTER VALOR MONETÁRIO
+// Aceita:
+// 10000
+// 10.000
+// 10.000,00
+// R$ 10.000,00
+// ==========================================
+
+function obterValorNumericoTesouro(valor) {
+
+    if (valor === null || valor === undefined) {
+
+        return 0;
+
+    }
+
+    let texto =
+        String(valor)
+            .trim()
+            .replace(/\s/g, "")
+            .replace(/R\$/gi, "");
+
+    if (!texto) {
+
+        return 0;
+
+    }
+
+    // Quando houver vírgula,
+    // considera a vírgula como separador decimal.
+    if (texto.includes(",")) {
+
+        texto =
+            texto
+                .replace(/\./g, "")
+                .replace(",", ".");
+
+    } else {
+
+        // Sem vírgula,
+        // remove separadores de milhar.
+        texto =
+            texto.replace(/\./g, "");
+
+    }
+
+    const numero =
+        Number(texto);
+
+    return Number.isFinite(numero)
+        ? numero
+        : 0;
+
+}
+
+
+// ==========================================
+// PREPARAR CAMPOS MONETÁRIOS
+// ==========================================
+
+function prepararCamposMonetariosTesouro() {
+
+    const campos = [
+
+        "tesouroValorInicial",
+
+        "tesouroAporteMensal"
+
+    ];
+
+
+    campos.forEach(
+        id => {
+
+            const elemento =
+                document.getElementById(id);
+
+
+            if (!elemento) {
+
+                return;
+
+            }
+
+
+            elemento.addEventListener(
+                "focus",
+                function() {
+
+                    const valor =
+                        obterValorNumericoTesouro(
+                            elemento.value
+                        );
+
+
+                    elemento.value =
+                        valor > 0
+                            ? String(valor).replace(".", ",")
+                            : "";
+
+                }
+            );
+
+
+            elemento.addEventListener(
+                "input",
+                function() {
+
+                    // Permite somente números,
+                    // vírgula e ponto.
+                    elemento.value =
+                        elemento.value.replace(
+                            /[^\d.,]/g,
+                            ""
+                        );
+
+                }
+            );
+
+
+            elemento.addEventListener(
+                "blur",
+                function() {
+
+                    const valor =
+                        obterValorNumericoTesouro(
+                            elemento.value
+                        );
+
+
+                    elemento.value =
+                        valor > 0
+                            ? formatarMoedaTesouro(valor)
+                            : "";
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+// ==========================================
 // IR REGRESSIVO
 // ==========================================
 
@@ -53,19 +198,99 @@ function obterAliquotaIrTesouro(meses) {
 
 
 // ==========================================
-// CONVERTER TAXA ANUAL PARA MENSAL
+// CONVERSÕES DE TAXA
 // ==========================================
 
-function converterTaxaTesouro(
+// Converte taxa efetiva mensal para anual.
+
+function converterTaxaMensalParaAnualTesouro(
+    taxaMensal
+) {
+
+    return (
+        Math.pow(
+            1 + taxaMensal,
+            12
+        ) - 1
+    );
+
+}
+
+
+// Converte taxa efetiva anual para mensal.
+
+function converterTaxaAnualParaMensalTesouro(
     taxaAnual
 ) {
 
     return (
         Math.pow(
-            1 + taxaAnual / 100,
+            1 + taxaAnual,
             1 / 12
         ) - 1
     );
+
+}
+
+
+// Converte a taxa informada para taxa anual.
+
+function obterTaxaAnualTesouro(
+    taxa,
+    unidade
+) {
+
+    if (unidade === "mes") {
+
+        return converterTaxaMensalParaAnualTesouro(
+            taxa / 100
+        ) * 100;
+
+    }
+
+    return taxa;
+
+}
+
+
+// ==========================================
+// CONVERTER PRAZO PARA MESES
+// ==========================================
+
+function obterPrazoEmMesesTesouro() {
+
+    const prazo =
+        Number(
+            document.getElementById(
+                "tesouroPrazo"
+            )?.value
+        );
+
+
+    const unidade =
+        document.getElementById(
+            "tesouroUnidadePrazo"
+        )?.value || "meses";
+
+
+    if (
+        !Number.isFinite(prazo) ||
+        prazo <= 0
+    ) {
+
+        return 0;
+
+    }
+
+
+    if (unidade === "anos") {
+
+        return prazo * 12;
+
+    }
+
+
+    return prazo;
 
 }
 
@@ -109,7 +334,7 @@ function configurarTipoTesouro() {
 
 
         labelTaxa.textContent =
-            "Taxa real do título (% a.a.)";
+            "Taxa real do título";
 
     } else {
 
@@ -119,7 +344,7 @@ function configurarTipoTesouro() {
 
 
         labelTaxa.textContent =
-            "Taxa anual (%)";
+            "Taxa do título";
 
     }
 
@@ -139,27 +364,23 @@ function calcularTesouro() {
 
 
     const valorInicial =
-        Number(
+        obterValorNumericoTesouro(
             document.getElementById(
                 "tesouroValorInicial"
             )?.value
-        ) || 0;
+        );
 
 
     const aporteMensal =
-        Number(
+        obterValorNumericoTesouro(
             document.getElementById(
                 "tesouroAporteMensal"
             )?.value
-        ) || 0;
+        );
 
 
     const meses =
-        Number(
-            document.getElementById(
-                "tesouroPrazo"
-            )?.value
-        );
+        obterPrazoEmMesesTesouro();
 
 
     const taxa =
@@ -168,6 +389,12 @@ function calcularTesouro() {
                 "tesouroTaxa"
             )?.value
         );
+
+
+    const unidadeTaxa =
+        document.getElementById(
+            "tesouroUnidadeTaxa"
+        )?.value || "ano";
 
 
     const ipca =
@@ -238,12 +465,20 @@ function calcularTesouro() {
 
 
     // ==========================================
-    // TAXA NOMINAL
+    // TAXA REAL / NOMINAL EM BASE ANUAL
     // ==========================================
 
     let taxaAnual =
-        taxa;
+        obterTaxaAnualTesouro(
+            taxa,
+            unidadeTaxa
+        );
 
+
+    // ==========================================
+    // TESOURO IPCA+
+    // IPCA anual + taxa real anual
+    // ==========================================
 
     if (tipo === "ipca") {
 
@@ -254,7 +489,7 @@ function calcularTesouro() {
                 )
                 *
                 (
-                    1 + taxa / 100
+                    1 + taxaAnual / 100
                 )
                 - 1
             ) * 100;
@@ -263,12 +498,12 @@ function calcularTesouro() {
 
 
     // ==========================================
-    // TAXA MENSAL
+    // TAXA MENSAL EFETIVA
     // ==========================================
 
     const taxaMensal =
-        converterTaxaTesouro(
-            taxaAnual
+        converterTaxaAnualParaMensalTesouro(
+            taxaAnual / 100
         );
 
 
@@ -489,6 +724,34 @@ function limparTesouro() {
     }
 
 
+    const unidadePrazo =
+        document.getElementById(
+            "tesouroUnidadePrazo"
+        );
+
+
+    if (unidadePrazo) {
+
+        unidadePrazo.value =
+            "meses";
+
+    }
+
+
+    const unidadeTaxa =
+        document.getElementById(
+            "tesouroUnidadeTaxa"
+        );
+
+
+    if (unidadeTaxa) {
+
+        unidadeTaxa.value =
+            "ano";
+
+    }
+
+
     configurarTipoTesouro();
 
 
@@ -553,6 +816,8 @@ document.addEventListener(
 
         }
 
+
+        prepararCamposMonetariosTesouro();
 
         configurarTipoTesouro();
 

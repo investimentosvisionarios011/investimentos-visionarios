@@ -24,13 +24,227 @@ function formatarMoedaFIRE(valor) {
 
 
 // ==========================================
+// CONVERTER CAMPO MONETÁRIO
+// ==========================================
+
+function obterValorNumericoFIRE(valor) {
+
+    if (
+        valor === null ||
+        valor === undefined ||
+        valor === ""
+    ) {
+
+        return 0;
+
+    }
+
+    let texto =
+        String(valor)
+            .trim()
+            .replace(/R\$/gi, "")
+            .replace(/\s/g, "");
+
+
+    if (texto.includes(",")) {
+
+        texto =
+            texto
+                .replace(/\./g, "")
+                .replace(",", ".");
+
+    } else {
+
+        texto =
+            texto.replace(/[^\d.-]/g, "");
+
+    }
+
+
+    const numero =
+        Number(texto);
+
+
+    return Number.isFinite(numero)
+        ? numero
+        : 0;
+
+}
+
+
+// ==========================================
+// PREPARAR CAMPOS MONETÁRIOS
+// ==========================================
+
+function prepararCamposMonetariosFIRE() {
+
+    const campos = [
+
+        document.getElementById(
+            "fireCustoMensal"
+        ),
+
+        document.getElementById(
+            "firePatrimonioAtual"
+        ),
+
+        document.getElementById(
+            "fireAporteMensal"
+        )
+
+    ];
+
+
+    campos.forEach(campo => {
+
+        if (!campo) {
+            return;
+        }
+
+
+        campo.type = "text";
+
+        campo.inputMode = "decimal";
+
+
+        // ==================================
+        // AO ENTRAR NO CAMPO
+        // ==================================
+
+        campo.addEventListener(
+            "focus",
+            function () {
+
+                const numero =
+                    obterValorNumericoFIRE(
+                        this.value
+                    );
+
+
+                if (numero > 0) {
+
+                    this.value =
+                        numero
+                            .toFixed(2)
+                            .replace(".", ",");
+
+                }
+
+            }
+        );
+
+
+        // ==================================
+        // AO SAIR DO CAMPO
+        // ==================================
+
+        campo.addEventListener(
+            "blur",
+            function () {
+
+                const numero =
+                    obterValorNumericoFIRE(
+                        this.value
+                    );
+
+
+                if (numero > 0) {
+
+                    this.value =
+                        formatarMoedaFIRE(
+                            numero
+                        );
+
+                } else {
+
+                    this.value = "";
+
+                }
+
+            }
+        );
+
+    });
+
+}
+
+
+// ==========================================
+// CONVERSÃO DE TAXAS
+// ==========================================
+
+function converterTaxaAnualParaMensalFIRE(
+    taxaAnual
+) {
+
+    return Math.pow(
+        1 + taxaAnual,
+        1 / 12
+    ) - 1;
+
+}
+
+
+function converterTaxaMensalParaAnualFIRE(
+    taxaMensal
+) {
+
+    return Math.pow(
+        1 + taxaMensal,
+        12
+    ) - 1;
+
+}
+
+
+// ==========================================
+// OBTER RENTABILIDADE ANUAL
+// ==========================================
+
+function obterRentabilidadeAnualFIRE() {
+
+    const rentabilidadeInformada =
+        Number(
+            document.getElementById(
+                "fireRentabilidade"
+            )?.value
+        ) || 0;
+
+
+    const unidade =
+        document.getElementById(
+            "fireUnidadeRentabilidade"
+        )?.value || "anual";
+
+
+    const taxaDecimal =
+        rentabilidadeInformada / 100;
+
+
+    if (unidade === "mensal") {
+
+        return (
+            converterTaxaMensalParaAnualFIRE(
+                taxaDecimal
+            ) * 100
+        );
+
+    }
+
+
+    return rentabilidadeInformada;
+
+}
+
+
+// ==========================================
 // CALCULAR
 // ==========================================
 
 function calcularFIRE() {
 
     const custoMensal =
-        Number(
+        obterValorNumericoFIRE(
             document.getElementById(
                 "fireCustoMensal"
             )?.value
@@ -46,28 +260,28 @@ function calcularFIRE() {
 
 
     const patrimonioAtual =
-        Number(
+        obterValorNumericoFIRE(
             document.getElementById(
                 "firePatrimonioAtual"
             )?.value
-        ) || 0;
+        );
 
 
     const aporteMensal =
-        Number(
+        obterValorNumericoFIRE(
             document.getElementById(
                 "fireAporteMensal"
             )?.value
-        ) || 0;
+        );
 
 
     const rentabilidadeAnual =
-        Number(
-            document.getElementById(
-                "fireRentabilidade"
-            )?.value
-        );
+        obterRentabilidadeAnualFIRE();
 
+
+    // ==========================================
+    // VALIDAÇÕES
+    // ==========================================
 
     if (
         !Number.isFinite(custoMensal) ||
@@ -172,10 +386,9 @@ function calcularFIRE() {
     // ==========================================
 
     const taxaMensal =
-        Math.pow(
-            1 + rentabilidadeAnual / 100,
-            1 / 12
-        ) - 1;
+        converterTaxaAnualParaMensalFIRE(
+            rentabilidadeAnual / 100
+        );
 
 
     // ==========================================
@@ -210,6 +423,7 @@ function calcularFIRE() {
         let patrimonio =
             patrimonioAtual;
 
+
         let meses =
             0;
 
@@ -228,8 +442,10 @@ function calcularFIRE() {
             patrimonio *=
                 1 + taxaMensal;
 
+
             patrimonio +=
                 aporteMensal;
+
 
             meses++;
 
@@ -251,6 +467,7 @@ function calcularFIRE() {
                 Math.floor(
                     meses / 12
                 );
+
 
             const mesesRestantes =
                 meses % 12;
@@ -361,6 +578,7 @@ function calcularFIRE() {
             percentualMeta,
             aporteMensal,
             rentabilidadeAnual,
+            taxaMensal,
             tempo: textoTempo
         }
     );
@@ -372,10 +590,14 @@ function calcularFIRE() {
 // ATUALIZAR RESULTADOS
 // ==========================================
 
-function atualizarFIRE(id, valor) {
+function atualizarFIRE(
+    id,
+    valor
+) {
 
     const elemento =
         document.getElementById(id);
+
 
     if (elemento) {
 
@@ -423,15 +645,53 @@ function limparFIRE() {
         );
 
 
-    if (custo) custo.value = "";
+    const unidadeRentabilidade =
+        document.getElementById(
+            "fireUnidadeRentabilidade"
+        );
 
-    if (taxa) taxa.value = "4";
 
-    if (patrimonio) patrimonio.value = "";
+    if (custo) {
 
-    if (aporte) aporte.value = "";
+        custo.value = "";
 
-    if (rentabilidade) rentabilidade.value = "";
+    }
+
+
+    if (taxa) {
+
+        taxa.value = "4";
+
+    }
+
+
+    if (patrimonio) {
+
+        patrimonio.value = "";
+
+    }
+
+
+    if (aporte) {
+
+        aporte.value = "";
+
+    }
+
+
+    if (rentabilidade) {
+
+        rentabilidade.value = "";
+
+    }
+
+
+    if (unidadeRentabilidade) {
+
+        unidadeRentabilidade.value =
+            "anual";
+
+    }
 
 
     atualizarFIRE(
@@ -472,6 +732,19 @@ function limparFIRE() {
 }
 
 
-console.log(
-    "🔥 Calculadora FIRE carregada!"
+// ==========================================
+// INICIALIZAÇÃO
+// ==========================================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        prepararCamposMonetariosFIRE();
+
+        console.log(
+            "🔥 Calculadora FIRE carregada!"
+        );
+
+    }
 );

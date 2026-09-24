@@ -10,7 +10,6 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-
     <!-- SEO -->
 
     <title>Calculadora IPCA Grátis | Simule Inflação e Rentabilidade</title>
@@ -30,7 +29,6 @@
         href="https://investimentosvisionarios.com.br/calculadoras/ipca.html"
     >
 
-
     <!-- FAVICON -->
 
     <link
@@ -38,7 +36,6 @@
         type="image/png"
         href="../assets/img/favicon.png"
     >
-
 
     <!-- OPEN GRAPH -->
 
@@ -77,7 +74,6 @@
         content="https://investimentosvisionarios.com.br/assets/img/logo.png"
     >
 
-
     <!-- TWITTER / REDES SOCIAIS -->
 
     <meta
@@ -100,14 +96,12 @@
         content="https://investimentosvisionarios.com.br/assets/img/logo.png"
     >
 
-
     <!-- BOOTSTRAP -->
 
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet"
     >
-
 
     <!-- BOOTSTRAP ICONS -->
 
@@ -116,14 +110,12 @@
         rel="stylesheet"
     >
 
-
     <!-- GOOGLE FONTS -->
 
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet"
     >
-
 
     <!-- CSS PRINCIPAL -->
 
@@ -135,7 +127,6 @@
 </head>
 
 <body>
-
 
 <!-- MENU -->
 
@@ -202,7 +193,6 @@
 
 </nav>
 
-
 <!-- HERO -->
 
 <section class="hero">
@@ -237,7 +227,6 @@
 
 </section>
 
-
 <!-- CALCULADORA -->
 
 <main class="py-5 bg-light">
@@ -245,7 +234,6 @@
     <div class="container">
 
         <div class="row g-4">
-
 
             <!-- CAMPOS -->
 
@@ -256,7 +244,6 @@
                     <h2 class="mb-3">
                         Simule o efeito da inflação
                     </h2>
-
 
                     <div
                         class="alert alert-success"
@@ -275,6 +262,7 @@
 
                     </div>
 
+                    <!-- VALOR INICIAL -->
 
                     <div class="mb-3">
 
@@ -286,16 +274,17 @@
                         </label>
 
                         <input
-                            type="number"
+                            type="text"
                             class="form-control"
                             id="ipcaValorInicial"
-                            min="0"
-                            step="0.01"
-                            placeholder="Ex.: 10000"
+                            inputmode="decimal"
+                            autocomplete="off"
+                            placeholder="Ex.: R$ 10.000,00"
                         >
 
                     </div>
 
+                    <!-- RENTABILIDADE -->
 
                     <div class="mb-3">
 
@@ -303,41 +292,101 @@
                             class="form-label"
                             for="ipcaRentabilidade"
                         >
-                            Rentabilidade do investimento (% a.a.)
+                            Rentabilidade do investimento
                         </label>
 
-                        <input
-                            type="number"
-                            class="form-control"
-                            id="ipcaRentabilidade"
-                            min="0"
-                            step="0.01"
-                            placeholder="Ex.: 10"
-                        >
+                        <div class="row g-2">
+
+                            <div class="col-md-7">
+
+                                <input
+                                    type="number"
+                                    class="form-control"
+                                    id="ipcaRentabilidade"
+                                    min="0"
+                                    step="0.01"
+                                    placeholder="Ex.: 10"
+                                >
+
+                            </div>
+
+                            <div class="col-md-5">
+
+                                <select
+                                    class="form-select"
+                                    id="ipcaUnidadeRentabilidade"
+                                >
+
+                                    <option
+                                        value="anual"
+                                        selected
+                                    >
+                                        % ao ano
+                                    </option>
+
+                                    <option value="mensal">
+                                        % ao mês
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
 
                     </div>
 
+                    <!-- PRAZO -->
 
                     <div class="mb-4">
 
                         <label
                             class="form-label"
-                            for="ipcaAnos"
+                            for="ipcaPrazo"
                         >
-                            Prazo (anos)
+                            Prazo
                         </label>
 
-                        <input
-                            type="number"
-                            class="form-control"
-                            id="ipcaAnos"
-                            min="1"
-                            step="1"
-                            placeholder="Ex.: 10"
-                        >
+                        <div class="row g-2">
+
+                            <div class="col-md-7">
+
+                                <input
+                                    type="number"
+                                    class="form-control"
+                                    id="ipcaPrazo"
+                                    min="1"
+                                    step="1"
+                                    placeholder="Ex.: 10"
+                                >
+
+                            </div>
+
+                            <div class="col-md-5">
+
+                                <select
+                                    class="form-select"
+                                    id="ipcaUnidadePrazo"
+                                >
+
+                                    <option
+                                        value="anos"
+                                        selected
+                                    >
+                                        Anos
+                                    </option>
+
+                                    <option value="meses">
+                                        Meses
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
 
                     </div>
-
 
                     <div class="d-flex gap-2 flex-wrap">
 
@@ -352,7 +401,6 @@
                             Calcular
 
                         </button>
-
 
                         <button
                             type="button"
@@ -372,7 +420,6 @@
 
             </div>
 
-
             <!-- RESULTADOS -->
 
             <div class="col-lg-6">
@@ -385,7 +432,6 @@
 
                     <hr>
 
-
                     <p>
                         Valor Inicial
                     </p>
@@ -394,9 +440,7 @@
                         R$ 0,00
                     </h4>
 
-
                     <hr>
-
 
                     <p>
                         Valor Final Nominal
@@ -406,9 +450,7 @@
                         R$ 0,00
                     </h4>
 
-
                     <hr>
-
 
                     <p>
                         Ganho Nominal
@@ -418,9 +460,7 @@
                         R$ 0,00
                     </h4>
 
-
                     <hr>
-
 
                     <p>
                         Rentabilidade Real
@@ -430,9 +470,7 @@
                         0%
                     </h4>
 
-
                     <hr>
-
 
                     <p>
                         Valor Final em Poder de Compra Atual
@@ -455,7 +493,6 @@
 
 </main>
 
-
 <!-- ==========================================
      CONTEÚDO EDUCACIONAL - IPCA
 ========================================== -->
@@ -467,7 +504,6 @@
         <div class="row justify-content-center">
 
             <div class="col-lg-10">
-
 
                 <!-- O QUE É IPCA -->
 
@@ -490,9 +526,7 @@
                     do tempo.
                 </p>
 
-
                 <hr class="my-5">
-
 
                 <!-- PODER DE COMPRA -->
 
@@ -519,9 +553,7 @@
                     mas também a <strong>rentabilidade real</strong>.
                 </p>
 
-
                 <hr class="my-5">
-
 
                 <!-- COMO USAR -->
 
@@ -544,12 +576,14 @@
 
                     <li>
                         <strong>Rentabilidade do investimento:</strong>
-                        a taxa anual de rendimento que deseja simular.
+                        a taxa de rendimento que deseja simular,
+                        podendo ser informada ao mês ou ao ano.
                     </li>
 
                     <li>
                         <strong>Prazo:</strong>
-                        por quantos anos o dinheiro permanecerá investido.
+                        por quanto tempo o dinheiro permanecerá investido,
+                        podendo ser informado em meses ou anos.
                     </li>
 
                 </ul>
@@ -561,9 +595,7 @@
                     convertido em poder de compra atual.
                 </p>
 
-
                 <hr class="my-5">
-
 
                 <!-- NOMINAL X REAL -->
 
@@ -598,9 +630,7 @@
 
                 </div>
 
-
                 <hr class="my-5">
-
 
                 <!-- FÓRMULA -->
 
@@ -616,10 +646,12 @@
                 <div class="card border-0 shadow-sm p-4 my-4 text-center">
 
                     <p class="mb-0 fs-5">
+
                         <strong>
                             Rentabilidade Real =
                             [(1 + Rentabilidade) ÷ (1 + Inflação)] − 1
                         </strong>
+
                     </p>
 
                 </div>
@@ -630,16 +662,13 @@
                     com a perda de poder de compra provocada pela inflação.
                 </p>
 
-
                 <hr class="my-5">
-
 
                 <!-- PERGUNTAS FREQUENTES -->
 
                 <h2 class="mb-4">
                     Perguntas frequentes sobre IPCA e inflação
                 </h2>
-
 
                 <h3 class="h5 mt-4">
                     O que significa ganhar acima do IPCA?
@@ -652,7 +681,6 @@
                     custos também possam influenciar o resultado efetivo.
                 </p>
 
-
                 <h3 class="h5 mt-4">
                     Se meu investimento rende menos que a inflação, perco dinheiro?
                 </h3>
@@ -662,7 +690,6 @@
                     ficar abaixo da inflação no período, o poder de compra
                     desse patrimônio pode diminuir.
                 </p>
-
 
                 <h3 class="h5 mt-4">
                     IPCA e inflação são a mesma coisa?
@@ -675,7 +702,6 @@
                     consumidos pelas famílias abrangidas pelo indicador.
                 </p>
 
-
                 <h3 class="h5 mt-4">
                     Por que olhar a rentabilidade real?
                 </h3>
@@ -685,7 +711,6 @@
                     cresceu em termos de poder de compra, e não apenas
                     quanto aumentou nominalmente.
                 </p>
-
 
                 <h3 class="h5 mt-4">
                     O IPCA permanecerá igual durante toda a simulação?
@@ -699,9 +724,7 @@
                     previsão da inflação futura.
                 </p>
 
-
                 <hr class="my-5">
-
 
                 <!-- AVISO -->
 
@@ -716,7 +739,6 @@
                     nem recomendação de investimento.
 
                 </div>
-
 
             </div>
 
@@ -868,7 +890,6 @@
     </div>
 
 </footer>
-
 
 <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
