@@ -12,9 +12,9 @@
     </url>
 
     <url>
-    <loc>https://investimentosvisionarios.com.br/calculadoras/financiamento.html</loc>
-    <lastmod>2026-09-23</lastmod>
-</url>
+        <loc>https://investimentosvisionarios.com.br/calculadoras/financiamento.html</loc>
+        <lastmod>2026-09-23</lastmod>
+    </url>
 
     <url>
         <loc>https://investimentosvisionarios.com.br/calculadoras/cdi.html</loc>
@@ -81,9 +81,14 @@
         <lastmod>2026-09-22</lastmod>
     </url>
 
-        <url>
+    <url>
         <loc>https://investimentosvisionarios.com.br/blog/reserva-emergencia.html</loc>
         <lastmod>2026-09-24</lastmod>
+    </url>
+
+    <url>
+        <loc>https://investimentosvisionarios.com.br/blog/quanto-dinheiro-viver-de-renda-2026.html</loc>
+        <lastmod>2026-10-07</lastmod>
     </url>
 
 </urlset>
